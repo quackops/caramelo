@@ -1,0 +1,11 @@
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+import { {{properCase title}} } from './{{camelCase title}}';
+
+describe('{{properCase title}}', () => {
+  it('should render children', () => {
+    render(<{{properCase title}}>Content</{{properCase title}}>);
+
+    expect(screen.getByText('Content')).toBeInTheDocument();
+  });
+});

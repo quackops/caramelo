@@ -1,0 +1,24 @@
+import { cva } from 'class-variance-authority';
+import type { HTMLAttributes } from 'react';
+import { cn } from '../../utils/cn';
+
+const {{camelCase title}}Variants = cva(
+  cn(''),
+  {
+    variants: {},
+    defaultVariants: {},
+  },
+);
+
+export const {{pascalCase title}} = ({
+  children,
+  ...rest
+}: {{pascalCase title}}Props) => {
+  return (
+    <div className={cn({{camelCase title}}Variants({}))} {...rest}>
+      {children}
+    </div>
+  );
+};
+
+export interface {{pascalCase title}}Props extends HTMLAttributes<HTMLDivElement> {}
