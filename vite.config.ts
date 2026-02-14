@@ -1,0 +1,44 @@
+import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import dts from 'vite-plugin-dts';
+import { resolve } from 'path';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+    dts({
+      include: ['src'],
+      insertTypesEntry: true,
+      rollupTypes: true,
+    }),
+  ],
+  build: {
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: 'Caramelo',
+      fileName: (format) => `caramelo.${format}.js`,
+      formats: ['es', 'umd'],
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom', 'tailwindcss'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          tailwindcss: 'tailwindcss',
+        },
+      },
+    },
+    sourcemap: true,
+    emptyOutDir: true,
+  },
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    setupFiles: './src/test/setup.ts',
+    include: ['**/*.spec.{ts,tsx}'],
+    css: true,
+  },
+});
