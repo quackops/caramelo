@@ -25,7 +25,9 @@
     "lint": "npm-run-all lint:*",
     "lint:types": "tsc --noEmit",
     "lint:code": "biome check",
-    "format": "biome check --write"
+    "format": "biome check --write",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
   },
   "keywords": [],
   "author": "",
@@ -61,10 +63,16 @@
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
     "vite-plugin-dts": "^4.5.4",
-    "vitest": "^3.2.3"
+    "vitest": "^3.2.3",
+    "storybook": "^10.2.8",
+    "@storybook/react-vite": "^10.2.8"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["lefthook"],
-    "ignoredBuiltDependencies": ["esbuild"]
+    "onlyBuiltDependencies": [
+      "lefthook"
+    ],
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
