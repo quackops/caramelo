@@ -32,4 +32,17 @@
   --color-on-brand: var(--color-gray-1);
 
   --font-poppins: 'Poppins', sans-serif;
+
+  --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+
+  @keyframes fade-in-scale {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }

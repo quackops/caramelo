@@ -3,7 +3,11 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cn } from '../../utils/cn';
 
 const buttonVariants = cva(
-  'rounded-md font-semibold cursor-pointer font-poppins',
+  cn(
+    'rounded-md cursor-pointer',
+    'font-semibold font-poppins',
+    'active:scale-95 transition-transform duration-150 animate-fade-in-scale',
+  ),
   {
     variants: {
       variant: {
@@ -30,11 +34,7 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   return (
-    <button
-      className={cn(buttonVariants({ variant, size }))}
-      type={type}
-      {...rest}
-    >
+    <button className={buttonVariants({ variant, size })} type={type} {...rest}>
       {children}
     </button>
   );
