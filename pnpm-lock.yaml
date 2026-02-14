@@ -21,6 +21,9 @@ importers:
       '@biomejs/biome':
         specifier: 2.3.15
         version: 2.3.15
+      '@storybook/addon-docs':
+        specifier: ^10.2.8
+        version: 10.2.8(@types/react@19.2.14)(esbuild@0.27.3)(rollup@4.57.1)(storybook@10.2.8(@testing-library/dom@10.4.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@20.19.33)(jiti@2.6.1)(lightningcss@1.30.2))
       '@storybook/react-vite':
         specifier: ^10.2.8
         version: 10.2.8(esbuild@0.27.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.57.1)(storybook@10.2.8(@testing-library/dom@10.4.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@5.9.3)(vite@7.3.1(@types/node@20.19.33)(jiti@2.6.1)(lightningcss@1.30.2))
@@ -418,6 +421,12 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
+  '@mdx-js/react@3.1.1':
+    resolution: {integrity: sha512-f++rKLQgUVYDAtECQ6fn/is15GkEH9+nZPM3MS0RcxVqoTfawHvDlSCH7JbMhAM6uJ32v3eXLvLmLvjGu7PTQw==}
+    peerDependencies:
+      '@types/react': '>=16'
+      react: '>=16'
+
   '@microsoft/api-extractor-model@7.32.2':
     resolution: {integrity: sha512-Ussc25rAalc+4JJs9HNQE7TuO9y6jpYQX9nWD1DhqUzYPBr3Lr7O9intf+ZY8kD5HnIqeIRJX7ccCT0QyBy2Ww==}
 
@@ -610,6 +619,11 @@ packages:
 
   '@rushstack/ts-command-line@5.2.0':
     resolution: {integrity: sha512-lYxCX0nDdkDtCkVpvF0m25ymf66SaMWuppbD6b7MdkIzvGXKBXNIVZlwBH/C0YfkanrupnICWf2n4z3AKSfaHw==}
+
+  '@storybook/addon-docs@10.2.8':
+    resolution: {integrity: sha512-cEoWqQrLzrxOwZFee5zrD4cYrdEWKV80POb7jUZO0r5vfl2DuslIr3n/+RfLT52runCV4aZcFEfOfP/IWHNPxg==}
+    peerDependencies:
+      storybook: ^10.2.8
 
   '@storybook/builder-vite@10.2.8':
     resolution: {integrity: sha512-+6/Lwi7W0YIbzHDh798GPp0IHUYDwp0yv0Y1eVNK/StZD0tnv4/1C28NKyP+O7JOsFsuWI1qHiDhw8kNURugZw==}
@@ -822,6 +836,9 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
+
+  '@types/mdx@2.0.13':
+    resolution: {integrity: sha512-+OWZQfAYyio6YkJb3HLxDrvnx6SWWDbC0zVPfBRzUk0/nqoDyf6dNxQi3eArPe8rJ473nobTMQ/8Zk+LxJ+Yuw==}
 
   '@types/node@20.19.33':
     resolution: {integrity: sha512-Rs1bVAIdBs5gbTIKza/tgpMuG1k3U/UMJLWecIMxNdJFDMzcM5LOiLVRYh3PilWEYDIeUDv7bpiHPLPsbydGcw==}
@@ -2563,6 +2580,12 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  '@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.4)':
+    dependencies:
+      '@types/mdx': 2.0.13
+      '@types/react': 19.2.14
+      react: 19.2.4
+
   '@microsoft/api-extractor-model@7.32.2(@types/node@20.19.33)':
     dependencies:
       '@microsoft/tsdoc': 0.16.0
@@ -2722,6 +2745,23 @@ snapshots:
       string-argv: 0.3.2
     transitivePeerDependencies:
       - '@types/node'
+
+  '@storybook/addon-docs@10.2.8(@types/react@19.2.14)(esbuild@0.27.3)(rollup@4.57.1)(storybook@10.2.8(@testing-library/dom@10.4.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@20.19.33)(jiti@2.6.1)(lightningcss@1.30.2))':
+    dependencies:
+      '@mdx-js/react': 3.1.1(@types/react@19.2.14)(react@19.2.4)
+      '@storybook/csf-plugin': 10.2.8(esbuild@0.27.3)(rollup@4.57.1)(storybook@10.2.8(@testing-library/dom@10.4.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@20.19.33)(jiti@2.6.1)(lightningcss@1.30.2))
+      '@storybook/icons': 2.0.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@storybook/react-dom-shim': 10.2.8(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(storybook@10.2.8(@testing-library/dom@10.4.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+      storybook: 10.2.8(@testing-library/dom@10.4.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      ts-dedent: 2.2.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - esbuild
+      - rollup
+      - vite
+      - webpack
 
   '@storybook/builder-vite@10.2.8(esbuild@0.27.3)(rollup@4.57.1)(storybook@10.2.8(@testing-library/dom@10.4.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@20.19.33)(jiti@2.6.1)(lightningcss@1.30.2))':
     dependencies:
@@ -2928,6 +2968,8 @@ snapshots:
   '@types/doctrine@0.0.9': {}
 
   '@types/estree@1.0.8': {}
+
+  '@types/mdx@2.0.13': {}
 
   '@types/node@20.19.33':
     dependencies:
