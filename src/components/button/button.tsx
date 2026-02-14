@@ -5,14 +5,14 @@ import { cn } from '../../utils/cn';
 const buttonVariants = cva(
   cn(
     'rounded-md cursor-pointer',
-    'font-semibold font-poppins',
+    'font-semibold font-poppins text-neutral',
     'active:scale-95 transition-transform duration-150 animate-fade-in-scale',
   ),
   {
     variants: {
       variant: {
-        brand: 'bg-brand text-zinc-800',
-        'on-brand': 'bg-gray-200 text-gray-800',
+        brand: 'bg-brand',
+        'on-brand': 'bg-surface-on-brand',
       },
       size: {
         medium: 'px-4 py-2',
