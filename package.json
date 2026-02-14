@@ -30,8 +30,8 @@
     "storybook:build": "storybook build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Quack Ops",
+  "license": "MIT",
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=9.0.0"
