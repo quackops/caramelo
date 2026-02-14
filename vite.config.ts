@@ -4,20 +4,15 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import { defineConfig } from 'vitest/config';
 
-const dtsPlugin = dts({
-  include: ['src'],
-  insertTypesEntry: true,
-  rollupTypes: true,
-});
-
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    {
-      ...dtsPlugin,
-      apply: 'build',
-    },
+    dts({
+      include: ['src'],
+      insertTypesEntry: true,
+      rollupTypes: true,
+    }),
   ],
   build: {
     lib: {
