@@ -1,4 +1,4 @@
-name: Deploy Storybook to GitHub Pages
+name: deploy docs
 
 on:
   push:
@@ -31,6 +31,8 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Build caramelo
+        run: pnpm build
       - name: Build Storybook
         run: pnpm storybook:build
       - name: Setup Pages
