@@ -1,9 +1,7 @@
-import { ButtonProps } from './types'
+import type { ButtonProps } from './types';
 
 export const Button = (props: ButtonProps) => {
-  return (
-    <button {...props} />
-  )
-}
+  return <button {...props} />;
+};
 
-export type { ButtonProps } from './types'
+export type { ButtonProps } from './types';

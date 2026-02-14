@@ -1,5 +1,3 @@
-import { ButtonHTMLAttributes } from 'react';
+import type { ButtonHTMLAttributes } from 'react';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  
-}
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
