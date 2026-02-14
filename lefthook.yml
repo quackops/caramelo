@@ -1,0 +1,6 @@
+pre-commit:
+  parallel: true
+  jobs:
+    - run: pnpm run format {staged_files}
+      glob: "*.{js,ts,jsx,tsx}"
+      stage_fixed: true
