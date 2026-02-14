@@ -1,1 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-caramelo-1: oklch(17.8% 0.0119 80.9);
+  --color-caramelo-2: oklch(21.1% 0.017 80.9);
+  --color-caramelo-3: oklch(25.7% 0.0413 80.9);
+  --color-caramelo-4: oklch(29.6% 0.0675 80.9);
+  --color-caramelo-5: oklch(33.7% 0.0767 80.9);
+  --color-caramelo-6: oklch(38.7% 0.0741 80.9);
+  --color-caramelo-7: oklch(45.3% 0.0772 80.9);
+  --color-caramelo-8: oklch(53.6% 0.0911 80.9);
+  --color-caramelo-9: oklch(83.1% 0.168 80.9);
+  --color-caramelo-10: oklch(79.9% 0.168 80.9);
+  --color-caramelo-11: oklch(87.1% 0.1657 80.9);
+  --color-caramelo-12: oklch(93.5% 0.0676 80.9);
+  --color-gray-1: oklch(17.8% 0.0042 277.7);
+  --color-gray-2: oklch(21.5% 0.004 277.7);
+  --color-gray-3: oklch(25.5% 0.0055 277.7);
+  --color-gray-4: oklch(28.4% 0.0075 277.7);
+  --color-gray-5: oklch(31.4% 0.0089 277.7);
+  --color-gray-6: oklch(35% 0.01 277.7);
+  --color-gray-7: oklch(40.2% 0.0121 277.7);
+  --color-gray-8: oklch(49.2% 0.0157 277.7);
+  --color-gray-9: oklch(54% 0.0167 277.7);
+  --color-gray-10: oklch(58.6% 0.0165 277.7);
+  --color-gray-11: oklch(77% 0.0138 277.7);
+  --color-gray-12: oklch(94.9% 0.0026 277.7);
+  
+  --color-brand: var(--color-caramelo-9);
+  --color-surface: var(--color-gray-2);
+  --color-on-brand: var(--color-gray-1);
+
+  --font-poppins: 'Poppins', sans-serif;
+}

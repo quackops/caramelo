@@ -16,8 +16,8 @@
     "rootDir": "src",
     "outDir": "dist",
     "sourceMap": true,
-    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    "types": ["vitest/globals", "@testing-library/jest-dom", "./types.d.ts"]
   },
-  "include": ["src"],
+  "include": ["src", ".storybook"],
   "exclude": ["node_modules", "dist"]
 }

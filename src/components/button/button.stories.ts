@@ -17,16 +17,25 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    variant: 'primary',
     children: 'Button',
   },
 };
 
-export const Secondary: Story = {
+export const OnBrand: Story = {
   args: {
-    variant: 'secondary',
+    variant: 'on-brand',
     children: 'Button',
+  },
+  globals: {
+    backgrounds: { value: 'brand' },
+  },
+};
+
+export const Large: Story = {
+  args: {
+    size: 'large',
+    children: 'Large Button',
   },
 };
