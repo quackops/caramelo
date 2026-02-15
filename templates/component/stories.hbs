@@ -4,7 +4,7 @@ import { fn } from 'storybook/test';
 
 import { {{properCase title}} } from './{{dashCase title}}';
 
-const meta = {
+export default {
   title: 'interactive/{{properCase title}}',
   component: {{properCase title}},
   parameters: {
@@ -13,11 +13,8 @@ const meta = {
   args: { onClick: fn() },
 } satisfies Meta<typeof {{properCase title}}>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
 export const Default: Story = {
   args: {
-    children: 'Button',
+    children: 'Hello World',
   },
-};
+} satisfies StoryObj<typeof meta>;
