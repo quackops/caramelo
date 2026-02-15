@@ -23,6 +23,12 @@ export const Default: Story = {
   args: {},
 };
 
+export const Polymorphic: Story = {
+  args: {
+    as: 'p',
+  },
+};
+
 export const Small: Story = {
   args: {
     variant: 'small',
