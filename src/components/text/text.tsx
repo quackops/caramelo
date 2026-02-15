@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import type { HTMLAttributes } from 'react';
+import type { ElementType } from 'react';
 import { cn } from '../../utils/cn';
+import { Slot, type SlotProps } from '../slot/slot';
 
 const textVariants = cva(cn('font-poppins'), {
   variants: {
@@ -29,19 +30,25 @@ const textVariants = cva(cn('font-poppins'), {
   },
 });
 
-export const Text = ({
+export const defaultSlot = 'span';
+
+export function Text<Slot extends ElementType = typeof defaultSlot>({
+  as,
   children,
   variant,
   color,
   weight,
   ...rest
-}: TextProps) => {
+}: SlotProps<TextProps, Slot>) {
   return (
-    <span className={cn(textVariants({ variant, color, weight }))} {...rest}>
+    <Slot<ElementType>
+      as={as ?? defaultSlot}
+      className={cn(textVariants({ variant, color, weight }))}
+      {...rest}
+    >
       {children}
-    </span>
+    </Slot>
   );
-};
+}
 
-export type TextProps = HTMLAttributes<HTMLDivElement> &
-  VariantProps<typeof textVariants> & {};
+export type TextProps = VariantProps<typeof textVariants> & {};
