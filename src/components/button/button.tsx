@@ -1,11 +1,11 @@
 import { cva } from 'class-variance-authority';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cn } from '../../utils/cn';
+import { Text } from '../text/text';
 
 const buttonVariants = cva(
   cn(
     'rounded-md cursor-pointer',
-    'font-semibold font-poppins text-neutral',
     'active:scale-95 transition-transform duration-150 animate-fade-in-scale',
   ),
   {
@@ -35,7 +35,9 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button className={buttonVariants({ variant, size })} type={type} {...rest}>
-      {children}
+      <Text variant="medium" weight="semibold" color="neutral-inverse">
+        {children}
+      </Text>
     </button>
   );
 };
