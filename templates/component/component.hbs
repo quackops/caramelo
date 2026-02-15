@@ -21,4 +21,4 @@ export const {{pascalCase title}} = ({
   );
 };
 
-export interface {{pascalCase title}}Props extends HTMLAttributes<HTMLDivElement> {}
+export type {{pascalCase title}}Props = HTMLAttributes<HTMLDivElement> & VariantProps<typeof textVariants> & {};

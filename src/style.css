@@ -30,7 +30,8 @@
   --color-brand: var(--color-caramelo-9);
   --color-surface: var(--color-gray-2);
   --color-surface-on-brand: var(--color-gray-12);
-  --color-neutral: var(--color-gray-1);
+  --color-neutral: var(--color-gray-12);
+  --color-neutral-inverse: var(--color-gray-1);
 
   --font-poppins: "Poppins", sans-serif;
 
