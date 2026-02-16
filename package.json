@@ -3,14 +3,14 @@
   "version": "0.1.1",
   "description": "",
   "type": "module",
-  "main": "./dist/caramelo.cjs.js",
-  "module": "./dist/caramelo.es.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/caramelo.es.js",
-      "require": "./dist/caramelo.cjs.js"
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     },
     "./style.css": "./dist/style.css"
   },
@@ -18,13 +18,14 @@
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "build:lib": "npx rollup -c",
+    "build:css": "npx @tailwindcss/cli -i ./src/style.css -o ./dist/style.css",
+    "build": "npm-run-all --sequential build:lib build:css",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "npm-run-all lint:*",
     "lint:types": "tsc --noEmit",
     "lint:code": "biome check",
+    "lint": "npm-run-all --parallel lint:*",
     "format": "biome check --write",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
@@ -58,6 +59,7 @@
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@storybook/addon-docs": "^10.2.8",
     "@storybook/react-vite": "^10.2.8",
+    "@tailwindcss/cli": "^4.1.18",
     "@tailwindcss/vite": "^4.1.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -71,6 +73,9 @@
     "plop": "^4.0.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "rollup-plugin-cleandir": "^3.0.0",
+    "rollup-plugin-dts": "^6.3.0",
+    "rollup-plugin-esbuild": "^6.2.1",
     "semantic-release": "^25.0.3",
     "storybook": "^10.2.8",
     "tailwindcss": "^4.1.0",
