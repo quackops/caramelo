@@ -3,14 +3,14 @@
   "version": "0.1.1",
   "description": "",
   "type": "module",
-  "main": "./dist/caramelo.umd.js",
+  "main": "./dist/caramelo.cjs.js",
   "module": "./dist/caramelo.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/caramelo.es.js",
-      "require": "./dist/caramelo.umd.js"
+      "require": "./dist/caramelo.cjs.js"
     },
     "./style.css": "./dist/style.css"
   },
