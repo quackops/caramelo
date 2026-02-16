@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/quackops/caramelo/compare/v1.0.0...v1.0.1) (2026-02-16)
+
+### Bug Fixes
+
+* add package.json repository ([8b9b5f5](https://github.com/quackops/caramelo/commit/8b9b5f53b2d5444ed0841dfd0214c2fb92dde3e6))
+
 ## 1.0.0 (2026-02-16)
 
 ### Features
