@@ -90,6 +90,9 @@ importers:
       react-dom:
         specifier: ^19.2.4
         version: 19.2.4(react@19.2.4)
+      rollup:
+        specifier: ^4.57.1
+        version: 4.57.1
       rollup-plugin-cleandir:
         specifier: ^3.0.0
         version: 3.0.0(rollup@4.57.1)

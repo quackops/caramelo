@@ -73,6 +73,7 @@
     "plop": "^4.0.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "rollup": "^4.57.1",
     "rollup-plugin-cleandir": "^3.0.0",
     "rollup-plugin-dts": "^6.3.0",
     "rollup-plugin-esbuild": "^6.2.1",
