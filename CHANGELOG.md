@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/quackops/caramelo/compare/v1.1.0...v1.2.0) (2026-02-17)
+
+### Features
+
+* polymorphic button ([4242354](https://github.com/quackops/caramelo/commit/424235478a7db0b6beaa3e67cf520614cabb1bf4))
+* trigger release ([0869b37](https://github.com/quackops/caramelo/commit/0869b3772c61d83f8dcfcd549558fa10d12761bd))
+
 ## [1.1.0](https://github.com/quackops/caramelo/compare/v1.0.1...v1.1.0) (2026-02-17)
 
 ### Features
