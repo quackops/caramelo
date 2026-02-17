@@ -1,3 +1,11 @@
+## [1.1.0](https://github.com/quackops/caramelo/compare/v1.0.1...v1.1.0) (2026-02-17)
+
+### Features
+
+* implement slot component ([cca81fc](https://github.com/quackops/caramelo/commit/cca81fcc5749d9fc3efc9842aef521584691e747))
+* implement text component ([a8bfaf9](https://github.com/quackops/caramelo/commit/a8bfaf93fbc7ae898a7190a3b8d376c538090528))
+* use text on button ([5c321ef](https://github.com/quackops/caramelo/commit/5c321ef946e3269eb458a5221fcfce944432ff66))
+
 ## [1.0.1](https://github.com/quackops/caramelo/compare/v1.0.0...v1.0.1) (2026-02-16)
 
 ### Bug Fixes
