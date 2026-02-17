@@ -4,7 +4,8 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(ts|tsx)'],
   addons: ['@storybook/addon-docs'],
   framework: '@storybook/react-vite',
-  previewHead: (head) => `
+  staticDirs: ['../docs'],
+  managerHead: (head) => `
     ${head}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
