@@ -9,4 +9,13 @@ describe('Button', () => {
       screen.getByRole('button', { name: /click me/i }),
     ).toBeInTheDocument();
   });
+
+  it('should render polymorphic component', () => {
+    render(
+      <Button as="a" href="#">
+        Click me
+      </Button>,
+    );
+    expect(screen.getByRole('link', { name: /click me/i })).toBeInTheDocument();
+  });
 });
