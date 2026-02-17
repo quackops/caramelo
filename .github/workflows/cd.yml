@@ -4,6 +4,7 @@ on:
     workflows: ["CI"]
     branches: [main, next, rc]
     types: [completed]
+  workflow_dispatch:
 
 permissions:
   contents: write
