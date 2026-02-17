@@ -1,6 +1,7 @@
-import { cva } from 'class-variance-authority';
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import type { ElementType, ReactNode } from 'react';
 import { cn } from '../../utils/cn';
+import { Slot, type SlotProps } from '../slot/slot';
 import { Text } from '../text/text';
 
 const buttonVariants = cva(
@@ -26,25 +27,31 @@ const buttonVariants = cva(
   },
 );
 
-export const Button = ({
+export const defaultSlot = 'button';
+
+export const Button = <S extends ElementType = typeof defaultSlot>({
+  as,
   variant,
   size,
   type = 'button',
   children,
   ...rest
-}: ButtonProps) => {
+}: SlotProps<ButtonProps, S>) => {
   return (
-    <button className={buttonVariants({ variant, size })} type={type} {...rest}>
+    <Slot<ElementType>
+      as={as ?? defaultSlot}
+      className={buttonVariants({ variant, size })}
+      type={type}
+      {...rest}
+    >
       <Text variant="medium" weight="semibold" color="neutral-inverse">
         {children}
       </Text>
-    </button>
+    </Slot>
   );
 };
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'brand' | 'on-brand';
+export type ButtonProps = VariantProps<typeof buttonVariants> & {
   children: ReactNode;
   type?: 'button' | 'submit' | 'reset';
-  size?: 'medium' | 'large';
-}
+};
