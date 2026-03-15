@@ -38,7 +38,7 @@ jobs:
         run: pnpm lint
       - name: Test
         run: pnpm test
-  build:
+  visual-regression:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -55,3 +55,19 @@ jobs:
         run: pnpm install
       - name: Build
         run: pnpm run build
+      - name: Build Storybook
+        run: pnpm storybook:build
+      - name: Run visual regression tests
+        id: ld
+        uses: pmqueiroz/lumen-diff@v0.1.0
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        if: ${{ failure() && steps.ld.conclusion == 'failure' && !github.event.pull_request.draft }}
+        with:
+          add-paths: .lumendiff/baseline
+          base: ${{ github.head_ref }}
+          branch: 'chore/visual-regression-update-for-${{ github.event.number }}'
+          commit-message: 'chore: update lumendiff baselines for #${{ github.event.number }}'
+          delete-branch: true
+          title: 'chore: update visual regression baseline for #${{ github.event.number }}'
+          token: ${{ github.token }}
