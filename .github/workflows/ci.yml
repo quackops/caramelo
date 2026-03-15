@@ -59,7 +59,7 @@ jobs:
         run: pnpm storybook:build
       - name: Run visual regression tests
         id: ld
-        uses: pmqueiroz/lumen-diff@v0.1.0
+        uses: pmqueiroz/lumen-diff@v0.2.0
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         if: ${{ failure() && steps.ld.conclusion == 'failure' && !github.event.pull_request.draft }}
