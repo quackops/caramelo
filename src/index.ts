@@ -1,3 +1,4 @@
+export { Avatar, type AvatarProps } from './components/avatar/avatar';
 export { Badge, type BadgeProps } from './components/badge/badge';
 export { Button, type ButtonProps } from './components/button/button';
 export { Chip, type ChipProps } from './components/chip/chip';
