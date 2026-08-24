@@ -16,25 +16,36 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
-    children: 'Button',
+    children: 'Tenho interesse',
   },
 };
 
-export const OnBrand: Story = {
+export const PrimaryDisabled: Story = {
   args: {
-    variant: 'on-brand',
-    children: 'Button',
-  },
-  globals: {
-    backgrounds: { value: 'brand' },
+    children: 'Tenho interesse',
+    disabled: true,
   },
 };
 
-export const Large: Story = {
+export const Secondary: Story = {
   args: {
-    size: 'large',
-    children: 'Large Button',
+    variant: 'secondary',
+    children: 'Ver perfil da ONG',
+  },
+};
+
+export const Handoff: Story = {
+  args: {
+    variant: 'handoff',
+    children: 'Abrir no WhatsApp',
+  },
+};
+
+export const Destructive: Story = {
+  args: {
+    variant: 'destructive',
+    children: 'Excluir anúncio',
   },
 };
