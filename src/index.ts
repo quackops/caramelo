@@ -13,6 +13,10 @@ export {
 } from './components/icon-button/icon-button';
 export { Input, type InputProps } from './components/input/input';
 export {
+  SearchBar,
+  type SearchBarProps,
+} from './components/search-bar/search-bar';
+export {
   SegmentedControl,
   type SegmentedControlOption,
   type SegmentedControlProps,
