@@ -1,3 +1,21 @@
+## [1.3.0](https://github.com/quackops/caramelo/compare/v1.2.0...v1.3.0) (2026-08-24)
+
+### Features
+
+* **animal-card:** add AnimalCard component ([1ea4cc7](https://github.com/quackops/caramelo/commit/1ea4cc77e6342ea5ac3a0fd67d021fc91a0c995f))
+* **avatar:** add Avatar component ([75be666](https://github.com/quackops/caramelo/commit/75be666417c045991a8f3f241d80bd50e6859017))
+* **button:** align Button variants with Caramelo design spec ([28f980a](https://github.com/quackops/caramelo/commit/28f980a4693a1589ae237cd99ee806c99d93211f))
+* **chip,badge:** add Chip and Badge components ([f38bf86](https://github.com/quackops/caramelo/commit/f38bf866edd48155651aba1cb312e61f3df78402))
+* **empty-state,loading-skeleton,photo-upload:** add feedback/upload components ([494d589](https://github.com/quackops/caramelo/commit/494d589af30a6c6b224c2dd149132555f6016d5a))
+* **icon-button,fab:** add IconButton and Fab components ([3e1a90b](https://github.com/quackops/caramelo/commit/3e1a90bb64a2def42330af437dd4689f37c7a83c))
+* **input,switch,select:** add Campos form field components ([7f11ff0](https://github.com/quackops/caramelo/commit/7f11ff0717efa780980fd8809326995869eecc6c))
+* **notice-row,application-card:** add LINHA DE AVISO E DE CANDIDATURA ([fbdbe00](https://github.com/quackops/caramelo/commit/fbdbe001f562c642067a3ffe8c1faf593f2da987))
+* **search-bar:** add SearchBar component ([546e6b1](https://github.com/quackops/caramelo/commit/546e6b148f93753c965f8ce15992217290591c75))
+* **segmented-control:** add SegmentedControl component ([6a3267e](https://github.com/quackops/caramelo/commit/6a3267e46aac6748d1a5ca93044b0870a2288083))
+* **tab-bar,sidebar:** add mobile TabBar and web Sidebar ([63eadc5](https://github.com/quackops/caramelo/commit/63eadc518ecc9e6e2522f87da58ad1509fc96324))
+* **toast:** add Toast component ([16e3cc2](https://github.com/quackops/caramelo/commit/16e3cc2767d36aee62773e03f6a5406abcdbd1dc))
+* **tokens:** add Caramelo design system tokens to style.css ([3570205](https://github.com/quackops/caramelo/commit/3570205910836f7484c9819ddd1e6ca378724502))
+
 ## [1.2.0](https://github.com/quackops/caramelo/compare/v1.1.0...v1.2.0) (2026-02-17)
 
 ### Features
