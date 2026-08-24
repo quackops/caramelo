@@ -20,3 +20,4 @@ export {
 export { Select, type SelectProps } from './components/select/select';
 export { Switch, type SwitchProps } from './components/switch/switch';
 export { Text, type TextProps } from './components/text/text';
+export { Toast, type ToastProps } from './components/toast/toast';

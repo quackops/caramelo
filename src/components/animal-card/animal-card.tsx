@@ -25,7 +25,6 @@ export const AnimalCard = ({
       {...rest}
     >
       {photoSrc ? (
-        // biome-ignore lint/performance/noImgElement: library component, no framework image optimizer available.
         <img
           src={photoSrc}
           alt={photoAlt ?? name}
