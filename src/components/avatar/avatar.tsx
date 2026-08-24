@@ -28,7 +28,6 @@ export const Avatar = ({
   className,
 }: AvatarProps) => {
   if (src) {
-    // biome-ignore lint/performance/noImgElement: library component, no framework image optimizer available.
     return (
       <img
         src={src}
