@@ -18,6 +18,16 @@ export {
   type SegmentedControlProps,
 } from './components/segmented-control/segmented-control';
 export { Select, type SelectProps } from './components/select/select';
+export {
+  Sidebar,
+  type SidebarItem,
+  type SidebarProps,
+} from './components/sidebar/sidebar';
 export { Switch, type SwitchProps } from './components/switch/switch';
+export {
+  TabBar,
+  type TabBarItem,
+  type TabBarProps,
+} from './components/tab-bar/tab-bar';
 export { Text, type TextProps } from './components/text/text';
 export { Toast, type ToastProps } from './components/toast/toast';
