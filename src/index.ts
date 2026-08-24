@@ -6,9 +6,12 @@ export {
   IconButton,
   type IconButtonProps,
 } from './components/icon-button/icon-button';
+export { Input, type InputProps } from './components/input/input';
 export {
   SegmentedControl,
   type SegmentedControlOption,
   type SegmentedControlProps,
 } from './components/segmented-control/segmented-control';
+export { Select, type SelectProps } from './components/select/select';
+export { Switch, type SwitchProps } from './components/switch/switch';
 export { Text, type TextProps } from './components/text/text';
