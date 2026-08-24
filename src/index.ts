@@ -6,4 +6,9 @@ export {
   IconButton,
   type IconButtonProps,
 } from './components/icon-button/icon-button';
+export {
+  SegmentedControl,
+  type SegmentedControlOption,
+  type SegmentedControlProps,
+} from './components/segmented-control/segmented-control';
 export { Text, type TextProps } from './components/text/text';
