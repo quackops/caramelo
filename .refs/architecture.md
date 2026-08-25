@@ -104,14 +104,20 @@ call to action.
 
 ### Component reference
 
-- **Button** — height 52, radius 14. Variants: `primary` (caramelo-9 fill,
-  `on-brand-strong` text; `:hover` lightens to caramelo-11, `:active`
-  darkens to caramelo-10/`--color-brand-pressed` — "pressed" is not a
-  separate prop, it's the native `:hover`/`:active` state, and the two are
-  deliberately different steps, not the same color), `secondary` (outline),
-  `handoff` (WhatsApp-only, `--color-whatsapp` fill), `destructive` (outline
-  in `--color-danger`). Disabled is the native `disabled` attribute, not a
-  variant.
+- **Button** — height 52, radius 14. Variants: `primary` (`--color-brand`
+  fill, `on-brand-strong` text; `:hover` moves to its own
+  `--color-brand-hover` token, `:active` to `--color-brand-pressed` —
+  "pressed" is not a separate prop, it's the native `:hover`/`:active`
+  state, and the two are deliberately different values, not the same color.
+  `--color-brand-hover` is a dedicated token rather than an alias to
+  another role — for Caramelo it happens to equal caramelo-11, but a
+  theme's link/tint color and its button-hover color are different design
+  decisions that can coincide without being the same token; see
+  `.refs/theming.md`), `secondary` (outline), `handoff` (WhatsApp-only,
+  `--color-whatsapp` fill), `destructive` (outline in `--color-danger`).
+  Disabled is the native `disabled` attribute, not a variant. Background and
+  transform both transition together (`motion-safe:transition-all`) so
+  hover/press/theme changes cross-fade instead of snapping.
 - **IconButton** — 44×44 tap target. `active` toggles between a neutral
   gray-3 surface and an active caramelo-3/caramelo-7-bordered surface using
   `on-brand-inverse` text (caramelo-3 is a dark brand tint).

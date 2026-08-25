@@ -7,7 +7,7 @@ import { Text } from '../text/text';
 const buttonVariants = cva(
   cn(
     'inline-flex items-center justify-center h-13 rounded-control px-6 cursor-pointer',
-    'motion-safe:active:scale-95 motion-safe:transition-transform motion-safe:duration-150',
+    'motion-safe:active:scale-95 motion-safe:transition-all motion-safe:duration-150',
     'disabled:cursor-not-allowed disabled:active:scale-100',
     'focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
   ),
@@ -15,7 +15,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-brand hover:bg-caramelo-11 active:bg-brand-pressed disabled:bg-gray-3 disabled:text-gray-8',
+          'bg-brand hover:bg-brand-hover active:bg-brand-pressed disabled:bg-gray-3 disabled:text-gray-8',
         secondary:
           'bg-transparent border-[1.5px] border-gray-7 hover:border-caramelo-8 text-neutral disabled:border-gray-5 disabled:text-gray-8',
         handoff: 'bg-whatsapp',
