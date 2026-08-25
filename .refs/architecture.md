@@ -163,6 +163,12 @@ call to action.
 - **ApplicationCard** — `review`/`accepted`/`rejected`/`completed` status
   pill. The "Aceitar"/"Ver respostas" action pair only renders for `review`,
   since none of the other statuses have a pending action in the spec.
+- **Tag** — a plain gray-3 label pill (radius 7, not the full-radius chip
+  shape) for factual attributes like "castrada"/"vacinada"/"dócil". Extracted
+  from `AnimalCard`'s tag list so any other consumer needing the same
+  attribute-pill look reuses it instead of re-implementing the markup; not
+  interactive and not the same component as `Chip` (`Chip` is a
+  selectable/filterable control, `Tag` is a static label).
 
 ## Known gaps
 
