@@ -4,7 +4,7 @@ import { Button } from '../button/button';
 import { Text } from '../text/text';
 
 const statusVariants = cva(
-  'rounded-lg px-2.5 py-[5px] text-[10px] font-semibold',
+  'rounded-lg px-2.5 py-[5px] font-poppins text-[10px] font-semibold',
   {
     variants: {
       status: {
