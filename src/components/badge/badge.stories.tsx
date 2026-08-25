@@ -32,3 +32,7 @@ export const New: Story = {
 export const Adopted: Story = {
   args: { variant: 'adopted' },
 };
+
+export const Compact: Story = {
+  args: { variant: 'verified', size: 'compact' },
+};

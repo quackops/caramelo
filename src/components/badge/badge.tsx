@@ -3,23 +3,25 @@ import type { HTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-const badgeVariants = cva(
-  'inline-flex items-center gap-1 rounded-lg px-[11px] py-[5px]',
-  {
-    variants: {
-      variant: {
-        verified: 'bg-success/16',
-        tutor: 'bg-gray-4',
-        urgent: 'bg-transparent border border-brand',
-        new: 'bg-caramelo-4',
-        adopted: 'bg-gray-3',
-      },
+const badgeVariants = cva('inline-flex items-center gap-1 rounded-lg', {
+  variants: {
+    variant: {
+      verified: 'bg-success/16',
+      tutor: 'bg-gray-4',
+      urgent: 'bg-transparent border border-brand',
+      new: 'bg-caramelo-4',
+      adopted: 'bg-gray-3',
     },
-    defaultVariants: {
-      variant: 'tutor',
+    size: {
+      default: 'px-[11px] py-[5px]',
+      compact: 'px-[7px] py-[3px]',
     },
   },
-);
+  defaultVariants: {
+    variant: 'tutor',
+    size: 'default',
+  },
+});
 
 const textColorByVariant: Record<NonNullable<BadgeProps['variant']>, string> = {
   verified: 'text-success',
@@ -27,6 +29,11 @@ const textColorByVariant: Record<NonNullable<BadgeProps['variant']>, string> = {
   urgent: 'text-link',
   new: 'text-caramelo-12',
   adopted: 'text-neutral-3',
+};
+
+const textSizeBySize: Record<NonNullable<BadgeProps['size']>, string> = {
+  default: 'text-[11px]',
+  compact: 'text-[9px]',
 };
 
 const labelByVariant: Record<NonNullable<BadgeProps['variant']>, string> = {
@@ -48,17 +55,27 @@ const iconByVariant: Record<
   adopted: '✓',
 };
 
-export const Badge = ({ variant, label, className, ...rest }: BadgeProps) => {
+export const Badge = ({
+  variant,
+  size,
+  label,
+  className,
+  ...rest
+}: BadgeProps) => {
   const v = variant ?? 'tutor';
+  const s = size ?? 'default';
   const icon = iconByVariant[v];
 
   return (
-    <span className={cn(badgeVariants({ variant: v }), className)} {...rest}>
+    <span
+      className={cn(badgeVariants({ variant: v, size: s }), className)}
+      {...rest}
+    >
       <Text
         as="span"
         variant="small"
         weight="semibold"
-        className={cn('text-[11px]', textColorByVariant[v])}
+        className={cn(textSizeBySize[s], textColorByVariant[v])}
       >
         {icon ? `${icon} ` : ''}
         {label ?? labelByVariant[v]}
