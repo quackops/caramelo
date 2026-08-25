@@ -9,6 +9,9 @@ explain the *why* and the gotchas.
   code** (docs go in `.refs/`), reusable-component discipline. Read first.
 - [architecture.md](./.refs/architecture.md) — stack, layout, design system,
   extension points, conventions.
+- [theming.md](./.refs/theming.md) — the `caramelo`/`pawee` theme system:
+  how `CarameloProvider` and the token layer work together, where each
+  theme's values come from, and known fidelity gaps.
 - [ci-cd.md](./.refs/ci-cd.md) — CI/CD pipeline: jobs, toolchain pin, what's
   not set up yet.
 - [incidents/](./.refs/incidents/README.md) — postmortems + standing rules;
