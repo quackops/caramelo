@@ -1,9 +1,6 @@
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// "Seletor de modo" — shares the brand color with the selected chip and
-// the primary button by design, which is why the spec forbids putting a
-// segmented control on the same row as a primary CTA.
 export const SegmentedControl = ({
   options,
   value,
