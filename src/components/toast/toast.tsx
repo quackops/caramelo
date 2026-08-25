@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-const toastVariants = cva('rounded-[14px] border px-[15px] py-[13px]', {
+const toastVariants = cva('rounded-control border px-[15px] py-[13px]', {
   variants: {
     variant: {
       success: 'border-success/35 bg-success/12',
