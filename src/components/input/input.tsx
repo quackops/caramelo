@@ -17,7 +17,8 @@ export const Input = ({ label, error, id, className, ...rest }: InputProps) => {
         aria-invalid={error ? true : undefined}
         className={cn(
           'h-13 w-full rounded-[14px] border bg-gray-3 px-16 font-roboto text-[15px] font-light text-neutral placeholder:text-neutral-3',
-          'focus:border-[1.5px] focus:border-brand focus:bg-caramelo-3 focus:outline-none',
+          'focus:border-[1.5px] focus:border-brand focus:bg-caramelo-3',
+          'focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
           error && 'border-[1.5px] border-danger bg-danger/10',
           !error && 'border-gray-6',
           className,
