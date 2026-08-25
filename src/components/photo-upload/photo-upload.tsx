@@ -64,7 +64,13 @@ export const PhotoUpload = ({
             >
               +
             </Text>
-            <Text as="span" variant="small" weight="medium" color="neutral-3">
+            <Text
+              as="span"
+              variant="small"
+              weight="medium"
+              color="neutral-3"
+              className="text-[10px]"
+            >
               {photos.length} / {max}
             </Text>
           </button>
