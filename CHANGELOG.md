@@ -1,3 +1,9 @@
+## [1.5.1](https://github.com/quackops/caramelo/compare/v1.5.0...v1.5.1) (2026-08-25)
+
+### Bug Fixes
+
+* **storybook:** stop forcing a transparent canvas in the theme decorator ([85e0681](https://github.com/quackops/caramelo/commit/85e068144c4515fb73ddb7327e32010aae5f59f2))
+
 ## [1.5.0](https://github.com/quackops/caramelo/compare/v1.4.1...v1.5.0) (2026-08-25)
 
 ### Features
