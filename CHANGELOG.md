@@ -1,3 +1,14 @@
+## [1.5.0](https://github.com/quackops/caramelo/compare/v1.4.1...v1.5.0) (2026-08-25)
+
+### Features
+
+* **caramelo-provider:** add CarameloProvider theme wrapper ([cc4817a](https://github.com/quackops/caramelo/commit/cc4817a79aa3206f9f56c67a44e4f3aebc1d8111))
+
+### Bug Fixes
+
+* **badge:** theme urgent variant through --color-warning instead of hardcoded brand/link ([5472a9a](https://github.com/quackops/caramelo/commit/5472a9a41f4b33e7cfcae4e0848d3ea79fa0fd18))
+* **tag:** vertically center label with inline-flex items-center ([a79eee6](https://github.com/quackops/caramelo/commit/a79eee6e3f97534fb41d6310f3eea32660447eef))
+
 ## [1.4.1](https://github.com/quackops/caramelo/compare/v1.4.0...v1.4.1) (2026-08-25)
 
 ### Bug Fixes
