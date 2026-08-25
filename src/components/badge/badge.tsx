@@ -8,7 +8,7 @@ const badgeVariants = cva('inline-flex items-center gap-1 rounded-lg', {
     variant: {
       verified: 'bg-success/16',
       tutor: 'bg-gray-4',
-      urgent: 'bg-transparent border border-brand',
+      urgent: 'bg-transparent border border-warning',
       new: 'bg-caramelo-4',
       adopted: 'bg-gray-3',
     },
@@ -26,7 +26,7 @@ const badgeVariants = cva('inline-flex items-center gap-1 rounded-lg', {
 const textColorByVariant: Record<NonNullable<BadgeProps['variant']>, string> = {
   verified: 'text-success',
   tutor: 'text-neutral-2',
-  urgent: 'text-link',
+  urgent: 'text-warning',
   new: 'text-caramelo-12',
   adopted: 'text-neutral-3',
 };
