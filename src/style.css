@@ -100,3 +100,39 @@
     }
   }
 }
+
+[data-theme="pawee"] {
+  --color-caramelo-1: #0b0714;
+  --color-caramelo-2: #171022;
+  --color-caramelo-3: rgba(138, 79, 211, 0.08);
+  --color-caramelo-4: rgba(138, 79, 211, 0.18);
+  --color-caramelo-5: rgba(138, 79, 211, 0.25);
+  --color-caramelo-6: rgba(138, 79, 211, 0.35);
+  --color-caramelo-7: rgba(138, 79, 211, 0.5);
+  --color-caramelo-8: rgba(138, 79, 211, 0.7);
+  --color-caramelo-9: #8a4fd3;
+  --color-caramelo-10: #5c2e8a;
+  --color-caramelo-11: #b08ce8;
+  --color-caramelo-12: #ffffff;
+
+  --color-gray-1: #0b0714;
+  --color-gray-2: #171022;
+  --color-gray-3: rgba(255, 255, 255, 0.05);
+  --color-gray-4: rgba(255, 255, 255, 0.07);
+  --color-gray-5: rgba(255, 255, 255, 0.08);
+  --color-gray-6: rgba(255, 255, 255, 0.1);
+  --color-gray-7: rgba(255, 255, 255, 0.18);
+  --color-gray-8: #57506b;
+  --color-gray-9: #6f6785;
+  --color-gray-10: #8e86a0;
+  --color-gray-11: #c9c2d6;
+  --color-gray-12: #ffffff;
+
+  --color-on-brand-strong: #ffffff;
+  --color-on-brand-inverse: #ffffff;
+
+  --color-success: #3fd1a0;
+  --color-warning: #f2b75c;
+  --color-danger: #ff6b6b;
+  --color-whatsapp: #25d366;
+}
