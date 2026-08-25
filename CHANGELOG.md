@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/quackops/caramelo/compare/v1.3.0...v1.3.1) (2026-08-25)
+
+### Bug Fixes
+
+* **fab:** use --shadow-raised token instead of hardcoded oklch shadow ([d748f53](https://github.com/quackops/caramelo/commit/d748f53f6666f5ed1b70080237feab248fe15d72))
+
 ## [1.3.0](https://github.com/quackops/caramelo/compare/v1.2.0...v1.3.0) (2026-08-24)
 
 ### Features
