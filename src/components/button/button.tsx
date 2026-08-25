@@ -35,6 +35,7 @@ export const Button = <S extends ElementType = typeof defaultSlot>({
   variant,
   type = 'button',
   children,
+  className,
   ...rest
 }: SlotProps<ButtonProps, S>) => {
   const textColor =
@@ -47,7 +48,7 @@ export const Button = <S extends ElementType = typeof defaultSlot>({
   return (
     <Slot<ElementType>
       as={as ?? defaultSlot}
-      className={buttonVariants({ variant })}
+      className={cn(buttonVariants({ variant }), className)}
       type={type}
       {...rest}
     >
