@@ -33,7 +33,7 @@ export const EmptyState = ({
   return (
     <div className={cn(containerVariants({ variant: v }), className)}>
       {v === 'empty' && (
-        <div className="relative mb-4 flex size-[110px] items-center justify-center">
+        <div className="relative mb-16 flex size-[110px] items-center justify-center">
           <div className="absolute inset-0 rounded-full border border-caramelo-7" />
           <div className="absolute inset-3.5 rounded-full border border-dashed border-caramelo-6" />
           <div className="flex size-[60px] items-center justify-center rounded-2xl bg-caramelo-4">
@@ -49,7 +49,7 @@ export const EmptyState = ({
       >
         {title}
       </Text>
-      <Text as="p" variant="small" color="neutral-2" className="mb-4">
+      <Text as="p" variant="small" color="neutral-2" className="mb-16">
         {description}
       </Text>
       {actionLabel && (
