@@ -44,12 +44,13 @@ export function Text<Slot extends ElementType = typeof defaultSlot>({
   variant,
   color,
   weight,
+  className,
   ...rest
 }: SlotProps<TextProps, Slot>) {
   return (
     <Slot<ElementType>
       as={as ?? defaultSlot}
-      className={cn(textVariants({ variant, color, weight }))}
+      className={cn(textVariants({ variant, color, weight }), className)}
       {...rest}
     >
       {children}
