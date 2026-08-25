@@ -28,6 +28,7 @@
   --color-gray-12: oklch(94.9% 0.0026 277.7);
 
   --color-brand: var(--color-caramelo-9);
+  --color-brand-hover: oklch(87.1% 0.1657 80.9);
   --color-brand-pressed: var(--color-caramelo-10);
   --color-link: var(--color-caramelo-11);
   --color-bg: var(--color-caramelo-1);
@@ -129,6 +130,7 @@
   --color-gray-12: #ffffff;
 
   --color-brand: #8a4fd3;
+  --color-brand-hover: #9d6bda;
   --color-brand-pressed: #5c2e8a;
   --color-link: #b08ce8;
   --color-bg: #0b0714;
