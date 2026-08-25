@@ -28,7 +28,7 @@ export const SegmentedControl = ({
             aria-selected={selected}
             onClick={() => onChange?.(option.value)}
             className={cn(
-              'rounded-[9px] px-[18px] py-[9px] cursor-pointer',
+              'rounded-[9px] px-[18px] py-[9px] cursor-pointer focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
               selected ? 'bg-brand' : 'bg-transparent',
             )}
           >
