@@ -28,7 +28,7 @@ export const SearchBar = ({
       />
       <input
         value={value}
-        className="flex-1 bg-transparent font-roboto text-[15px] font-light text-neutral placeholder:text-neutral-3 focus:outline-none"
+        className="flex-1 bg-transparent font-roboto text-[15px] font-light text-neutral placeholder:text-neutral-3 focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2"
         {...rest}
       />
       {value && onClear && (
