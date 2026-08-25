@@ -1,3 +1,9 @@
+## [1.5.3](https://github.com/quackops/caramelo/compare/v1.5.2...v1.5.3) (2026-08-25)
+
+### Bug Fixes
+
+* **style:** restate every semantic alias directly under [data-theme=pawee] ([7ab321c](https://github.com/quackops/caramelo/commit/7ab321c8fbfaffcc8a94272db1aa7f3ea3826e5d))
+
 ## [1.5.2](https://github.com/quackops/caramelo/compare/v1.5.1...v1.5.2) (2026-08-25)
 
 ### Bug Fixes
