@@ -71,6 +71,8 @@
   --shadow-raised: 0 8px 24px oklch(17.8% 0.0119 80.9 / 0.6);
 
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+  --animate-shimmer: shimmer 1.2s linear infinite;
+  --animate-spin-slow: spin-slow 0.8s linear infinite;
 
   @keyframes fade-in-scale {
     0% {
@@ -80,6 +82,21 @@
     100% {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 150% 0;
+    }
+    100% {
+      background-position: -50% 0;
+    }
+  }
+
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
     }
   }
 }
