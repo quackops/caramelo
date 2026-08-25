@@ -36,7 +36,7 @@ export const SearchBar = ({
           type="button"
           onClick={onClear}
           aria-label="Limpar busca"
-          className="flex size-[22px] items-center justify-center rounded-full bg-gray-6"
+          className="flex size-[22px] cursor-pointer items-center justify-center rounded-full bg-gray-6"
         >
           <Text as="span" variant="small" color="neutral">
             ×
