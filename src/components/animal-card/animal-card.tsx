@@ -1,6 +1,7 @@
 import type { HTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { Badge, type BadgeProps } from '../badge/badge';
+import { Tag } from '../tag/tag';
 import { Text } from '../text/text';
 
 export const AnimalCard = ({
@@ -63,16 +64,7 @@ export const AnimalCard = ({
         {tags.length > 0 && (
           <div className="flex gap-1.5">
             {tags.map((tag) => (
-              <span key={tag} className="rounded-[7px] bg-gray-3 px-[9px] py-1">
-                <Text
-                  variant="small"
-                  weight="medium"
-                  color="neutral-2"
-                  className="text-[11px]"
-                >
-                  {tag}
-                </Text>
-              </span>
+              <Tag key={tag}>{tag}</Tag>
             ))}
           </div>
         )}
