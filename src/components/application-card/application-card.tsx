@@ -45,7 +45,7 @@ export const ApplicationCard = ({
       <div className="mb-3.5 flex items-center gap-3">
         <div className="size-10 flex-none rounded-full bg-gray-3" />
         <div className="flex-1">
-          <Text variant="medium" weight="semibold">
+          <Text variant="medium" weight="semibold" className="text-[14px]">
             {applicantName}
           </Text>
           <Text
