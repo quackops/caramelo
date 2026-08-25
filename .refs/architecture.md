@@ -13,6 +13,9 @@ Code is the truth. This file explains the *why* behind the shape it takes.
 - `src/index.ts` — the single export point. Every component is re-exported
   from here (`export { X, type XProps } from './components/x/x'`); consumers
   never import a component's file path directly.
+- `src/components/caramelo-provider/caramelo-provider.tsx` — sets the
+  active theme (`caramelo` default, `pawee`) via a `data-theme` attribute
+  that the token layer keys off; see `.refs/theming.md`.
 - `src/components/<name>/` — one directory per component: `<name>.tsx`,
   `<name>.spec.tsx`, `<name>.stories.tsx`. One design concept per directory,
   no multi-component files.
@@ -34,6 +37,11 @@ generated from the `@theme` custom properties — never a hardcoded `oklch()`
 or bespoke pixel value for something a token already covers.
 
 ### Tokens
+
+Everything below is Caramelo's own values, declared once on `:root`. They're
+also the *default* — see `.refs/theming.md` for how `[data-theme="pawee"]`
+overrides the raw scales (and a couple of alias formulas) to reskin the same
+components without touching component code.
 
 - **`--color-caramelo-1..12`** / **`--color-gray-1..12`** — the two raw
   12-step scales. Steps 1–4 are surfaces, 5–7 are borders, 8–10 are
@@ -115,8 +123,10 @@ call to action.
   state, not the same as a chip that's merely inactive.
 - **Badge** — status pill for verified/tutor/urgent/new/adopted. Every
   variant renders an icon character plus the label (see accessibility note
-  above); `urgent` is an outline in `--color-link` (caramelo-11), never a
-  filled brand background, so it can't be misread as a CTA. Takes a `size`
+  above); `urgent` is an outline in `--color-warning` (equals `--color-brand`
+  for Caramelo specifically — see `.refs/theming.md` for why this can't be a
+  hardcoded `brand` reference), never a filled brand background, so it can't
+  be misread as a CTA. Takes a `size`
   (`default`/`compact`) prop — `compact` is what AnimalCard uses for its
   inline verified badge, since a plain `className` override can only reach
   the outer pill (padding), not the label's own font-size.
