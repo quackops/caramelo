@@ -36,7 +36,7 @@ export const PhotoUpload = ({
               type="button"
               onClick={() => onRemove?.(photo.id)}
               aria-label={`Remover foto ${index + 1}`}
-              className="absolute right-1.5 top-1.5 flex size-5 items-center justify-center rounded-full bg-caramelo-1/80"
+              className="absolute right-1.5 top-1.5 flex size-5 cursor-pointer items-center justify-center rounded-full bg-caramelo-1/80"
             >
               <Text
                 as="span"
@@ -53,7 +53,7 @@ export const PhotoUpload = ({
           <button
             type="button"
             onClick={onAdd}
-            className="flex aspect-square flex-col items-center justify-center gap-1 rounded-[14px] border-[1.5px] border-dashed border-gray-7 bg-gray-2"
+            className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-[14px] border-[1.5px] border-dashed border-gray-7 bg-gray-2"
           >
             <Text
               as="span"
