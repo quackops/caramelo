@@ -30,6 +30,7 @@ export const NoticeRow = ({
           variant="medium"
           weight="regular"
           color={read ? 'neutral-2' : 'neutral'}
+          className="font-roboto text-[14px]"
         >
           {message}
         </Text>
