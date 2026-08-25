@@ -70,7 +70,7 @@ export const Sidebar = ({
           );
         })}
       </div>
-      <Button onClick={onPublish} className="mt-16 h-11">
+      <Button onClick={onPublish} className="mt-16 h-11 w-full">
         {collapsed ? '+' : 'Publicar'}
       </Button>
     </nav>
