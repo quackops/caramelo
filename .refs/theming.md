@@ -80,12 +80,14 @@ Caramelo formula encodes a Caramelo-specific decision, not a universal rule:
   a value in Caramelo. Reusing caramelo-11's *formula* for pawee meant
   reusing `#B08CE8` — pawee's own link color, a purple-300 tint meant for
   text on a dark background, well past the action fill in perceived
-  lightness. As a button hover it read as a jarring flash
-  rather than a subtle brighten. `--color-brand-hover` is now its own
-  token: `oklch(87.1% 0.1657 80.9)` for Caramelo (same value caramelo-11
-  already had), a hand-picked ~16% lighten of the action purple
-  (`#9D6BDA`) for pawee — proportionally closer to how Caramelo's own
-  9→11 step reads, not tied to whatever pawee's link color happens to be.
+  lightness. As a button hover it read as a jarring flash, not a subtle
+  state change. `--color-brand-hover` is now its own token, set to the
+  midpoint between `--color-brand` and `--color-brand-pressed` for both
+  themes — Caramelo: `oklch(81.5% 0.168 80.9)` (halfway between caramelo-9
+  and caramelo-10, no longer tied to caramelo-11 at all); pawee:
+  `#733EAE` (RGB midpoint of `#8A4FD3` and `#5C2E8A`). The fill now
+  darkens in one consistent direction — idle → hover → active/press —
+  instead of brightening on hover and reversing on press.
 
 That last point required one component change: `Badge`'s `urgent` variant
 used to hardcode `border-brand`/`text-link` (coincidentally correct for

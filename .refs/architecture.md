@@ -109,11 +109,11 @@ call to action.
   `--color-brand-hover` token, `:active` to `--color-brand-pressed` —
   "pressed" is not a separate prop, it's the native `:hover`/`:active`
   state, and the two are deliberately different values, not the same color.
-  `--color-brand-hover` is a dedicated token rather than an alias to
-  another role — for Caramelo it happens to equal caramelo-11, but a
-  theme's link/tint color and its button-hover color are different design
-  decisions that can coincide without being the same token; see
-  `.refs/theming.md`), `secondary` (outline), `handoff` (WhatsApp-only,
+  `--color-brand-hover` is a dedicated token, not an alias to another role
+  — it sits at the midpoint between `--color-brand` and
+  `--color-brand-pressed`, so the fill reads as darkening in one direction
+  through hover into active/press rather than brightening then reversing;
+  see `.refs/theming.md`), `secondary` (outline), `handoff` (WhatsApp-only,
   `--color-whatsapp` fill), `destructive` (outline in `--color-danger`).
   Disabled is the native `disabled` attribute, not a variant. Background and
   transform both transition together (`motion-safe:transition-all`) so
