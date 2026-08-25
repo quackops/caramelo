@@ -5,7 +5,10 @@ import { Text } from '../text/text';
 export const Tag = ({ children, className, ...rest }: TagProps) => {
   return (
     <span
-      className={cn('rounded-[7px] bg-gray-3 px-[9px] py-1', className)}
+      className={cn(
+        'inline-flex items-center rounded-[7px] bg-gray-3 px-[9px] py-1',
+        className,
+      )}
       {...rest}
     >
       <Text
