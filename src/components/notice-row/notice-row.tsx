@@ -2,8 +2,6 @@ import type { ReactNode } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// "LINHA DE AVISO" — unread = caramelo-3 surface + brand dot; read
-// reverts to gray-2 with no dot, per spec.
 export const NoticeRow = ({
   message,
   timestamp,
