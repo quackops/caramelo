@@ -12,7 +12,7 @@ export const SearchBar = ({
   return (
     <div
       className={cn(
-        'flex h-13 items-center gap-2.5 rounded-[14px] border px-4',
+        'flex h-13 items-center gap-2.5 rounded-[14px] border px-16',
         focused
           ? 'border-[1.5px] border-brand bg-caramelo-3'
           : 'border-gray-6 bg-gray-3',
@@ -22,7 +22,7 @@ export const SearchBar = ({
       <span
         aria-hidden
         className={cn(
-          'size-4 rounded-full border-2',
+          'size-16 rounded-full border-2',
           focused ? 'border-link' : 'border-neutral-3',
         )}
       />
