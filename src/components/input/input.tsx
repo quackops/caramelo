@@ -7,7 +7,12 @@ export const Input = ({ label, error, id, className, ...rest }: InputProps) => {
     <div>
       {label && (
         <label htmlFor={id} className="mb-[7px] block">
-          <Text variant="small" weight="medium" color="neutral-2">
+          <Text
+            variant="small"
+            weight="medium"
+            color="neutral-2"
+            className="text-[13px]"
+          >
             {label}
           </Text>
         </label>
@@ -26,7 +31,12 @@ export const Input = ({ label, error, id, className, ...rest }: InputProps) => {
         {...rest}
       />
       {error && (
-        <Text as="p" variant="small" color="danger" className="mt-1.5 text-xs">
+        <Text
+          as="p"
+          variant="small"
+          color="danger"
+          className="mt-1.5 font-roboto text-xs"
+        >
           {error}
         </Text>
       )}
