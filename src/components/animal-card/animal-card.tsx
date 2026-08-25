@@ -38,13 +38,18 @@ export const AnimalCard = ({
       )}
       <div className="min-w-0 flex-1 pt-0.5">
         <div className="mb-[3px] flex items-center gap-[7px]">
-          <Text variant="large" weight="semibold">
+          <Text variant="large" weight="semibold" className="text-[17px]">
             {name}
           </Text>
           {badge && <Badge variant={badge} size="compact" />}
         </div>
         {details && (
-          <Text as="p" variant="small" color="neutral-2" className="mb-2">
+          <Text
+            as="p"
+            variant="small"
+            color="neutral-2"
+            className="mb-2 font-roboto text-[13px] font-light"
+          >
             {details}
           </Text>
         )}
