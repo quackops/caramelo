@@ -1,3 +1,13 @@
+## [1.6.0](https://github.com/quackops/caramelo/compare/v1.5.3...v1.6.0) (2026-08-25)
+
+### Features
+
+* **style:** add dedicated --color-brand-hover token ([268f57f](https://github.com/quackops/caramelo/commit/268f57f8ebc74572ecc975a218f79a30125187f1))
+
+### Bug Fixes
+
+* **button:** use --color-brand-hover instead of reusing link, transition background and transform together ([5475770](https://github.com/quackops/caramelo/commit/54757708a5a7e9fc69fba948865c458e6296693c))
+
 ## [1.5.3](https://github.com/quackops/caramelo/compare/v1.5.2...v1.5.3) (2026-08-25)
 
 ### Bug Fixes
