@@ -5,7 +5,10 @@ export const Switch = ({ checked, className, id, ...rest }: SwitchProps) => {
   return (
     <label
       htmlFor={id}
-      className={cn('relative inline-block h-8 w-13 cursor-pointer', className)}
+      className={cn(
+        'relative inline-block h-32 w-13 cursor-pointer',
+        className,
+      )}
     >
       <input
         id={id}
