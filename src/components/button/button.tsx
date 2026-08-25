@@ -4,10 +4,6 @@ import { cn } from '../../utils/cn';
 import { Slot, type SlotProps } from '../slot/slot';
 import { Text } from '../text/text';
 
-// Button height 52 / radius 14 per spec. Variants map 1:1 to the
-// "BOTÕES" swatches in the design doc: primário, pressionado (via
-// active/hover states, not a separate prop), desabilitado (via
-// disabled attribute), secondário, handoff (whatsapp) and destrutivo.
 const buttonVariants = cva(
   cn(
     'inline-flex items-center justify-center h-13 rounded-[14px] px-6 cursor-pointer',
@@ -17,7 +13,6 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // gray-1 on caramelo-9 (on-brand-strong), hover/pressed -> caramelo-10
         primary:
           'bg-brand hover:bg-brand-pressed active:bg-brand-pressed disabled:bg-gray-4 disabled:text-gray-8',
         secondary:
