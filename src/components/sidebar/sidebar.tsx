@@ -40,7 +40,7 @@ export const Sidebar = ({
               key={item.value}
               type="button"
               className={cn(
-                'flex h-11 cursor-pointer items-center gap-[11px] rounded-xl px-3 hover:bg-gray-3',
+                'flex h-11 cursor-pointer items-center gap-[11px] rounded-xl px-3 hover:bg-gray-3 focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
                 active && 'bg-caramelo-4',
               )}
             >
