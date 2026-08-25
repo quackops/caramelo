@@ -38,7 +38,7 @@ export const ApplicationCard = ({
   return (
     <div
       className={cn(
-        'rounded-2xl border border-gray-5 bg-gray-2 p-4',
+        'rounded-2xl border border-gray-5 bg-gray-2 p-16',
         className,
       )}
     >
