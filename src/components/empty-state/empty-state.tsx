@@ -5,7 +5,7 @@ import { Button } from '../button/button';
 import { Text } from '../text/text';
 
 const containerVariants = cva(
-  'flex flex-col items-center rounded-[20px] p-[22px] text-center',
+  'flex flex-col items-center rounded-card p-[22px] text-center',
   {
     variants: {
       variant: {
