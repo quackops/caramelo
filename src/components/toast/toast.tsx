@@ -43,7 +43,7 @@ export const Toast = ({
         as="p"
         variant="small"
         color="neutral-2"
-        className="font-roboto font-light"
+        className="font-roboto text-[13px] font-light"
       >
         {description}
       </Text>
