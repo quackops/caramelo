@@ -9,17 +9,38 @@ never know which theme is active; the token layer does all the work.
 
 `CarameloProvider` (`src/components/caramelo-provider/`) renders a `<div
 data-theme={theme}>` wrapper. `src/style.css` holds a `[data-theme="pawee"]`
-block that overrides the *raw* 12-step scale variables
-(`--color-caramelo-1..12`, `--color-gray-1..12`) plus the handful of semantic
-aliases whose **formula** — not just value — differs per theme (see below).
-Every other semantic alias (`--color-brand`, `--color-surface`,
-`--color-neutral`, …) is declared once, in `@theme`, as a `var()` reference
-to one of those raw steps — CSS resolves `var()` lazily against the
-cascaded value *at the element being styled*, so overriding the raw step
-under `[data-theme="pawee"]` is enough to re-theme every alias, and every
-component that (against `conventions.md`) reaches for a raw scale step
-directly (`bg-caramelo-4`, `text-caramelo-12`, …), with no component code
-changes.
+block that overrides every `--color-*` custom property Caramelo declares:
+both the raw 12-step scales (`--color-caramelo-1..12`, `--color-gray-1..12`)
+**and** the semantic aliases (`--color-brand`, `--color-surface`,
+`--color-neutral`, …) that Caramelo itself defines as `var()` references to
+those raw steps.
+
+That second half is not optional, and it cost real time to learn. In theory
+it should be: CSS resolves `var()` lazily against the cascaded value at the
+element being styled, and `--color-brand: var(--color-caramelo-9)` is a
+completely ordinary chained custom property — overriding
+`--color-caramelo-9` under `[data-theme="pawee"]` should be enough for
+`--color-brand` (and therefore `.bg-brand`) to pick up the new value with no
+alias override needed. **In practice, this didn't hold.** Deployed and
+verified against `caramelo.pawee.space` directly: `bg-brand` and
+`active:bg-brand-pressed` (both one hop through an alias —
+`--color-brand`/`--color-brand-pressed` → `--color-caramelo-9/10`) stayed on
+Caramelo's value under the pawee theme, while `hover:bg-caramelo-11` and
+direct raw-scale classes elsewhere (`border-caramelo-7`, `bg-caramelo-4`)
+switched correctly. Every artifact was checked byte-for-byte — the compiled
+CSS, the live production CSS, the decorator/provider JS — and all matched
+intended source with no discrepancy; the two-hop alias chain simply didn't
+repaint correctly in the browser rendering it, spec notwithstanding. Rather
+than keep chasing why, every alias is now restated directly per theme, so
+no utility class needs more than one `var()` hop under either theme. It
+costs some duplication (a value like pawee's `#8a4fd3` appears in both
+`--color-caramelo-9` and `--color-brand`) — that's the trade being made.
+
+Components that (against `conventions.md`) reach for a raw scale step
+directly (`bg-caramelo-4`, `text-caramelo-12`, …) still re-theme for free
+off the raw-scale half of the block, no component code changes needed —
+that part of the original design held up fine. It was specifically the
+alias indirection that didn't.
 
 Caramelo itself needs no override block: its values already live on
 `:root` (from `@theme`), so `[data-theme="caramelo"]` would just be a
@@ -33,18 +54,18 @@ Caramelo's exactly (20px screen margin, 12px card gap, 20/16/28 radii, 52px
 control height, 44×44 tap target, Poppins UI / Roboto 300 body). Only color
 moves between themes.
 
-## Formula-level differences (why some aliases are restated, not inherited)
+## Two aliases whose Caramelo *formula* wouldn't have worked anyway
 
-Most of `[data-theme="pawee"]` only touches the raw scale. Three things are
-restated explicitly because Caramelo's *alias formula* encodes a
-Caramelo-specific decision, not a universal rule:
+Independent of the indirection problem above, two aliases needed a
+genuinely different value under pawee, not just a restated one — their
+Caramelo formula encodes a Caramelo-specific decision, not a universal rule:
 
 - **`--color-on-brand-strong` / `--color-on-brand-inverse`.** Caramelo's
   formula is `on-brand-strong: var(--color-gray-1)` (dark text) because
   caramelo-9 is a *light* fill. Pawee's action color (`#8A4FD3`) is a
   mid-tone purple that needs *light* text instead — the button text in the
-  handoff is `#fff`. Both tokens are restated as `#ffffff` for pawee rather
-  than inherited, or buttons would render unreadable dark-on-purple text.
+  handoff is `#fff`. Both tokens are `#ffffff` for pawee, or buttons would
+  render unreadable dark-on-purple text.
 - **`--color-warning`.** Caramelo aliases it straight to `--color-brand`
   on purpose (`architecture.md`: "warning aliases brand — the spec forbids
   amber meaning both urgent and primary action"). Pawee doesn't have that
@@ -95,17 +116,14 @@ re-derive these against a fresh export rather than assuming they're locked.
 
 ## `key={theme}` on the provider's root
 
-`CarameloProvider` keys its wrapper `<div>` on `theme`. Switching `theme` on
-an already-mounted provider forces React to unmount and remount the node
-(new DOM element) instead of just updating its `data-theme` attribute in
-place. This is a defensive fix for a real, reproduced symptom: after a live
-theme switch, base-state styles chained through more than one `var()`
-(`bg-brand` → `--color-brand` → `--color-caramelo-9`) stayed on the old
-theme's paint, while direct references (`hover:bg-caramelo-11`) picked up
-the new value immediately — `:hover` forces a fresh style recompute,
-in-place attribute mutation didn't reliably propagate through the chain.
-Remounting sidesteps it: every consumer gets a first paint under the new
-theme rather than a live style update.
+`CarameloProvider` keys its wrapper `<div>` on `theme`, so switching `theme`
+on an already-mounted provider unmounts and remounts the node instead of
+updating its `data-theme` attribute in place. Kept as cheap insurance
+against any future flavor of "attribute changed, some descendant didn't
+repaint" — but note it was tried, alone, as the fix for the alias-chain bug
+above and **did not resolve it**: a fresh mount ruled out staleness/repaint
+timing as the cause and was what pointed at the alias chain itself instead.
+The real fix was restating every alias directly, above.
 
 ## Known gaps (deliberate, for now)
 

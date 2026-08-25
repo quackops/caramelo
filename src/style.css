@@ -128,6 +128,19 @@
   --color-gray-11: #c9c2d6;
   --color-gray-12: #ffffff;
 
+  --color-brand: #8a4fd3;
+  --color-brand-pressed: #5c2e8a;
+  --color-link: #b08ce8;
+  --color-bg: #0b0714;
+  --color-surface: #171022;
+  --color-surface-2: rgba(255, 255, 255, 0.05);
+  --color-surface-on-brand: #ffffff;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-neutral: #ffffff;
+  --color-neutral-2: #c9c2d6;
+  --color-neutral-3: #8e86a0;
+  --color-neutral-inverse: #0b0714;
+
   --color-on-brand-strong: #ffffff;
   --color-on-brand-inverse: #ffffff;
 
