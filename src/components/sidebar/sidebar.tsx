@@ -14,7 +14,7 @@ export const Sidebar = ({
   return (
     <nav
       className={cn(
-        'flex flex-col rounded-2xl border border-gray-5 bg-gray-2 p-3',
+        'flex flex-col rounded-2xl border border-gray-5 bg-gray-2 px-3 py-16',
         collapsed ? 'w-[72px]' : 'w-[248px]',
         className,
       )}
