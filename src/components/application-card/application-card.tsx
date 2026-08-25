@@ -3,10 +3,6 @@ import { cn } from '../../utils/cn';
 import { Button } from '../button/button';
 import { Text } from '../text/text';
 
-// "Card de candidatura" — states: em análise / aceita / recusada /
-// concluída. Actions (Aceitar / Ver respostas) are only meaningful
-// while a candidacy is under review, so they only render for that
-// status; other statuses show the status pill alone.
 const statusVariants = cva(
   'rounded-lg px-2.5 py-[5px] text-[10px] font-semibold',
   {
