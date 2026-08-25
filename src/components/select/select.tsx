@@ -22,7 +22,7 @@ export const Select = ({
         <select
           id={id}
           className={cn(
-            'h-13 w-full appearance-none rounded-[14px] border border-gray-6 bg-gray-3 px-4 font-roboto text-[15px] font-light text-neutral',
+            'h-13 w-full appearance-none rounded-[14px] border border-gray-6 bg-gray-3 px-16 font-roboto text-[15px] font-light text-neutral',
             'focus:border-[1.5px] focus:border-brand focus:outline-none',
             className,
           )}
@@ -30,7 +30,7 @@ export const Select = ({
         >
           {children}
         </select>
-        <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-poppins text-xs text-neutral-3">
+        <span className="pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 font-poppins text-xs text-neutral-3">
           ▾
         </span>
       </div>
