@@ -42,7 +42,7 @@ export const TabBar = ({
           <button
             key={item.value}
             type="button"
-            className="relative flex w-[62px] flex-col items-center gap-1.5"
+            className="relative flex w-[62px] cursor-pointer flex-col items-center gap-1.5"
           >
             <span
               className={cn(
