@@ -2,10 +2,6 @@ import type { ReactNode, SelectHTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// Native <select> styled to the field spec (height 52, radius 14) with
-// a decorative chevron. The design doc also shows a custom open-menu
-// state, but that is a distinct overlay component (menu/popover), out
-// of scope for this atomic field.
 export const Select = ({
   label,
   id,
