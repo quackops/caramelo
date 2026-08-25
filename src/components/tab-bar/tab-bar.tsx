@@ -3,9 +3,6 @@ import { cn } from '../../utils/cn';
 import { Fab } from '../fab/fab';
 import { Text } from '../text/text';
 
-// Mobile tab bar, 83px, 5 roots. The publish action is the FAB, raised
-// above the bar. Badge always keeps a border matching the bar surface
-// so it never visually fuses with the icon.
 export const TabBar = ({
   items,
   activeValue,
