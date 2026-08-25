@@ -4,7 +4,7 @@ import { cn } from '../../utils/cn';
 
 const iconButtonVariants = cva(
   cn(
-    'inline-flex items-center justify-center size-11 rounded-[14px] border cursor-pointer',
+    'inline-flex items-center justify-center size-11 rounded-control border cursor-pointer',
     'motion-safe:active:scale-95 motion-safe:transition-transform motion-safe:duration-150',
     'focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
   ),
