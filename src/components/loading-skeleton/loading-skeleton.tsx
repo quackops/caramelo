@@ -1,10 +1,5 @@
 import { cn } from '../../utils/cn';
 
-// "CARREGANDO" — skeleton block (shimmer, 1200ms loop) for content
-// placeholders, plus the 28px spinner used for inline loading. Both
-// respect prefers-reduced-motion: the shimmer keyframe and spin
-// animation are declared with `motion-safe:` so a reduced-motion
-// viewer just sees the static surface / a static ring.
 export const LoadingSkeleton = ({
   variant = 'block',
   className,
