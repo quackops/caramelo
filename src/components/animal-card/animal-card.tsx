@@ -3,8 +3,6 @@ import { cn } from '../../utils/cn';
 import { Badge, type BadgeProps } from '../badge/badge';
 import { Text } from '../text/text';
 
-// "CARD DE ANIMAL · lista" — gray-2 surface on the caramelo-1 page
-// background, 104x104 photo (radius 16), radius 20 card.
 export const AnimalCard = ({
   name,
   photoSrc,
