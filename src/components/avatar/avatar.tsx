@@ -8,8 +8,8 @@ const avatarVariants = cva(
   {
     variants: {
       size: {
-        medium: 'size-12 border-[1.5px] border-brand',
-        small: 'size-8 border-2 border-gray-2',
+        medium: 'size-[48px] border-[1.5px] border-brand',
+        small: 'size-32 border-2 border-gray-2',
       },
     },
     defaultVariants: {
