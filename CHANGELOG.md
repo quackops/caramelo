@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/quackops/caramelo/compare/v1.6.0...v1.6.1) (2026-08-25)
+
+### Bug Fixes
+
+* **style:** darken --color-brand-hover to sit between brand and brand-pressed ([58ad555](https://github.com/quackops/caramelo/commit/58ad5553557d0f57762dceb45009b38e34059f92))
+
 ## [1.6.0](https://github.com/quackops/caramelo/compare/v1.5.3...v1.6.0) (2026-08-25)
 
 ### Features
