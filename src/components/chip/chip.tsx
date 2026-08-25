@@ -4,7 +4,7 @@ import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
 const chipVariants = cva(
-  'inline-flex h-[34px] items-center gap-[7px] rounded-full px-3.5 cursor-pointer',
+  'inline-flex h-[34px] items-center gap-[7px] rounded-full px-3.5 cursor-pointer focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
   {
     variants: {
       variant: {
