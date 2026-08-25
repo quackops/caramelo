@@ -12,7 +12,7 @@ export const NoticeRow = ({
   return (
     <div
       className={cn(
-        'flex gap-[13px] p-4',
+        'flex gap-[13px] py-[15px] px-16',
         read ? 'bg-gray-2' : 'bg-caramelo-3',
         className,
       )}
