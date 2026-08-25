@@ -2,10 +2,6 @@ import type { InputHTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// Field · height 52, radius 14. Default/focus states are native CSS
-// pseudo-classes (focus is not a prop a consumer would ever set);
-// "error" is a prop because it is driven by validation state, not
-// interaction.
 export const Input = ({ label, error, id, className, ...rest }: InputProps) => {
   return (
     <div>
