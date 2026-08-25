@@ -2,11 +2,6 @@ import type { InputHTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// Search field · height 52, radius 14. "Focused" is signalled here via
-// a controlled `focused` prop (rather than :focus) because the design
-// shows a distinct filled state (value present + focus ring) that also
-// needs a clear button — that combination isn't reachable from CSS
-// pseudo-classes alone.
 export const SearchBar = ({
   value,
   focused,
