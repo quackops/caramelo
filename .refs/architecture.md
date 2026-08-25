@@ -69,6 +69,11 @@ or bespoke pixel value for something a token already covers.
   `font-poppins`), Roboto 300 for body copy (`font-roboto`, used directly in
   form-field values rather than through `Text`, since `Text` is Poppins-only
   today).
+- **Keyboard focus** — every interactive component (buttons, fields, chips,
+  nav rows, tabs, segmented control) adds `focus-visible:outline-2
+  focus-visible:outline-brand focus-visible:outline-offset-2`, alongside
+  (never instead of) its own hover/active treatment; fields that used to
+  suppress the native outline via `focus:outline-none` rely on this instead.
 
 ### Why these components exist
 
@@ -92,11 +97,13 @@ call to action.
 ### Component reference
 
 - **Button** — height 52, radius 14. Variants: `primary` (caramelo-9 fill,
-  `on-brand-strong` text, hover/active states move to caramelo-10 —
-  "pressed" is not a separate prop, it's the native `:hover`/`:active`
-  state), `secondary` (outline), `handoff` (WhatsApp-only, `--color-whatsapp`
-  fill), `destructive` (outline in `--color-danger`). Disabled is the native
-  `disabled` attribute, not a variant.
+  `on-brand-strong` text; `:hover` lightens to caramelo-11, `:active`
+  darkens to caramelo-10/`--color-brand-pressed` — "pressed" is not a
+  separate prop, it's the native `:hover`/`:active` state, and the two are
+  deliberately different steps, not the same color), `secondary` (outline),
+  `handoff` (WhatsApp-only, `--color-whatsapp` fill), `destructive` (outline
+  in `--color-danger`). Disabled is the native `disabled` attribute, not a
+  variant.
 - **IconButton** — 44×44 tap target. `active` toggles between a neutral
   gray-3 surface and an active caramelo-3/caramelo-7-bordered surface using
   `on-brand-inverse` text (caramelo-3 is a dark brand tint).
@@ -109,7 +116,10 @@ call to action.
 - **Badge** — status pill for verified/tutor/urgent/new/adopted. Every
   variant renders an icon character plus the label (see accessibility note
   above); `urgent` is an outline in `--color-link` (caramelo-11), never a
-  filled brand background, so it can't be misread as a CTA.
+  filled brand background, so it can't be misread as a CTA. Takes a `size`
+  (`default`/`compact`) prop — `compact` is what AnimalCard uses for its
+  inline verified badge, since a plain `className` override can only reach
+  the outer pill (padding), not the label's own font-size.
 - **SegmentedControl** — shares the brand fill with the selected option by
   design; must not appear on the same row as a primary `Button`.
 - **Input** — height 52, radius 14. `focus` is the native CSS
@@ -133,7 +143,7 @@ call to action.
 - **AnimalCard** — the list-style card: 104×104 photo (radius 16) inside a
   gray-2 card (radius 20) sitting on the caramelo-1 page background — the
   gray card gives the warm-toned photo a neutral frame without needing a
-  border.
+  border. Its inline badge uses `Badge`'s `size="compact"`.
 - **Toast** — `success`/`error` only; the spec shows no third (info/neutral)
   variant, so none is implemented. Renders as `<output>` for correct
   assistive-tech semantics.
