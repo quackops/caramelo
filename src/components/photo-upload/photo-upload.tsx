@@ -20,7 +20,7 @@ export const PhotoUpload = ({
             className="relative aspect-square rounded-[14px] bg-caramelo-3"
           >
             {index === 0 && (
-              <span className="absolute bottom-1.5 left-1.5 rounded-md bg-brand px-1.5 py-0.5">
+              <span className="absolute bottom-1.5 left-1.5 rounded-md bg-brand px-[7px] py-0.5">
                 <Text
                   as="span"
                   variant="small"
@@ -36,7 +36,7 @@ export const PhotoUpload = ({
               type="button"
               onClick={() => onRemove?.(photo.id)}
               aria-label={`Remover foto ${index + 1}`}
-              className="absolute right-1.5 top-1.5 flex size-5 cursor-pointer items-center justify-center rounded-full bg-caramelo-1/80"
+              className="absolute right-[5px] top-[5px] flex size-5 cursor-pointer items-center justify-center rounded-full bg-caramelo-1/80"
             >
               <Text
                 as="span"
@@ -70,7 +70,7 @@ export const PhotoUpload = ({
           </button>
         )}
       </div>
-      <div className="rounded-[14px] border-[1.5px] border-dashed border-caramelo-8 bg-caramelo-3 p-6 text-center">
+      <div className="rounded-[14px] border-[1.5px] border-dashed border-caramelo-8 bg-caramelo-3 p-[26px] text-center">
         <Text variant="small" weight="medium" className="text-caramelo-12">
           {dropzoneLabel}
         </Text>
