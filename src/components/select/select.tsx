@@ -23,7 +23,8 @@ export const Select = ({
           id={id}
           className={cn(
             'h-13 w-full appearance-none rounded-[14px] border border-gray-6 bg-gray-3 px-16 font-roboto text-[15px] font-light text-neutral',
-            'focus:border-[1.5px] focus:border-brand focus:outline-none',
+            'focus:border-[1.5px] focus:border-brand',
+            'focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
             className,
           )}
           {...rest}
