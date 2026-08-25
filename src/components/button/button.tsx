@@ -15,7 +15,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-brand hover:bg-brand-pressed active:bg-brand-pressed disabled:bg-gray-4 disabled:text-gray-8',
+          'bg-brand hover:bg-brand-pressed active:bg-brand-pressed disabled:bg-gray-3 disabled:text-gray-8',
         secondary:
           'bg-transparent border-[1.5px] border-gray-7 hover:border-caramelo-8 text-neutral disabled:border-gray-5 disabled:text-gray-8',
         handoff: 'bg-whatsapp',
