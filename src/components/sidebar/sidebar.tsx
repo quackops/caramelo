@@ -3,9 +3,6 @@ import { cn } from '../../utils/cn';
 import { Button } from '../button/button';
 import { Text } from '../text/text';
 
-// Web sidebar, 248px (collapses to 72px below 1280 — the "collapsed"
-// prop maps that breakpoint). Active item = caramelo-4 surface, never
-// the full brand color, which stays reserved for the publish button.
 export const Sidebar = ({
   logo,
   items,
