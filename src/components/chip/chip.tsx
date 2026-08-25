@@ -3,9 +3,6 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// Height 34, radius 999 (chip). "selected" shares the brand color with
-// the primary button on purpose (spec note: they must never sit in the
-// same visual row). "disabled" is the dashed/unavailable state.
 const chipVariants = cva(
   'inline-flex h-[34px] items-center gap-[7px] rounded-full px-3.5',
   {
