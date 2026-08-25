@@ -45,11 +45,16 @@ export const EmptyState = ({
         variant={v === 'empty' ? 'large' : 'medium'}
         weight="semibold"
         color={v === 'error' ? 'danger' : 'neutral'}
-        className="mb-1.5"
+        className={cn('mb-1.5', v === 'empty' ? 'text-[17px]' : 'text-[15px]')}
       >
         {title}
       </Text>
-      <Text as="p" variant="small" color="neutral-2" className="mb-16">
+      <Text
+        as="p"
+        variant="small"
+        color="neutral-2"
+        className="mb-16 font-roboto font-light"
+      >
         {description}
       </Text>
       {actionLabel && (
