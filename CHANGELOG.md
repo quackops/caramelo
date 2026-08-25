@@ -1,3 +1,9 @@
+## [1.6.2](https://github.com/quackops/caramelo/compare/v1.6.1...v1.6.2) (2026-08-25)
+
+### Bug Fixes
+
+* **button:** make hover and active share --color-brand-pressed, drop the separate hover token ([31ab136](https://github.com/quackops/caramelo/commit/31ab1365d90ec3693c5a047d8ef2da0a76695cd1))
+
 ## [1.6.1](https://github.com/quackops/caramelo/compare/v1.6.0...v1.6.1) (2026-08-25)
 
 ### Bug Fixes
