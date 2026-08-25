@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/quackops/caramelo/compare/v1.3.2...v1.4.0) (2026-08-25)
+
+### Features
+
+* **tag:** add Tag component ([9361ffc](https://github.com/quackops/caramelo/commit/9361ffc3755ed7420ba0b58fe6a88789e7c4a17c))
+
 ## [1.3.2](https://github.com/quackops/caramelo/compare/v1.3.1...v1.3.2) (2026-08-25)
 
 ### Bug Fixes
