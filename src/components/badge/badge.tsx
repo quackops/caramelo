@@ -3,9 +3,6 @@ import type { HTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// Status pill / "selo". Accessibility rule from the spec: no status
-// relies on color alone — verified, urgent and adopted always carry an
-// icon glyph *and* the word, never just a color.
 const badgeVariants = cva(
   'inline-flex items-center gap-1 rounded-lg px-[11px] py-[5px]',
   {
