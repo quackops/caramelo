@@ -1,3 +1,9 @@
+## [1.5.2](https://github.com/quackops/caramelo/compare/v1.5.1...v1.5.2) (2026-08-25)
+
+### Bug Fixes
+
+* **caramelo-provider:** remount on theme change instead of mutating data-theme in place ([fd8961b](https://github.com/quackops/caramelo/commit/fd8961bb165982f2209abf33e4c09a30833802cd))
+
 ## [1.5.1](https://github.com/quackops/caramelo/compare/v1.5.0...v1.5.1) (2026-08-25)
 
 ### Bug Fixes
