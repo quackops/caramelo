@@ -1,11 +1,6 @@
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// "UPLOAD DE FOTOS" grid: cover photo (badge "CAPA"), other photos
-// (with remove button), an "add" slot showing the n/max counter, and a
-// web-only dropzone. Drag-reorder and the camera/roll picker are
-// interaction behaviors left to the consumer — this component renders
-// the visual states only.
 export const PhotoUpload = ({
   photos,
   max,
