@@ -36,6 +36,7 @@ export const SegmentedControl = ({
               variant="small"
               weight="medium"
               color={selected ? 'on-brand-strong' : 'neutral-2'}
+              className="text-[13px]"
             >
               {option.label}
             </Text>
