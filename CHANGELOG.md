@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/quackops/caramelo/compare/v1.3.1...v1.3.2) (2026-08-25)
+
+### Bug Fixes
+
+* **button:** merge consumer className instead of overwriting variant classes ([e14d262](https://github.com/quackops/caramelo/commit/e14d2621b2331231e14c46fe4d04b8baaccd95ef))
+* **text:** merge consumer className instead of overwriting variant classes ([77d17cd](https://github.com/quackops/caramelo/commit/77d17cdd5627f219b7371ab075647fa68f3328a9))
+
 ## [1.3.1](https://github.com/quackops/caramelo/compare/v1.3.0...v1.3.1) (2026-08-25)
 
 ### Bug Fixes
