@@ -40,8 +40,6 @@
   --color-neutral-3: var(--color-gray-10);
   --color-neutral-inverse: var(--color-gray-1);
 
-  /* Two on-brand text/icon tokens: brand surfaces split into "light"
-     (caramelo-9/10/11 - needs dark text) and "dark" (caramelo-4..7 - needs light text). */
   --color-on-brand-strong: var(--color-gray-1);
   --color-on-brand-inverse: var(--color-gray-12);
 
@@ -69,6 +67,8 @@
 
   --size-tap-min: 44px;
   --size-control-height: 52px;
+
+  --shadow-raised: 0 8px 24px oklch(17.8% 0.0119 80.9 / 0.6);
 
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
 
