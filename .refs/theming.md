@@ -73,21 +73,12 @@ Caramelo formula encodes a Caramelo-specific decision, not a universal rule:
   (`#F2B75C`), visibly distinct from the action purple, so it's declared
   independently rather than aliased to brand.
 
-- **`--color-brand-hover`.** `Button`'s primary hover used to reuse
-  `--color-link`/caramelo-11 directly, and for Caramelo that's correct
-  (verified against the design canvas). But "link/tint color" and "hover
-  state of the primary fill" are different roles that only happen to share
-  a value in Caramelo. Reusing caramelo-11's *formula* for pawee meant
-  reusing `#B08CE8` — pawee's own link color, a purple-300 tint meant for
-  text on a dark background, well past the action fill in perceived
-  lightness. As a button hover it read as a jarring flash, not a subtle
-  state change. `--color-brand-hover` is now its own token, set to the
-  midpoint between `--color-brand` and `--color-brand-pressed` for both
-  themes — Caramelo: `oklch(81.5% 0.168 80.9)` (halfway between caramelo-9
-  and caramelo-10, no longer tied to caramelo-11 at all); pawee:
-  `#733EAE` (RGB midpoint of `#8A4FD3` and `#5C2E8A`). The fill now
-  darkens in one consistent direction — idle → hover → active/press —
-  instead of brightening on hover and reversing on press.
+`Button`'s primary hover briefly went through its own `--color-brand-hover`
+token (first reusing `--color-link`, which for pawee meant its actual link
+color — a much lighter tint than intended, read as a flash; then a
+midpoint between brand and brand-pressed) before landing on the simplest
+option: `:hover` and `:active` both just use `--color-brand-pressed`,
+same as before any of this theming work started. No separate hover step.
 
 That last point required one component change: `Badge`'s `urgent` variant
 used to hardcode `border-brand`/`text-link` (coincidentally correct for
