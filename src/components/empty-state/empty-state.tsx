@@ -10,7 +10,7 @@ const containerVariants = cva(
     variants: {
       variant: {
         empty: 'bg-gray-2 border border-gray-5 py-7',
-        error: 'bg-gray-2 border border-danger/30 py-[18px]',
+        error: 'bg-gray-2 border border-danger/30 p-[18px]',
       },
     },
     defaultVariants: {
