@@ -4,9 +4,6 @@ import { cn } from '../../utils/cn';
 import { Button } from '../button/button';
 import { Text } from '../text/text';
 
-// "ESTADO VAZIO E DE ERRO" — every state has a title, one sentence and
-// an action; never illustration alone. Empty = neutral card with an
-// illustration ring; error = danger-bordered card, no illustration.
 const containerVariants = cva(
   'flex flex-col items-center rounded-[20px] p-[22px] text-center',
   {
