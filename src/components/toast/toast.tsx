@@ -3,8 +3,6 @@ import type { HTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// Doc only shows success/error; a neutral/info toast isn't in the
-// spec, so we don't invent one.
 const toastVariants = cva('rounded-[14px] border px-[15px] py-[13px]', {
   variants: {
     variant: {
