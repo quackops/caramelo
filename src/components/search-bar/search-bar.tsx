@@ -12,7 +12,7 @@ export const SearchBar = ({
   return (
     <div
       className={cn(
-        'flex h-13 items-center gap-2.5 rounded-[14px] border px-16',
+        'flex h-13 items-center gap-2.5 rounded-control border px-16',
         focused
           ? 'border-[1.5px] border-brand bg-caramelo-3'
           : 'border-gray-6 bg-gray-3',
