@@ -17,7 +17,7 @@ export const PhotoUpload = ({
         {photos.map((photo, index) => (
           <div
             key={photo.id}
-            className="relative aspect-square rounded-[14px] bg-caramelo-3"
+            className="relative aspect-square rounded-control bg-caramelo-3"
           >
             {index === 0 && (
               <span className="absolute bottom-1.5 left-1.5 rounded-md bg-brand px-[7px] py-0.5">
@@ -53,7 +53,7 @@ export const PhotoUpload = ({
           <button
             type="button"
             onClick={onAdd}
-            className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-[14px] border-[1.5px] border-dashed border-gray-7 bg-gray-2"
+            className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-control border-[1.5px] border-dashed border-gray-7 bg-gray-2"
           >
             <Text
               as="span"
@@ -70,7 +70,7 @@ export const PhotoUpload = ({
           </button>
         )}
       </div>
-      <div className="rounded-[14px] border-[1.5px] border-dashed border-caramelo-8 bg-caramelo-3 p-[26px] text-center">
+      <div className="rounded-control border-[1.5px] border-dashed border-caramelo-8 bg-caramelo-3 p-[26px] text-center">
         <Text variant="small" weight="medium" className="text-caramelo-12">
           {dropzoneLabel}
         </Text>
