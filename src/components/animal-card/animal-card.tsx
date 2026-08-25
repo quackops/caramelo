@@ -41,9 +41,7 @@ export const AnimalCard = ({
           <Text variant="large" weight="semibold">
             {name}
           </Text>
-          {badge && (
-            <Badge variant={badge} className="px-[7px] py-[3px] text-[9px]" />
-          )}
+          {badge && <Badge variant={badge} size="compact" />}
         </div>
         {details && (
           <Text as="p" variant="small" color="neutral-2" className="mb-2">
