@@ -18,7 +18,7 @@ export const AnimalCard = ({
   return (
     <div
       className={cn(
-        'flex gap-3.5 rounded-[20px] border border-gray-5 bg-gray-2 p-3',
+        'flex gap-3.5 rounded-card border border-gray-5 bg-gray-2 p-3',
         className,
       )}
       {...rest}
@@ -27,13 +27,13 @@ export const AnimalCard = ({
         <img
           src={photoSrc}
           alt={photoAlt ?? name}
-          className="size-[104px] flex-none rounded-2xl object-cover"
+          className="size-[104px] flex-none rounded-photo object-cover"
         />
       ) : (
         <div
           role="img"
           aria-label={photoAlt ?? name}
-          className="size-[104px] flex-none rounded-2xl bg-caramelo-3"
+          className="size-[104px] flex-none rounded-photo bg-caramelo-3"
         />
       )}
       <div className="min-w-0 flex-1 pt-0.5">
