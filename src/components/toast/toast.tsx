@@ -31,10 +31,20 @@ export const Toast = ({
 
   return (
     <output className={cn(toastVariants({ variant: v }), className)} {...rest}>
-      <Text variant="medium" weight="semibold" color={textColor[v]}>
+      <Text
+        variant="medium"
+        weight="semibold"
+        color={textColor[v]}
+        className="text-[14px]"
+      >
         {title}
       </Text>
-      <Text as="p" variant="small" color="neutral-2">
+      <Text
+        as="p"
+        variant="small"
+        color="neutral-2"
+        className="font-roboto font-light"
+      >
         {description}
       </Text>
     </output>
