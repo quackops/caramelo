@@ -7,7 +7,7 @@ import { Text } from '../text/text';
 const buttonVariants = cva(
   cn(
     'inline-flex items-center justify-center h-13 rounded-[14px] px-6 cursor-pointer',
-    'active:scale-95 transition-transform duration-150',
+    'motion-safe:active:scale-95 motion-safe:transition-transform motion-safe:duration-150',
     'disabled:cursor-not-allowed disabled:active:scale-100',
     'focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
   ),
