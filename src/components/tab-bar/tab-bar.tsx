@@ -20,7 +20,7 @@ export const TabBar = ({
         item.isPublish ? (
           <div
             key={item.value}
-            className="-mt-4 flex w-[62px] flex-col items-center"
+            className="-mt-16 flex w-[62px] flex-col items-center"
           >
             <Fab
               aria-label={item.label}
@@ -63,7 +63,7 @@ export const TabBar = ({
               {item.label}
             </Text>
             {typeof item.badgeCount === 'number' && (
-              <span className="absolute -top-[3px] right-[13px] flex h-4 min-w-4 items-center justify-center rounded-full border-2 border-gray-2 bg-danger px-1">
+              <span className="absolute -top-[3px] right-[13px] flex h-16 min-w-16 items-center justify-center rounded-full border-2 border-gray-2 bg-danger px-1">
                 <Text
                   variant="small"
                   weight="semibold"
