@@ -54,5 +54,6 @@ export {
   type TabBarItem,
   type TabBarProps,
 } from './components/tab-bar/tab-bar';
+export { Tag, type TagProps } from './components/tag/tag';
 export { Text, type TextProps } from './components/text/text';
 export { Toast, type ToastProps } from './components/toast/toast';
