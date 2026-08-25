@@ -93,6 +93,20 @@ interpolated between the confirmed anchors above, following the alpha/role
 progression the handoff itself uses elsewhere. If pawee's design evolves,
 re-derive these against a fresh export rather than assuming they're locked.
 
+## `key={theme}` on the provider's root
+
+`CarameloProvider` keys its wrapper `<div>` on `theme`. Switching `theme` on
+an already-mounted provider forces React to unmount and remount the node
+(new DOM element) instead of just updating its `data-theme` attribute in
+place. This is a defensive fix for a real, reproduced symptom: after a live
+theme switch, base-state styles chained through more than one `var()`
+(`bg-brand` → `--color-brand` → `--color-caramelo-9`) stayed on the old
+theme's paint, while direct references (`hover:bg-caramelo-11`) picked up
+the new value immediately — `:hover` forces a fresh style recompute,
+in-place attribute mutation didn't reliably propagate through the chain.
+Remounting sidesteps it: every consumer gets a first paint under the new
+theme rather than a live style update.
+
 ## Known gaps (deliberate, for now)
 
 - **No button gradient/glow.** Pawee's primary button is a

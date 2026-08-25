@@ -11,6 +11,7 @@ export const CarameloProvider = ({
 }: CarameloProviderProps) => {
   return (
     <div
+      key={theme}
       data-theme={theme}
       className={cn('bg-bg text-neutral', className)}
       {...rest}
