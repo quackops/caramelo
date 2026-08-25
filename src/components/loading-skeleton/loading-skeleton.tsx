@@ -10,7 +10,7 @@ export const LoadingSkeleton = ({
       <output
         aria-label="Carregando"
         className={cn(
-          'inline-block size-7 rounded-full border-[3px] border-gray-5 border-t-brand motion-safe:animate-spin',
+          'inline-block size-7 rounded-full border-[3px] border-gray-5 border-t-brand motion-safe:animate-spin-slow',
           className,
         )}
         {...rest}
@@ -22,7 +22,7 @@ export const LoadingSkeleton = ({
     <output
       aria-label="Carregando"
       className={cn(
-        'block rounded-lg bg-gray-3 motion-safe:animate-pulse',
+        'block rounded-lg bg-gray-3 motion-safe:bg-[linear-gradient(90deg,var(--color-gray-3),var(--color-gray-6),var(--color-gray-3))] motion-safe:bg-[length:200%_100%] motion-safe:animate-shimmer',
         className,
       )}
       {...rest}
