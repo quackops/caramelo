@@ -19,7 +19,7 @@ export const Sidebar = ({
         className,
       )}
     >
-      <div className="mb-4 flex items-center gap-2.5 px-2">
+      <div className="mb-16 flex items-center gap-2.5 px-2">
         <span className="flex size-7 items-center justify-center rounded-[9px] bg-brand">
           <Text variant="small" weight="semibold" color="on-brand-strong">
             {logo.mark}
@@ -70,7 +70,7 @@ export const Sidebar = ({
           );
         })}
       </div>
-      <Button onClick={onPublish} className="mt-4 h-11">
+      <Button onClick={onPublish} className="mt-16 h-11">
         {collapsed ? '+' : 'Publicar'}
       </Button>
     </nav>
