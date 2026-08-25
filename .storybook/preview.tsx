@@ -40,10 +40,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => (
-      <CarameloProvider
-        theme={context.globals.theme ?? 'caramelo'}
-        className="bg-transparent"
-      >
+      <CarameloProvider theme={context.globals.theme ?? 'caramelo'}>
         <Story />
       </CarameloProvider>
     ),
