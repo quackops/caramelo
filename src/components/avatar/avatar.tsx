@@ -3,8 +3,6 @@ import type { ImgHTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
-// Avatar 48 (autoria) / 32 (pilha). Shows initials on a caramelo-4
-// surface with a brand ring when there is no photo, per spec.
 const avatarVariants = cva(
   'inline-flex items-center justify-center rounded-full bg-caramelo-4',
   {
