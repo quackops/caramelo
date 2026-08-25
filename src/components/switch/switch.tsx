@@ -1,8 +1,6 @@
 import type { InputHTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 
-// Toggle: 52x32 track, 26px knob. On = brand track with gray-1 knob
-// (on-brand-strong). Off = neutral track with gray-12 knob.
 export const Switch = ({ checked, className, id, ...rest }: SwitchProps) => {
   return (
     <label
