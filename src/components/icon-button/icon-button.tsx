@@ -6,6 +6,7 @@ const iconButtonVariants = cva(
   cn(
     'inline-flex items-center justify-center size-11 rounded-[14px] border cursor-pointer',
     'active:scale-95 transition-transform duration-150',
+    'focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
   ),
   {
     variants: {
