@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { Icon, iconNames } from './icon';
+import { filledIconNames, Icon, iconNames } from './icon';
 
 describe('Icon', () => {
   it('renders an svg on a 24 viewBox for every name', () => {
@@ -25,6 +25,21 @@ describe('Icon', () => {
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('role', 'img');
     expect(svg).not.toHaveAttribute('aria-hidden');
+  });
+
+  it('renders the brand marks as filled paths without a stroke', () => {
+    for (const name of filledIconNames) {
+      const { container, unmount } = render(<Icon name={name} />);
+      const svg = container.querySelector('svg');
+      expect(svg).toHaveAttribute('fill', 'currentColor');
+      expect(svg).toHaveAttribute('stroke', 'none');
+      expect(svg).not.toHaveAttribute('stroke-width');
+      unmount();
+    }
+  });
+
+  it('exposes the brand marks through iconNames', () => {
+    expect(iconNames).toEqual(expect.arrayContaining(filledIconNames));
   });
 
   it('thickens the stroke below 14px', () => {

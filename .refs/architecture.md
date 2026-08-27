@@ -128,18 +128,30 @@ call to action.
   instead of snapping. The label never wraps (`whitespace-nowrap`) — a
   narrow container makes the button wider, never taller than its fixed
   height (see `ApplicationCard`'s side-by-side action pair).
-- **Icon** — the app's Feather-style glyph set (27 names: `home`, `heart`,
-  `plus`, `bell`, `user`, `search`, `filter`, `sliders`, `map-pin`, `list`,
-  `grid`, `map`, `shield`, `check-circle`, `alert-circle`, `message-circle`,
-  `share-2`, `camera`, `image`, `gift`, `clock`, `copy`, `eye`,
-  `chevron-down`, `chevron-left`, `x`), exported alongside `iconNames`. Always
-  a 24×24 `viewBox`, `fill="none"`, `stroke="currentColor"` (colour comes
-  from the parent's text colour, or the `color` prop), round caps/joins.
-  `size` (default 24) sets width/height and thickens the stroke to 2.4 below
-  14px, matching the brand spec. Decorative by default (`aria-hidden`); pass
-  `aria-label` to promote it to `role="img"`. This is the glyph primitive
-  `IconButton`/`Fab`/`TabBar` etc. render inside — those components own the
-  hit target and surface, `Icon` owns only the artwork.
+- **Icon** — the app's glyph set, split into two families behind one name
+  union. The **stroke** family is Feather-style (`home`, `heart`, `plus`,
+  `bell`, `user`, `search`, `filter`, `sliders`, `map-pin`, `list`, `grid`,
+  `map`, `shield`, `check`, `check-circle`, `alert-circle`, `message-circle`,
+  `share-2`, `camera`, `image`, `gift`, `clock`, `copy`, `eye`, `edit`,
+  `trash`, `flag`, `download`, `pause`, `play`, `refresh`, `wifi-off`,
+  `chevron-down`, `chevron-left`, `chevron-right`, `x`): 24×24 `viewBox`,
+  `fill="none"`, `stroke="currentColor"` (colour comes from the parent's text
+  colour, or the `color` prop), round caps/joins, and `size` (default 24)
+  thickens the stroke to 2.4 below 14px per the brand spec. The **filled**
+  family is the third-party brand marks (`whatsapp`, `apple`, `google`,
+  exported as `filledIconNames`/`FilledIconName`): they are official
+  single-path marks, so they cannot honour a stroke contract and instead
+  render `fill="currentColor"` with `stroke="none"` and no stroke width. They
+  live inside `Icon` rather than inside `SocialButton` so there stays exactly
+  one glyph primitive in the library — a consumer asking for a mark uses the
+  same `<Icon name>` call as any other glyph, and `iconNames` stays the single
+  index (the Storybook glyph sheet iterates it, so it covers both families
+  automatically). Because they are trademarks the paths are the official
+  artwork, never a redraw; `apple` in particular must follow Apple's "Sign in
+  with Apple" usage rules at the consumer level. Decorative by default
+  (`aria-hidden`); pass `aria-label` to promote it to `role="img"`. This is
+  the glyph primitive `IconButton`/`Fab`/`TabBar` etc. render inside — those
+  components own the hit target and surface, `Icon` owns only the artwork.
 - **IconButton** — 44×44 tap target. `active` toggles between a neutral
   gray-3 surface and an active caramelo-3/caramelo-7-bordered surface using
   `on-brand-inverse` text (caramelo-3 is a dark brand tint). Pass an `icon`
