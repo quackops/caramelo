@@ -750,6 +750,24 @@ call to action.
   action takes the remaining width and `[&>button.size-11]:flex-none` so an
   `IconButton` beside it stays at its 44 tap target. It is a layout container
   and nothing more: it never traps scroll or captures focus.
+- **ProgressMeter** — the labelled proportion bars on the ONG transparency
+  tab ("Ração e alimentação 54%"). The design calls this block *"o que faz
+  alguém doar para um desconhecido"*, so it is load-bearing for the donation
+  flow rather than three hand-written divs.
+  It is **not** `StepProgress`: that is a discrete step indicator with
+  `role="progressbar"` semantics, meaning progress toward completion. This is
+  a proportion, so it is `role="meter"` with `aria-valuenow`/`min`/`max` and
+  an `aria-valuetext` of the label. (A native `<meter>` cannot carry the
+  design's styled fill, hence the suppression.)
+  `valueLabel` is **required and always visible**: the percentage is the
+  information and the bar is the illustration, which also keeps the row off
+  colour-alone. `tone="neutral"` fills with `gray-8` for the secondary rows
+  the design draws in decreasing emphasis. The value is clamped into range
+  for the *fill width* only — `aria-valuenow` still reports what was given.
+  `ProgressMeter.Group` stacks rows at `--spacing-12`, matching the other
+  `.Group` sub-components, and deliberately does **not** validate that the
+  values sum to 100: the data comes from the org, and the component should
+  not lie about it if it does not.
 - **StatusTimeline** — the ordered state history the library had no way to
   express. It covers two screens in opposite directions with one component:
   the adoption application seen backwards by the adopter (interesse enviado →

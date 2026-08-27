@@ -102,6 +102,10 @@ export {
   type PhotoUploadProps,
 } from './components/photo-upload/photo-upload';
 export {
+  ProgressMeter,
+  type ProgressMeterProps,
+} from './components/progress-meter/progress-meter';
+export {
   SearchBar,
   type SearchBarProps,
 } from './components/search-bar/search-bar';
