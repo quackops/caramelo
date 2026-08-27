@@ -1,3 +1,9 @@
+## [1.8.0](https://github.com/quackops/caramelo/compare/v1.7.5...v1.8.0) (2026-08-27)
+
+### Features
+
+* **icon:** add Icon component with the brand Feather-style glyph set ([8749690](https://github.com/quackops/caramelo/commit/8749690bf6d3ea43f0b0f49d3bb22681a97d1e82))
+
 ## [1.7.5](https://github.com/quackops/caramelo/compare/v1.7.4...v1.7.5) (2026-08-27)
 
 ### Bug Fixes
