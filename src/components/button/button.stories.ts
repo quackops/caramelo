@@ -8,7 +8,7 @@ const meta = {
   title: 'interactive/Button',
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
