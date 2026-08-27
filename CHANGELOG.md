@@ -1,3 +1,9 @@
+## [1.7.5](https://github.com/quackops/caramelo/compare/v1.7.4...v1.7.5) (2026-08-27)
+
+### Bug Fixes
+
+* **select:** force option popup colors so the list is visible on dark ([e8459de](https://github.com/quackops/caramelo/commit/e8459de4d23a76e4b8a7513f2a88b0894a5a1564))
+
 ## [1.7.4](https://github.com/quackops/caramelo/compare/v1.7.3...v1.7.4) (2026-08-27)
 
 ### Bug Fixes
