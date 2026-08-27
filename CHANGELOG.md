@@ -1,3 +1,9 @@
+## [2.1.1](https://github.com/quackops/caramelo/compare/v2.1.0...v2.1.1) (2026-08-27)
+
+### Bug Fixes
+
+* **application-card:** stack applicant name and progress label ([f435835](https://github.com/quackops/caramelo/commit/f435835b0c80176f14d958f57f80d026debc4577))
+
 ## [2.1.0](https://github.com/quackops/caramelo/compare/v2.0.0...v2.1.0) (2026-08-27)
 
 ### Features
