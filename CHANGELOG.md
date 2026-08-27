@@ -1,3 +1,9 @@
+## [1.7.4](https://github.com/quackops/caramelo/compare/v1.7.3...v1.7.4) (2026-08-27)
+
+### Bug Fixes
+
+* **search-bar:** reserve clear-button space to stop layout shift on first keystroke ([5bd5023](https://github.com/quackops/caramelo/commit/5bd50235621a36c1dbceeecb00719450b00dd249))
+
 ## [1.7.3](https://github.com/quackops/caramelo/compare/v1.7.2...v1.7.3) (2026-08-27)
 
 ### Bug Fixes
