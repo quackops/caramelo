@@ -33,7 +33,7 @@ export const Input = ({
       <div
         className={cn(
           'flex h-13 w-full items-center rounded-control border bg-gray-3',
-          'focus-within:border-[1.5px] focus-within:border-brand focus-within:bg-caramelo-3',
+          'focus-within:border-caramelo-3 focus-within:bg-caramelo-3',
           'focus-within:outline-2 focus-within:outline-brand focus-within:outline-offset-2',
           error && 'border-[1.5px] border-danger bg-danger/10',
           !error && 'border-gray-6',

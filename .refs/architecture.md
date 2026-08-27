@@ -334,7 +334,11 @@ call to action.
   the field's border/background/ring moved from the `<input>` to the wrapper
   as `focus-within:*` (the input keeps `focus:outline-none`) — the same
   arrangement `SearchBar` already uses, deliberately reused rather than
-  invented a second time. `leading` is `aria-hidden` and `--color-neutral-3`:
+  invented a second time. On focus the border is repainted in the focused
+  background colour (`--color-caramelo-3`) rather than the brand: the offset
+  focus ring is already a brand-coloured ring, and a brand border under it
+  read as two concentric rings. The border stays in the box so the field
+  keeps its size; only its colour disappears. `leading` is `aria-hidden` and `--color-neutral-3`:
   in this design it is always a symbol that the label already says (`R$`, a
   unit). `trailing` is not hidden, because that slot is where an interactive
   control or a live counter goes. `hint` is the quiet non-error line under
