@@ -1,3 +1,9 @@
+## [1.7.3](https://github.com/quackops/caramelo/compare/v1.7.2...v1.7.3) (2026-08-27)
+
+### Bug Fixes
+
+* **search-bar:** move focus ring to the wrapper via focus-within ([0dca44a](https://github.com/quackops/caramelo/commit/0dca44a27a469e737c30d094002772e4da131ad6))
+
 ## [1.7.2](https://github.com/quackops/caramelo/compare/v1.7.1...v1.7.2) (2026-08-27)
 
 ### Bug Fixes
