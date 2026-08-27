@@ -21,6 +21,11 @@ export {
 export { Checkbox, type CheckboxProps } from './components/checkbox/checkbox';
 export { Chip, type ChipProps } from './components/chip/chip';
 export {
+  ChipGroup,
+  type ChipGroupOption,
+  type ChipGroupProps,
+} from './components/chip-group/chip-group';
+export {
   EmptyState,
   type EmptyStateProps,
 } from './components/empty-state/empty-state';

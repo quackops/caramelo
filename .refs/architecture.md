@@ -189,6 +189,28 @@ call to action.
 - **Chip** — height 34, radius 999. `selected` uses the brand fill (see "Why
   these components exist" above); `disabled` is the dashed/unavailable
   state, not the same as a chip that's merely inactive.
+- **ChipGroup** — `Chip` is a single pill, but every screen in the design uses
+  chips as a *group*, and the group is where the behaviour lives. Putting it
+  here keeps selection, the cap and the keyboard model in one place instead of
+  once per screen — the "· até 3" cap on the temperament group is a product
+  rule, and it belongs in the design system rather than in a screen's CSS
+  neighbours. `Chip` stays presentational; the group owns state.
+  `value` is an array in both modes so a consumer's handler shape never
+  changes between them — `single` simply never returns more than one entry.
+  `selection="single"` renders `role="radiogroup"` with `role="radio"` chips,
+  arrow-key navigation and a single roving tab stop (`tabIndex={-1}` on every
+  chip but the selected one), which is what a radio group is expected to do;
+  `multiple` renders a `role="group"` of `aria-pressed` toggles. Reaching
+  `max` flips the *unselected* chips to `Chip`'s existing dashed
+  `disabled` variant — the library's established "unavailable" convention —
+  while selected chips stay live so the user can always trade one for
+  another. Chips wrap and never truncate (Dynamic Type to 200% is a stated
+  requirement). Because the selected chip reuses the brand fill, a
+  `ChipGroup` must not share a row with a primary `Button`; that is the same
+  rule `SegmentedControl` carries. The multiple-selection group renders as a
+  `<fieldset>` rather than a `div role="group"` — same semantics, native
+  element — while single selection stays a `div role="radiogroup"` because it
+  also owns the arrow-key handler.
 - **Badge** — the *only* status pill in the library, covering three families:
   the public statuses (`verified`, `tutor`, `urgent`, `new`, `adopted`), the
   listing lifecycle (`active`, `paused`) and the application state machine
