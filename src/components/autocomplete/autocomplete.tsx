@@ -2,7 +2,7 @@ import { type ChangeEvent, type KeyboardEvent, useId, useState } from 'react';
 import { cn } from '../../utils/cn';
 import { Icon } from '../icon/icon';
 import { Input } from '../input/input';
-import { LoadingSkeleton } from '../loading-skeleton/loading-skeleton';
+import { Spinner } from '../spinner/spinner';
 import { Text } from '../text/text';
 
 export const Autocomplete = ({
@@ -113,7 +113,7 @@ export const Autocomplete = ({
         >
           {loading && (
             <div className="flex justify-center py-16">
-              <LoadingSkeleton variant="spinner" />
+              <Spinner />
             </div>
           )}
           {!loading &&

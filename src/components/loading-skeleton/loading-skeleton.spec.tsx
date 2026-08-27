@@ -3,15 +3,17 @@ import { describe, expect, it } from 'vitest';
 import { LoadingSkeleton } from './loading-skeleton';
 
 describe('LoadingSkeleton', () => {
-  it('renders a block skeleton by default', () => {
+  it('announces itself as a loading status', () => {
     render(<LoadingSkeleton className="h-4 w-20" />);
-    expect(screen.getByRole('status')).toBeInTheDocument();
-  });
-
-  it('renders a spinner variant', () => {
-    render(<LoadingSkeleton variant="spinner" />);
     expect(
       screen.getByRole('status', { name: 'Carregando' }),
     ).toBeInTheDocument();
+  });
+
+  it('keeps the shimmer behind motion-safe', () => {
+    const { container } = render(<LoadingSkeleton />);
+    expect(container.firstElementChild).toHaveClass(
+      'motion-safe:animate-shimmer',
+    );
   });
 });

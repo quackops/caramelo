@@ -13,15 +13,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Block: Story = {
+export const Default: Story = {
   args: {
-    variant: 'block',
     className: 'h-4 w-40',
   },
 };
 
-export const Spinner: Story = {
-  args: {
-    variant: 'spinner',
-  },
+export const CardSilhouette: Story = {
+  render: () => (
+    <div className="w-60">
+      <LoadingSkeleton className="mb-2 h-32 w-full" />
+      <LoadingSkeleton className="mb-2 h-4 w-2/3" />
+      <LoadingSkeleton className="h-3 w-1/2" />
+    </div>
+  ),
 };

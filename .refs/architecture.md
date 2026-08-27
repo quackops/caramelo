@@ -592,8 +592,8 @@ call to action.
   close the list before it landed. ↑/↓ move, `Enter` selects, `Esc` closes
   without selecting, `Tab` closes and moves on. The active index is clamped
   during render instead of being reset from an effect, so a shrinking option
-  list can never point past its end. `loading` puts a `LoadingSkeleton`
-  spinner *inside* the list and never replaces the field; `emptyLabel` is the
+  list can never point past its end. `loading` puts a `Spinner`
+  *inside* the list and never replaces the field; `emptyLabel` is the
   only thing that renders for a non-empty query with no options, so the list
   is never an empty box. `variant="search"` puts the `search` glyph in
   `Input`'s `leading` slot for the suggestions screen, rather than forking
@@ -699,10 +699,18 @@ call to action.
   since the component should not dictate variants.
   `footnote` is the small print: the error reference, the recurring-charge
   line.
-- **LoadingSkeleton** — `block` (shimmer placeholder) and `spinner` (28px
-  ring) variants, both rendered as `<output>`. Both animations are
-  `motion-safe:`-guarded so `prefers-reduced-motion` collapses the shimmer to
-  a static surface and the spin to a static ring.
+- **LoadingSkeleton** — the shimmer placeholder, an `<output>` sized by the
+  consumer's `className`. The shimmer is `motion-safe:`-guarded, so
+  `prefers-reduced-motion` collapses it to a static surface. It used to carry
+  a `variant="spinner"` too; the two were split because they answer different
+  questions — a skeleton stands in for content whose *shape* is known, a
+  spinner covers a wait whose shape is not — and a shared `variant` prop made
+  every call site pass one word to pick between two unrelated elements.
+- **Spinner** — the 28px ring for a wait with no known silhouette (the
+  `Autocomplete` dropdown while options load). Also an `<output>` labelled
+  "Carregando", also `motion-safe:`-guarded, so the spin collapses to a
+  static ring. Sizing is `className` (`size-4 border-2` for an inline one)
+  rather than a `size` prop, since the ring is two Tailwind utilities.
 - **PhotoUpload** — a 3-column grid: cover photo (first item, "CAPA" badge),
   other photos (remove button), and an "add" slot, plus a dropzone. It used
   to render the visual states only and leave reordering and the picker to the

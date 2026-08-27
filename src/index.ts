@@ -188,6 +188,7 @@ export {
   type SocialButtonProps,
   type SocialProvider,
 } from './components/social-button/social-button';
+export { Spinner, type SpinnerProps } from './components/spinner/spinner';
 export {
   StatGrid,
   type StatGridItem,
