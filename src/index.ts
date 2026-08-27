@@ -47,6 +47,10 @@ export {
   type NoticeRowProps,
 } from './components/notice-row/notice-row';
 export {
+  PasswordField,
+  type PasswordFieldProps,
+} from './components/password-field/password-field';
+export {
   PhotoUpload,
   type PhotoUploadPhoto,
   type PhotoUploadProps,

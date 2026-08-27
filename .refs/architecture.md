@@ -238,6 +238,24 @@ call to action.
   compose this rather than forking it. `SearchBar` is deliberately *not*
   refactored onto these slots — its focused state is a spec'd prop contract,
   not a pseudo-class.
+- **PasswordField** — composes `Input` rather than forking it: the reveal
+  toggle is an `IconButton` in `Input`'s `trailing` slot, so it sits inside
+  the field box and inside the field's focus ring. Toggling flips the same
+  `<input>`'s `type` between `password` and `text` — the DOM node is never
+  replaced, which is what keeps focus and the caret where they were. The
+  toggle carries `aria-pressed` and an accessible label that changes with the
+  state (`Mostrar senha` / `Ocultar senha`).
+  `strength` (0–4) draws a four-segment bar under the field and **only
+  renders when `strengthLabel` is also given** — the segments are colour, and
+  colour alone is forbidden, so the word is the state and the bar is the
+  decoration (the bar is `aria-hidden`, the word is an `aria-live` region).
+  The fills deliberately avoid `--color-warning`: it aliases `--color-brand`,
+  and a brand-filled meter next to a primary button would break the
+  one-brand-element-per-view rule, so the ramp is `--color-danger` at 1,
+  `gray-8` at 2–3 and `--color-success` at 4, with the *number of filled
+  segments* carrying the progression. The component never computes the
+  score — that is the consuming app's product policy — and `error` from
+  `Input` replaces the meter, since a failed rule outranks a rating.
 - **Textarea** — the multi-line half of the field pair. It repeats `Input`'s
   geometry, label and `error`/`hint` contract on purpose, so a form can swap
   one for the other without the surrounding layout changing. `showCount`
