@@ -591,10 +591,33 @@ call to action.
   the whole combobox onto `SearchBar`.
 - **Avatar** — 48px (authorship) / 32px (stacks). Shows initials on a
   caramelo-4 plate with a brand-9 ring when there's no photo.
-- **AnimalCard** — the list-style card: 104×104 photo (radius 16) inside a
+- **AnimalCard** — the public card, in four shapes that are one component
+  rather than a fork per screen.
+  `variant="list"` is the original: 104×104 photo (radius 16) inside a
   gray-2 card (radius 20) sitting on the neutral `--color-bg` page background
   — the gray card gives the warm-toned photo a neutral frame without needing
   a border. Its inline badge uses `Badge`'s `size="compact"`.
+  `variant="grid"` is a genuinely different internal structure, not a
+  `className` override: a 4:5 photo filling the card width with the badge
+  overlaid top-left, and `name` + `meta` below. `tags` and `details` are
+  **dropped** in this variant because the design shows neither, so passing
+  them is harmless rather than cramped.
+  The **favourite** is a 44×44 target over the photo's top-right with
+  `aria-pressed` and a label built from `name`. Its click calls
+  `stopPropagation`, so a card that is itself clickable does not navigate
+  when someone saves an animal — that is the whole reason it lives here
+  instead of being an absolutely-positioned button in app code.
+  `unavailable` is the design's explicit rule: *"Animal já adotado nunca some
+  da lista — fica esmaecido com o selo."* The photo dims, the `adopted` badge
+  is forced over it, the favourite disappears, and the card stays focusable
+  and clickable. `ListingManagerCard` uses the same dimming so the public and
+  owner views agree.
+  `loading` renders the same silhouette with `LoadingSkeleton` in place of
+  photo and text. It is the one state where `name` is ignored — a second
+  component for a ghost card would rebuild the layout twice.
+  The photo `alt` always falls back to `name`, and the design asks for alt
+  text generated from name + species + size, which is what `photoAlt` is
+  for.
 - **ListingManagerCard** — the *owner's* view of a listing on Meus anúncios.
   It is a separate component from `AnimalCard` on purpose: `AnimalCard` is
   the **public** card an adopter sees, and views/saves/pending-interest
