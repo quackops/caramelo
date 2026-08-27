@@ -534,6 +534,28 @@ call to action.
   interaction behavior left to the consumer; this component renders the
   visual states only. The remove (`x`) and add (`plus`) affordances render
   through `Icon`.
+- **ListRow** — the generic tappable row: search suggestions and recent
+  searches, the profile menu (`Meus anúncios`, `Minhas candidaturas`,
+  `Virar uma ONG verificada`), and the empty-state relaxation offers
+  (`Aumentar para 50 km · +6`). Six shapes of one row across three features,
+  hand-built in each, is the duplication `.refs/conventions.md` forbids.
+  It is **not** `NoticeRow`: that one is a notification with its own
+  read/unread surface logic, and it is not `SummaryRow` either — a `ListRow`
+  navigates, a `SummaryRow` states a fact. All three appear on adjacent
+  screens, so they stay apart.
+  Without `onClick` (or `as`) it renders a plain `div` and takes no
+  interaction affordance; with either it becomes a full-row `<button>` — or
+  whatever `as` names, through the shared `Slot` primitive, so a router link
+  works — carrying the standard focus ring. `icon` goes through `Icon` at 20
+  in `--color-neutral-3`, while `leading` takes any other node (an `Avatar`,
+  a thumbnail). The two trailing numbers are deliberately different props:
+  `count` is a plain right-aligned number (search suggestions, relaxation
+  deltas) and `badgeCount` is the filled pill, reusing `TabBar`'s badge
+  treatment rather than inventing a second one. `chevron` is decorative.
+  It stays presentational: a destructive row like `Sair` takes its colour
+  from a `className`, and no `tone` prop is added until a second use appears.
+  `ListRow.Group` stacks rows with `gray-4` hairlines, matching
+  `SwitchRow.Group` and `TriStateGroup.Field`.
 - **NoticeRow** — unread = caramelo-3 surface + a brand dot; read reverts to
   the plain gray-2 surface with no dot. The dot is decorative, so unread also
   renders an `sr-only` "não lido" — the state must not be colour-and-shape

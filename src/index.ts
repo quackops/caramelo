@@ -53,6 +53,7 @@ export {
   type IconButtonProps,
 } from './components/icon-button/icon-button';
 export { Input, type InputProps } from './components/input/input';
+export { ListRow, type ListRowProps } from './components/list-row/list-row';
 export {
   LoadingSkeleton,
   type LoadingSkeletonProps,
