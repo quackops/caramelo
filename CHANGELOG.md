@@ -1,3 +1,9 @@
+## [2.1.2](https://github.com/quackops/caramelo/compare/v2.1.1...v2.1.2) (2026-08-27)
+
+### Bug Fixes
+
+* **tokens:** make --color-bg a neutral [#111113](https://github.com/quackops/caramelo/issues/111113) instead of caramelo-1 ([43d1f7f](https://github.com/quackops/caramelo/commit/43d1f7fbbad3565f18b2b374c4faff08fc70c27a))
+
 ## [2.1.1](https://github.com/quackops/caramelo/compare/v2.1.0...v2.1.1) (2026-08-27)
 
 ### Bug Fixes
