@@ -761,13 +761,28 @@ call to action.
   wrongly and lose that ring. `message` stays a `ReactNode` so the subject can
   be emphasised, but the row must read correctly without the emphasis: the
   emphasis is the consumer's, the meaning is the sentence's.
-- **ApplicationCard** — `review`/`accepted`/`rejected`/`completed`, rendered
-  through `Badge` rather than a private status cva: the card was the second
+- **ApplicationCard** — the card on "Interesses recebidos", the design's
+  *most important screen for whoever publishes*. Its status covers the whole
+  application state machine (`review`, `accepted`, `rejected`, `interview`,
+  `approved`, `withdrawn`, `expired`, `completed`) and is rendered through
+  `Badge` rather than a private status cva: the card was the second
   implementation of the same status-pill concept, and the library keeps one.
   Its status names are deliberately the same strings as the matching `Badge`
-  variants so the mapping is the identity. The "Aceitar"/"Ver respostas"
-  action pair only renders for `review`, since none of the other statuses
-  have a pending action in the spec.
+  variants so the mapping is the identity.
+  It has **two shapes, not two components**. The full shape (`review`) is
+  avatar + name + meta line + a `NOVO` badge when `unread`, the screening
+  answers as `Tag`s, the applicant's message in a `gray-3` block, then the
+  actions. Every terminal status collapses to identity plus `statusDetail`
+  ("Recusado em 20 de agosto") with no message and no actions — the original
+  rule that actions render only for `review` stays correct, because no other
+  status has a pending action.
+  `onReject` exists because refusing is half of this screen. It renders as a
+  **ghost** button, not `destructive`: the design shows a low-emphasis
+  treatment, and a red outline would make declining feel like an error.
+  `answers` are free strings, never an enum — the screening questions are a
+  product decision that will change, and the design system should not encode
+  them. The card as a whole is not a link; the action buttons are the only
+  interactive targets.
 - **SectionHeader** — the small label that introduces a group, on screen
   after screen: the filter sheet's field-group labels, the "O QUE ACONTECE
   AGORA" page eyebrows, the `HOJE`/`ESTA SEMANA` date groups in Avisos and

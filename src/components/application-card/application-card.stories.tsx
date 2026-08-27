@@ -17,17 +17,38 @@ const meta = {
       </div>
     ),
   ],
-  args: { onAccept: fn(), onViewAnswers: fn() },
+  args: { onAccept: fn(), onReject: fn(), onViewAnswers: fn() },
 } satisfies Meta<typeof ApplicationCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const ReceivedInterest: Story = {
+  args: {
+    applicantName: 'Rafael Campos',
+    meta: 'Itapuã · 6,2 km · há 2 horas',
+    status: 'review',
+    unread: true,
+    answers: ['Casa com quintal', '1 outro animal'],
+    message:
+      'Oi! Vi o anúncio da Nina e tenho interesse. Moro em casa com quintal fechado.',
+  },
+};
 
 export const InReview: Story = {
   args: {
     applicantName: 'Marina Costa',
     progressLabel: 'Formulário respondido · 8/8',
     status: 'review',
+  },
+};
+
+export const Interview: Story = {
+  args: {
+    applicantName: 'Marina Costa',
+    meta: 'Pituba · 2,1 km',
+    status: 'interview',
+    statusDetail: 'Entrevista marcada para sábado, 10h',
   },
 };
 
@@ -39,18 +60,18 @@ export const Accepted: Story = {
   },
 };
 
-export const Rejected: Story = {
+export const RejectedCollapsed: Story = {
   args: {
-    applicantName: 'Marina Costa',
-    progressLabel: 'Formulário respondido · 8/8',
+    applicantName: 'Pedro M.',
     status: 'rejected',
+    statusDetail: 'Recusado em 20 de agosto',
   },
 };
 
 export const Completed: Story = {
   args: {
     applicantName: 'Marina Costa',
-    progressLabel: 'Formulário respondido · 8/8',
     status: 'completed',
+    statusDetail: 'Adoção concluída em 2 de julho',
   },
 };

@@ -14,6 +14,7 @@ export {
 export {
   ApplicationCard,
   type ApplicationCardProps,
+  type ApplicationCardStatus,
 } from './components/application-card/application-card';
 export {
   AuthGateSheet,
