@@ -292,6 +292,23 @@ call to action.
   input is `:active` the knob stretches to 32px (`peer-active`), iOS-style,
   `motion-safe:` only. The keyboard ring is `peer-focus-visible` on the
   track.
+- **Slider** — the app's only continuous input ("Distância máxima", 1.8 and
+  2.5). A native `<input type="range">` restyled through
+  `::-webkit-slider-thumb` / `::-moz-range-thumb`, the same "keep the
+  platform, restyle the surface" approach as `Switch` and `TriStateGroup`:
+  keyboard, touch and screen-reader support come for free, and distance is
+  the filter the empty-state suggestions relax programmatically, so the value
+  has to be settable from outside. The 4px track carries its own fill as a
+  two-stop `linear-gradient` between `--color-brand` and `--color-gray-6` at
+  the value's percentage — a real filled-track element would need a second
+  absolutely-positioned layer that could drift out of sync with the thumb.
+  The 24px thumb takes `--shadow-raised` and scales to 1.1 while pressed
+  (`motion-safe:`); the focus ring lands on the thumb, not the track, so the
+  ring follows the value. `label` and the formatted value sit on one line
+  above the track, which is the pairing both screens draw, and `formatValue`
+  also feeds `aria-valuetext` so the control reads "15 quilômetros" rather
+  than "15". Two-handle ranges are out of scope — nothing in the design uses
+  one.
 - **SearchBar** — height 52, radius 14. Takes a `focused` prop rather than
   relying on `:focus`, because the spec's focused state is a *value present
   + focus ring* combination that also needs a clear ("×") button — that

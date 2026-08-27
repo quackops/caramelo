@@ -66,6 +66,7 @@ export {
   type SidebarItem,
   type SidebarProps,
 } from './components/sidebar/sidebar';
+export { Slider, type SliderProps } from './components/slider/slider';
 export {
   StepProgress,
   type StepProgressProps,
