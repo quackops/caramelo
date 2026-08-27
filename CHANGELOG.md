@@ -1,3 +1,34 @@
+## [3.0.0](https://github.com/quackops/caramelo/compare/v2.3.0...v3.0.0) (2026-08-27)
+
+### ⚠ BREAKING CHANGES
+
+* **badge:** `Badge`'s `variant` union is replaced by `voice`
+(`success` | `info` | `warning` | `neutral`) plus an optional `icon` and a
+required `label`. The old variants ship as data in `badgePresets`, so
+`<Badge variant="verified" />` becomes `<Badge {...badgePresets.verified} />`.
+`AnimalCard`, `ProfileHeader` and `PublisherRow` now type their `badge` prop
+as `BadgePreset` rather than `BadgeProps['variant']`. `tutor` loses its
+darker `gray-4` chip and shares the one neutral surface.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+* **spinner:** `LoadingSkeleton` no longer takes `variant`; the spinner is
+now the separate `Spinner` component. Replace `<LoadingSkeleton
+variant="spinner" />` with `<Spinner />`; `variant="block"` was the default
+and can be dropped.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+
+### Features
+
+* **badge:** take a voice, an icon and a label instead of a variant ([c33fa32](https://github.com/quackops/caramelo/commit/c33fa325754f3debf49733d04aac8142cb937b73))
+* **spinner:** split the spinner out of LoadingSkeleton ([fdde80c](https://github.com/quackops/caramelo/commit/fdde80cb453e77cfe2422992ca6759153acf2e59))
+
+### Bug Fixes
+
+* **amount-option:** centre the amount when there is no equivalence ([cae033d](https://github.com/quackops/caramelo/commit/cae033d5b310ff18ce65a64b05c6328d3f155e85))
+* **input:** drop the brand border under the focus ring ([9f470d4](https://github.com/quackops/caramelo/commit/9f470d452a710d2288bb34deae09ef8651a46896))
+* **search-bar:** drop the brand border under the focus ring ([6b19d07](https://github.com/quackops/caramelo/commit/6b19d0782bd85cbca0854fe63b9d6505bb99b013))
+
 ## [2.3.0](https://github.com/quackops/caramelo/compare/v2.2.0...v2.3.0) (2026-08-27)
 
 ### Features
