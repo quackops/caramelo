@@ -8,10 +8,10 @@ body,
 .sbdocs.sbdocs-wrapper,
 .sbdocs.sbdocs-content,
 .sbdocs.sbdocs-preview {
-  background: #0b0714;
+  background: #111113;
 }
 
 .sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-preview .docs-story {
-  border-color: #2a2140;
+  border-color: #303136;
 }

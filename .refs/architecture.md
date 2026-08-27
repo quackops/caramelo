@@ -47,6 +47,10 @@ components without touching component code.
   12-step scales. Steps 1–4 are surfaces, 5–7 are borders, 8–10 are
   icon/low-contrast text, 9 is the primary action color, 11–12 are text.
   Steps 1–8 never carry text directly.
+- **`--color-bg`** — the page background. A dedicated neutral near-black
+  (`#111113`), *not* an alias of `caramelo-1`: the app frame stays cool while
+  warm `caramelo` surfaces sit on top. `[data-theme="pawee"]` swaps it for
+  its own value.
 - **Semantic aliases** (`--color-brand`, `--color-brand-pressed`,
   `--color-link`, `--color-bg`, `--color-surface`, `--color-surface-2`,
   `--color-border`, `--color-neutral`, `--color-neutral-2`,
@@ -190,9 +194,9 @@ call to action.
 - **Avatar** — 48px (authorship) / 32px (stacks). Shows initials on a
   caramelo-4 plate with a brand-9 ring when there's no photo.
 - **AnimalCard** — the list-style card: 104×104 photo (radius 16) inside a
-  gray-2 card (radius 20) sitting on the caramelo-1 page background — the
-  gray card gives the warm-toned photo a neutral frame without needing a
-  border. Its inline badge uses `Badge`'s `size="compact"`.
+  gray-2 card (radius 20) sitting on the neutral `--color-bg` page background
+  — the gray card gives the warm-toned photo a neutral frame without needing
+  a border. Its inline badge uses `Badge`'s `size="compact"`.
 - **Toast** — `success`/`error` only; the spec shows no third (info/neutral)
   variant, so none is implemented. Renders as `<output>` for correct
   assistive-tech semantics.

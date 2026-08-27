@@ -94,6 +94,11 @@ Sourced from the "Pawee Mobile Handoff" canvas's FUNDAMENTOS token table and
 cross-checked against its BIBLIOTECA DE COMPONENTES swatches and the actual
 flow screens. Directly confirmed anchors:
 
+All values below are the **pawee** theme. In the default (caramelo) theme
+`--color-bg` is its own neutral `#111113` — it is not an alias of `caramelo-1`
+there (see `.refs/architecture.md`); under pawee, bg, `gray-1` and
+`caramelo-1` all collapse back to `#0B0714`.
+
 | Role | Value | Source |
 |---|---|---|
 | bg / gray-1, caramelo-1 | `#0B0714` | `space-900` |

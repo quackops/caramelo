@@ -8,11 +8,11 @@ import '../src/style.css';
 
 const docsTheme = create({
   base: 'dark',
-  appBg: '#0b0714',
-  appContentBg: '#0b0714',
-  appBorderColor: '#2a2140',
+  appBg: '#111113',
+  appContentBg: '#111113',
+  appBorderColor: '#303136',
   textColor: '#eeeef0',
-  barBg: '#171022',
+  barBg: '#19191b',
   fontBase: 'Poppins, sans-serif',
 });
 
