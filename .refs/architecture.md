@@ -225,9 +225,11 @@ call to action.
   cents in the consumer's state; this component never sees a number.
   Same native-radio construction and dark-brand-tint selection as
   `OptionCard` (the sheet's "Gerar PIX" button owns the brand fill), with a
-  `check` glyph so selection is not colour alone. The equivalence line
-  reserves its height even when empty, so a row where only one tile has one
-  doesn't go ragged. `AmountOption.Group` lays out on a CSS grid rather than
+  `check` glyph so selection is not colour alone. A tile with no equivalence
+  renders no second line at all — an empty reserved line pushed its amount
+  off-centre, and the grid already stretches every tile in a row to the same
+  height, so nothing goes ragged without it.
+  `AmountOption.Group` lays out on a CSS grid rather than
   flex `flex-1 basis-0` — the last cell is typically "Outro valor", a
   `MoneyInput` rather than a tile, and a grid keeps the row aligned with a
   non-tile child in it.

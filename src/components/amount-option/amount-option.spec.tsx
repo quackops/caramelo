@@ -28,9 +28,9 @@ describe('AmountOption', () => {
     expect(screen.getByText('1 semana de ração')).toBeInTheDocument();
   });
 
-  it('reserves the equivalence height so a row never goes ragged', () => {
+  it('centres the amount when there is no equivalence to show', () => {
     const { container } = render(<AmountOption amountLabel="R$ 10" />);
-    expect(container.querySelector('.min-h-\\[12px\\]')).toBeTruthy();
+    expect(container.querySelectorAll('span')).toHaveLength(1);
   });
 
   it('shares one generated name across the group', () => {

@@ -52,14 +52,16 @@ export const AmountOption = ({
       >
         {amountLabel}
       </Text>
-      <Text
-        as="span"
-        variant="small"
-        color="neutral-3"
-        className="mt-0.5 block min-h-[12px] font-roboto text-badge"
-      >
-        {equivalence}
-      </Text>
+      {equivalence && (
+        <Text
+          as="span"
+          variant="small"
+          color="neutral-3"
+          className="mt-0.5 block font-roboto text-badge"
+        >
+          {equivalence}
+        </Text>
+      )}
       <Icon
         name="check"
         size={14}
