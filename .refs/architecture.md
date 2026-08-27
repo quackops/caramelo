@@ -548,7 +548,10 @@ call to action.
   combined state isn't reachable from a CSS pseudo-class alone. The leading
   magnifier is `Icon name="search"` and the clear button wraps `Icon
   name="x"`. The keyboard focus ring is `focus-within` on the wrapper (see
-  Keyboard focus above).
+  Keyboard focus above), and real focus also repaints the wrapper in the
+  focused tint with a border in that same colour — the same "no brand border
+  under the brand ring" rule as `Input`. The `focused` prop keeps its brand
+  border, because there it is the only marker of the state.
   When an `onClear` handler is passed the clear button stays mounted at all
   times and only toggles `invisible` + `aria-hidden` + `tabIndex` on the empty
   value, so typing the first character doesn't shift the input width.

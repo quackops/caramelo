@@ -14,6 +14,7 @@ export const SearchBar = ({
       className={cn(
         'flex h-13 items-center gap-2.5 rounded-control border px-16',
         'focus-within:outline-2 focus-within:outline-brand focus-within:outline-offset-2',
+        'focus-within:border-caramelo-3 focus-within:bg-caramelo-3',
         focused
           ? 'border-[1.5px] border-brand bg-caramelo-3'
           : 'border-gray-6 bg-gray-3',
