@@ -218,6 +218,16 @@ call to action.
   500 11/14 `neutral-3`. Width/colour transitions are 150ms,
   `motion-safe:`-guarded. Exposes `role="progressbar"` with
   `aria-valuenow`/`valuemax`.
+- **TriStateGroup** — the "Sim / Não / Não sei" answer control from the health
+  step, where a null answer is valid and "não sei" must never render as a red
+  ✗. Three `flex-1` targets, 42px tall, `rounded-xl`, gap 8. Built on native
+  `<input type="radio">` inside `<label>` (one generated `name` per group via
+  `useId`) so arrow-key navigation and roving focus come from the platform.
+  A selected Sim/Não is the brand fill plus a `✓`/`✗` glyph (never colour
+  alone); a selected "Não sei" is the dashed + `--color-gray-3` "empty /
+  unavailable" convention with no glyph. Unselected is a `--color-border`
+  outline. No error state — null is a valid value. `TriStateGroup.Field`
+  stacks several with gap 16.
 
 ## Known gaps
 

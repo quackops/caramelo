@@ -70,3 +70,7 @@ export {
 export { Tag, type TagProps } from './components/tag/tag';
 export { Text, type TextProps } from './components/text/text';
 export { Toast, type ToastProps } from './components/toast/toast';
+export {
+  TriStateGroup,
+  type TriStateGroupProps,
+} from './components/tri-state-group/tri-state-group';
