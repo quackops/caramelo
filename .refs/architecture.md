@@ -62,6 +62,9 @@ components without touching component code.
   sits on a brand-colored surface declares which of the two it uses; there is
   no single generic "text on brand" token because gray-12 is unreadable on
   caramelo-9 and gray-1 is unreadable on caramelo-4.
+- **`--color-scrim`** — the dim layer behind an overlay (`BottomSheet`). A
+  near-black at 0.6 alpha (Pawee: `rgba(5,3,9,.6)`). Only overlay backdrops
+  use it; it is never a component surface.
 - **Status colors** (`--color-success`, `--color-warning` — literally the
   brand color, `--color-danger`, `--color-whatsapp`) — `--color-warning`
   aliases `--color-brand` on purpose: the spec forbids amber meaning both
@@ -192,13 +195,28 @@ call to action.
   attribute-pill look reuses it instead of re-implementing the markup; not
   interactive and not the same component as `Chip` (`Chip` is a
   selectable/filterable control, `Tag` is a static label).
+- **BottomSheet** — the overlay pattern the app uses in place of a modal or a
+  menu (both listed as gaps but absent from the app — everything is a sheet).
+  Fixed, bottom-anchored, `--color-surface` panel with `rounded-t-sheet`, a
+  `--color-border` top hairline and `--shadow-raised` (the same shadow token
+  as `Fab`). `size` (`short`/`medium`/`tall`/`full`) caps the panel height in
+  `dvh`; `full` goes edge to edge and drops the radius. A 38×5 `gray-7` handle
+  sits at the top; `title` + optional `action` (a link node, right-aligned)
+  form the header; `footer` renders over an automatic
+  `--color-surface`→transparent protection gradient so it never reads as an
+  opaque bar glued to the content. The scrim is `--color-scrim` and clicking
+  it calls `onClose`. Entry is `slide-up-sheet` + `fade-in` on the scrim, both
+  `motion-safe:`-guarded. Renders `null` when `open` is false; focus trapping
+  and scroll locking are left to the consuming app.
 
 ## Known gaps
 
-The spec's overlay/page-level patterns (bottom sheet, modal, confirmation
-dialog, menu, tooltip, map pin/cluster, data table, breadcrumbs, tabs,
-stepper) are documented in the design doc but not yet built as components —
-they're compositions of the atomic pieces above plus page-level state
-(routing, focus trapping) that doesn't belong in this library's atomic
-component set. Build them here, not as ad hoc screen CSS, when a consuming
-app needs one.
+The spec's remaining overlay/page-level patterns (modal, confirmation dialog,
+menu, tooltip, map pin/cluster, data table, breadcrumbs, tabs, stepper) are
+documented in the design doc but not yet built as components — they're
+compositions of the atomic pieces above plus page-level state (routing, focus
+trapping) that doesn't belong in this library's atomic component set. Build
+them here, not as ad hoc screen CSS, when a consuming app needs one.
+
+`BottomSheet` (overlay) is now built — it still leaves focus trapping and
+scroll locking to the consumer.

@@ -8,6 +8,10 @@ export {
 } from './components/application-card/application-card';
 export { Avatar, type AvatarProps } from './components/avatar/avatar';
 export { Badge, type BadgeProps } from './components/badge/badge';
+export {
+  BottomSheet,
+  type BottomSheetProps,
+} from './components/bottom-sheet/bottom-sheet';
 export { Button, type ButtonProps } from './components/button/button';
 export {
   CarameloProvider,
