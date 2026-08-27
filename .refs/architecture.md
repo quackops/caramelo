@@ -1064,6 +1064,43 @@ call to action.
   `✓`/`✗` glyph fades-and-scales in (`animate-fade-in-scale`) — all
   `motion-safe:`. `TriStateGroup.Field` stacks several with gap 16.
 
+### The illustration slot
+
+The Dino carries every emotional state in the app, and flow 10 is built on
+it: *"o Dino aparece, explica em uma frase o que houve e oferece uma saída."*
+`EmptyState`, `ResultScreen` and `AuthGateSheet` all take an `illustration`
+node, so the question is where that artwork lives.
+
+**Decision: the artwork stays in the consuming app.** Caramelo ships **no
+Pawee illustrations**. The library also serves the `caramelo` theme, and
+shipping one product's mascot inside a themed component library is a
+category error — a `caramelo`-themed consumer would be pulling down an
+astronaut dog it will never render. The alternatives considered were
+shipping them here as `<Illustration name>` components (rejected for that
+reason) and a separate `@quackops/pawee-brand` package (deferred until a
+second Pawee-themed consumer exists). Do not re-litigate this in a PR
+without that second consumer.
+
+What caramelo owns instead is the **slot contract**:
+
+- The artwork is **square** and is sized by its container, not by itself. The
+  component sets the box; the SVG fills it.
+- Sizes by context: **150** inside `OrbitalRings` on a full `ResultScreen`,
+  **110** for an inline `EmptyState` (a 60px inner plate inside the rings),
+  **220** on splash. Nothing between those steps.
+- It must be **SVG** and must **carry no text** — text in artwork is
+  untranslatable.
+- The `OrbitalRings` motif sits **behind the illustration and never behind
+  text or a list** (*"nunca atrás de conteúdo"*). A `ResultScreen` or
+  `EmptyState` that puts the rings behind a paragraph is a bug.
+- The slot is optional everywhere it appears: no screen may depend on the
+  artwork to be understandable, since `EmptyState`'s own rule is that an
+  illustration-only state is forbidden.
+
+`EmptyState`'s and `ResultScreen`'s stories render labelled placeholders at
+these sizes, so the slot is visually specified without the library carrying
+the art.
+
 ## Known gaps
 
 The spec's remaining overlay/page-level patterns (modal, confirmation dialog,

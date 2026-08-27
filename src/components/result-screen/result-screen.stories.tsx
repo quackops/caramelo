@@ -4,6 +4,7 @@ import { fn } from 'storybook/test';
 
 import { Button } from '../button/button';
 import { CopyField } from '../copy-field/copy-field';
+import { OrbitalRings } from '../orbital-rings/orbital-rings';
 import { StatGrid } from '../stat-grid/stat-grid';
 import { StatusTimeline } from '../status-timeline/status-timeline';
 import { SummaryRow } from '../summary-row/summary-row';
@@ -26,6 +27,14 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+const IllustrationPlaceholder = ({ children }: { children: string }) => (
+  <OrbitalRings size={150}>
+    <span className="flex size-[70px] items-center justify-center rounded-2xl bg-caramelo-4 text-center font-poppins text-badge text-on-brand-inverse">
+      {children}
+    </span>
+  </OrbitalRings>
+);
 
 export const InterestSent: Story = {
   args: {
@@ -69,6 +78,9 @@ export const InterestSent: Story = {
 export const Published: Story = {
   args: {
     tone: 'success',
+    illustration: (
+      <IllustrationPlaceholder>dino-entire</IllustrationPlaceholder>
+    ),
     title: 'Publicado',
     description: 'Seu anúncio já está no mural.',
     children: (
@@ -124,6 +136,7 @@ export const DonationConfirmed: Story = {
 export const ServerError: Story = {
   args: {
     tone: 'error',
+    illustration: <IllustrationPlaceholder>sad-face</IllustrationPlaceholder>,
     title: 'Não conseguimos carregar',
     description: 'A culpa provavelmente é nossa. Tenta de novo em instantes.',
     actions: (
@@ -140,6 +153,9 @@ export const ServerError: Story = {
 
 export const Offline: Story = {
   args: {
+    illustration: (
+      <IllustrationPlaceholder>dino-crying</IllustrationPlaceholder>
+    ),
     title: 'Sem conexão',
     description: 'A gente continua mostrando o que já baixou.',
     actions: <Button onClick={fn()}>Tentar de novo</Button>,
