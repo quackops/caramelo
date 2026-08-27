@@ -1,3 +1,9 @@
+## [1.7.2](https://github.com/quackops/caramelo/compare/v1.7.1...v1.7.2) (2026-08-27)
+
+### Bug Fixes
+
+* **step-progress:** span container width so bars variant divides evenly ([91f3987](https://github.com/quackops/caramelo/commit/91f3987527723aac8fc07a11ef3bfca896e8a8e3))
+
 ## [1.7.1](https://github.com/quackops/caramelo/compare/v1.7.0...v1.7.1) (2026-08-27)
 
 ### Bug Fixes
