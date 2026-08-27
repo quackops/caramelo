@@ -91,6 +91,10 @@ export {
 } from './components/step-progress/step-progress';
 export { Switch, type SwitchProps } from './components/switch/switch';
 export {
+  SwitchRow,
+  type SwitchRowProps,
+} from './components/switch-row/switch-row';
+export {
   TabBar,
   type TabBarItem,
   type TabBarProps,

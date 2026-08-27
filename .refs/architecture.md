@@ -384,6 +384,21 @@ call to action.
   also feeds `aria-valuetext` so the control reads "15 quilômetros" rather
   than "15". Two-handle ranges are out of scope — nothing in the design uses
   one.
+- **SwitchRow** — `Switch` on its own is just the 52×32 control; every place
+  the design uses it, it is a full-width row (label left, control right,
+  often an explanatory second line). Eight instances across three screens
+  would otherwise hand-roll the same flex row and the same label/input
+  wiring, so the row is the component and `SwitchRow` generates the `id`
+  itself — a consumer never juggles `id`/`htmlFor`.
+  The row is a `div`, not a `<label>`, even though the design reads as one
+  tappable row: `Switch` already *is* a `<label>` wrapping its own input, and
+  nesting labels is invalid HTML. Instead the text side is the `<label>` and
+  takes `flex-1`, so everything except the control itself is still a tap
+  target. `description` is wired through `aria-describedby`, not left as a
+  visual-only second line. `SwitchRow.Group` stacks rows with a `gray-4`
+  hairline between them (the filter sheet draws it) — same sub-component
+  shape as `TriStateGroup.Field`, deliberately following that precedent
+  rather than inventing a second grouping idiom.
 - **SearchBar** — height 52, radius 14. Takes a `focused` prop rather than
   relying on `:focus`, because the spec's focused state is a *value present
   + focus ring* combination that also needs a clear ("×") button — that
