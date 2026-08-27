@@ -85,6 +85,10 @@ components without touching component code.
   focus-visible:outline-brand focus-visible:outline-offset-2`, alongside
   (never instead of) its own hover/active treatment; fields that used to
   suppress the native outline via `focus:outline-none` rely on this instead.
+  `SearchBar` is the exception: the focusable element is the inner `<input>`
+  but the visual control is the wrapping `<div>`, so the ring is
+  `focus-within:outline-*` on the wrapper and the input keeps
+  `focus:outline-none`.
 
 ### Why these components exist
 
@@ -153,7 +157,8 @@ call to action.
 - **SearchBar** — height 52, radius 14. Takes a `focused` prop rather than
   relying on `:focus`, because the spec's focused state is a *value present
   + focus ring* combination that also needs a clear ("×") button — that
-  combined state isn't reachable from a CSS pseudo-class alone.
+  combined state isn't reachable from a CSS pseudo-class alone. The keyboard
+  focus ring is `focus-within` on the wrapper (see Keyboard focus above).
 - **Avatar** — 48px (authorship) / 32px (stacks). Shows initials on a
   caramelo-4 plate with a brand-9 ring when there's no photo.
 - **AnimalCard** — the list-style card: 104×104 photo (radius 16) inside a

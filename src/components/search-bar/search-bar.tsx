@@ -13,6 +13,7 @@ export const SearchBar = ({
     <div
       className={cn(
         'flex h-13 items-center gap-2.5 rounded-control border px-16',
+        'focus-within:outline-2 focus-within:outline-brand focus-within:outline-offset-2',
         focused
           ? 'border-[1.5px] border-brand bg-caramelo-3'
           : 'border-gray-6 bg-gray-3',
@@ -28,7 +29,7 @@ export const SearchBar = ({
       />
       <input
         value={value}
-        className="flex-1 bg-transparent font-roboto text-[15px] font-light text-neutral placeholder:text-neutral-3 focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2"
+        className="flex-1 bg-transparent font-roboto text-[15px] font-light text-neutral placeholder:text-neutral-3 focus:outline-none"
         {...rest}
       />
       {value && onClear && (
