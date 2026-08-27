@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 import { cn } from '../../utils/cn';
 import { protectionGradient } from '../../utils/protection-gradient';
 import { Text } from '../text/text';
@@ -27,6 +27,7 @@ const surfaceVariants = cva(
 export const BottomSheet = ({
   open,
   size,
+  scrim = 'default',
   title,
   action,
   footer,
@@ -45,7 +46,10 @@ export const BottomSheet = ({
         type="button"
         aria-label="Fechar"
         onClick={onClose}
-        className="absolute inset-0 bg-scrim motion-safe:animate-fade-in"
+        className={cn(
+          'absolute inset-0 motion-safe:animate-fade-in',
+          scrim === 'strong' ? 'bg-scrim-strong' : 'bg-scrim',
+        )}
       />
       <div
         role="dialog"
@@ -81,8 +85,9 @@ export const BottomSheet = ({
 };
 
 export type BottomSheetProps = VariantProps<typeof surfaceVariants> &
-  Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
+  Omit<ComponentProps<'div'>, 'title'> & {
     open: boolean;
+    scrim?: 'default' | 'strong';
     title?: string;
     action?: ReactNode;
     footer?: ReactNode;

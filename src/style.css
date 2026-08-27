@@ -48,6 +48,7 @@
   --color-danger: oklch(70% 0.16 25);
   --color-whatsapp: oklch(78% 0.17 145);
   --color-scrim: oklch(4% 0.01 290 / 0.6);
+  --color-scrim-strong: oklch(4% 0.01 290 / 0.65);
 
   --font-poppins: "Poppins", sans-serif;
   --font-roboto: "Roboto", sans-serif;
@@ -198,4 +199,5 @@
   --color-danger: #ff6b6b;
   --color-whatsapp: #25d366;
   --color-scrim: rgba(5, 3, 9, 0.6);
+  --color-scrim-strong: rgba(5, 3, 9, 0.65);
 }

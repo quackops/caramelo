@@ -508,6 +508,22 @@ call to action.
   When an `onClear` handler is passed the clear button stays mounted at all
   times and only toggles `invisible` + `aria-hidden` + `tabIndex` on the empty
   value, so typing the first character doesn't shift the input width.
+- **AuthGateSheet** — the sign-in gate that replaced the legacy
+  `_notAuthenticated`, which *"expulsava o visitante com contagem regressiva
+  de 5 s"*. The new rule is **interrupt as little as possible**: a sheet over
+  the content, showing what you were doing, and the action resumes after
+  signing in. It fires from five places (favourite, interest, publish,
+  follow, donate) and the title names the action each time.
+  It lives here despite encoding a product rule, because five call sites
+  share one visual contract and "never a full-page redirect" is worth making
+  hard to violate. It stays **presentational**: it renders the sheet and
+  calls back, and the pending-action resume logic is entirely the app's. It
+  ships **no default copy** — the title is the consumer's string.
+  It is the one component that implements **focus trapping**, because
+  `BottomSheet` deliberately leaves that to the consumer: focus moves into
+  the sheet on open, `Tab`/`Shift+Tab` cycle inside it, `Escape` closes, and
+  focus returns to the trigger on close. It also uses `BottomSheet`'s
+  `scrim="strong"`, since there is a photo underneath.
 - **Autocomplete** — a typed query plus a list to pick from, for the city
   picker (the fallback when location permission is denied, so it is on the
   critical path), the search suggestions and the neighbourhood field.
@@ -833,10 +849,13 @@ call to action.
   sits at the top; `title` + optional `action` (a link node, right-aligned)
   form the header; `footer` renders over an automatic
   `--color-surface`→transparent protection gradient so it never reads as an
-  opaque bar glued to the content. The scrim is `--color-scrim` and clicking
-  it calls `onClose`. Entry is `slide-up-sheet` + `fade-in` on the scrim, both
+  opaque bar glued to the content. Clicking the scrim calls `onClose`; the
+  `scrim` prop picks `--color-scrim` or `--color-scrim-strong` (0.65) — the
+  stronger one is for a sheet over imagery, where the default does not
+  separate enough. Entry is `slide-up-sheet` + `fade-in` on the scrim, both
   `motion-safe:`-guarded. Renders `null` when `open` is false; focus trapping
-  and scroll locking are left to the consuming app.
+  and scroll locking are left to the consuming app — `AuthGateSheet` is the
+  one composition that implements the trap itself.
 - **StickyActionBar** — the bottom action area outside a sheet: the listing
   detail's "Tenho interesse" bar (which the design says never leaves the
   screen), every publish step's "Continuar", and the adoption form's

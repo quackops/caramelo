@@ -16,6 +16,10 @@ export {
   type ApplicationCardProps,
 } from './components/application-card/application-card';
 export {
+  AuthGateSheet,
+  type AuthGateSheetProps,
+} from './components/auth-gate-sheet/auth-gate-sheet';
+export {
   Autocomplete,
   type AutocompleteOption,
   type AutocompleteProps,
