@@ -150,7 +150,10 @@ call to action.
 - **Select** — native `<select>` styled to the same field spec, with a
   decorative chevron. The spec's custom open-menu visual (a floating list
   with a checkmark on the selected row) is a distinct overlay/menu pattern,
-  not part of this atomic field — it isn't implemented here.
+  not part of this atomic field — it isn't implemented here. The native option
+  popup is forced to `--color-surface` / `--color-neutral`
+  (`[&_option]:bg-surface [&_option]:text-neutral`) so the list isn't
+  white-on-white on dark until hover.
 - **Switch** — 52×32 track, 26px knob. On: brand track, gray-1 knob
   (`on-brand-strong` logic applied to the knob itself). Off: gray-6 track,
   gray-12 knob.
