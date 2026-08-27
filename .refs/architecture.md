@@ -358,6 +358,23 @@ call to action.
   through an out-of-range prefix. `currency` exists but only accepts `BRL`;
   the prop is there so the contract doesn't have to change later. It shares
   its cents value with `AmountOption`'s preset tiles.
+- **MaskedValue** — the read-only display of a deliberately partial value:
+  the adopter's phone before the publisher accepts (`(71) 9•••• ••34` ·
+  `liberado após o aceite`), the WhatsApp line on the publish review, and the
+  ONG's CNPJ on the transparency tab. In two of the three the masking is a
+  **privacy rule**, not a formatting choice.
+  Its whole design is a guardrail: `value` is *the masked string as delivered
+  by the API*, and the component **never masks anything itself** — doing so
+  would imply it had seen the real value. Any API that returns an unmasked
+  phone before acceptance is a backend bug, and this component deliberately
+  does not paper over it. `revealable` is for the case where the consumer
+  legitimately holds both strings (an owner viewing their own number); the
+  revealed string is passed in as `revealedValue`, so there is no
+  client-side unmasking path at all — with nothing to reveal, it stays
+  masked.
+  The accessible name describes the value ("terminado em 34") rather than
+  letting a screen reader read a run of bullets, and the `hint` is folded
+  into it instead of being announced separately.
 - **MaskedInput** — composes `Input` for the app's formatted fields
   (`phone-br`, `cnpj`, `cep`). WhatsApp is the product's only contact
   channel, so a wrong number breaks the whole adoption funnel — the format,

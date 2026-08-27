@@ -96,6 +96,10 @@ export {
   type MaskName,
 } from './components/masked-input/masked-input';
 export {
+  MaskedValue,
+  type MaskedValueProps,
+} from './components/masked-value/masked-value';
+export {
   MoneyInput,
   type MoneyInputProps,
 } from './components/money-input/money-input';
