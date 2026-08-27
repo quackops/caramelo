@@ -523,6 +523,22 @@ call to action.
   gray-2 card (radius 20) sitting on the neutral `--color-bg` page background
   — the gray card gives the warm-toned photo a neutral frame without needing
   a border. Its inline badge uses `Badge`'s `size="compact"`.
+- **ListingManagerCard** — the *owner's* view of a listing on Meus anúncios.
+  It is a separate component from `AnimalCard` on purpose: `AnimalCard` is
+  the **public** card an adopter sees, and views/saves/pending-interest
+  counts are owner-only data. Putting them on the public card would be a leak
+  waiting to happen.
+  Its layout mirrors `AnimalCard`'s list variant (104×104 photo at
+  `--radius-photo` on a `--radius-card` surface) so the two read as one
+  family, and it reuses `Badge` for the lifecycle status and `StatGrid
+  variant="inline"` for the numbers rather than drawing three of them by
+  hand.
+  `pendingLabel` is the card's whole point — the design says *"Cada anúncio
+  mostra o número que importa: quantas pessoas esperam resposta"*. It is the
+  highlighted `caramelo-3` row with brand text and a chevron, it is the
+  card's primary action, and it renders **only** when something is actually
+  pending. An `adopted` listing drops it entirely and dims the photo, the
+  same treatment `AnimalCard`'s `unavailable` uses, so the two agree.
 - **Toast** — `success`/`error` only; the spec shows no third (info/neutral)
   variant, so none is implemented. Renders as `<output>` for correct
   assistive-tech semantics.
