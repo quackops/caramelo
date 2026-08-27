@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/Avatar',
   component: Avatar,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Avatar>;
 

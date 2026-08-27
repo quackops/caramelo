@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/EmptyState',
   component: EmptyState,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof EmptyState>;
 

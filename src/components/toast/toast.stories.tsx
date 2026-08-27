@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/Toast',
   component: Toast,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Toast>;
 

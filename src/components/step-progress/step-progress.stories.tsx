@@ -5,7 +5,7 @@ const meta = {
   title: 'feedback/StepProgress',
   component: StepProgress,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   decorators: [
     (Story) => (

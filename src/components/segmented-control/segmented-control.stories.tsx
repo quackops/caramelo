@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/SegmentedControl',
   component: SegmentedControl,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof SegmentedControl>;
 

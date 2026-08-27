@@ -8,7 +8,7 @@ const meta = {
   title: 'interactive/ApplicationCard',
   component: ApplicationCard,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   args: { onAccept: fn(), onViewAnswers: fn() },
 } satisfies Meta<typeof ApplicationCard>;

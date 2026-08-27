@@ -6,7 +6,7 @@ const meta = {
   title: 'forms/TriStateGroup',
   component: TriStateGroup,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   decorators: [
     (Story) => (

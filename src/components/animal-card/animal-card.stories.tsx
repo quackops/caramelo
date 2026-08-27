@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/AnimalCard',
   component: AnimalCard,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof AnimalCard>;
 

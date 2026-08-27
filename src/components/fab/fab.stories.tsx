@@ -8,7 +8,7 @@ const meta = {
   title: 'interactive/Fab',
   component: Fab,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof Fab>;

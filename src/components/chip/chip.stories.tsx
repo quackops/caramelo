@@ -8,7 +8,7 @@ const meta = {
   title: 'interactive/Chip',
   component: Chip,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof Chip>;

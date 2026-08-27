@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/Switch',
   component: Switch,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Switch>;
 

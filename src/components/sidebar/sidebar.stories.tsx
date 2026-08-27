@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/Sidebar',
   component: Sidebar,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Sidebar>;
 

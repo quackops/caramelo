@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/LoadingSkeleton',
   component: LoadingSkeleton,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof LoadingSkeleton>;
 

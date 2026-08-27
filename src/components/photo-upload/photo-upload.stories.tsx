@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/PhotoUpload',
   component: PhotoUpload,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof PhotoUpload>;
 

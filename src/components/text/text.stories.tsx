@@ -8,7 +8,7 @@ const meta = {
   title: 'display/Text',
   component: Text,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   args: {
     onClick: fn(),

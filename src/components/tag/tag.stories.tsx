@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/Tag',
   component: Tag,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Tag>;
 

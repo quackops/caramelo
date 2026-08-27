@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/Select',
   component: Select,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Select>;
 

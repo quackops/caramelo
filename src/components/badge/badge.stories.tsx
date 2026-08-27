@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/Badge',
   component: Badge,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Badge>;
 

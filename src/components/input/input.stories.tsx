@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/Input',
   component: Input,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Input>;
 

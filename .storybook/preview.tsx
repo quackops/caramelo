@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react-vite';
 
 import { CarameloProvider } from '../src/components/caramelo-provider/caramelo-provider';
 import { cn } from '../src/utils/cn';
+import './preview.css';
 import '../src/style.css';
 
 const preview: Preview = {
@@ -37,10 +38,8 @@ const preview: Preview = {
       <CarameloProvider
         theme={context.globals.theme ?? 'caramelo'}
         className={cn(
-          'flex items-center justify-center p-10',
-          context.viewMode === 'docs'
-            ? 'min-h-[320px] w-full'
-            : 'min-h-screen w-screen',
+          'flex w-full items-center justify-center p-10',
+          context.viewMode === 'docs' ? 'min-h-[320px]' : 'min-h-full',
         )}
       >
         <Story />

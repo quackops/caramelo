@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/NoticeRow',
   component: NoticeRow,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof NoticeRow>;
 

@@ -6,7 +6,7 @@ const meta = {
   title: 'interactive/SearchBar',
   component: SearchBar,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof SearchBar>;
 
