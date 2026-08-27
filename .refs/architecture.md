@@ -31,6 +31,11 @@ Code is the truth. This file explains the *why* behind the shape it takes.
   `text-neutral-3` would count as a conflict and the size would be silently
   dropped — every component that pairs a named step with a `Text` `color`
   depends on this. A new `--text-*` token has to be added to that list too.
+- `src/utils/protection-gradient.ts` — `protectionGradient(surface)`, the
+  page-colour→transparent upward wash that sits behind a bottom action area
+  so text stays legible over whatever scrolls beneath it. It lives in one
+  place because two components need the identical rule: `BottomSheet`'s
+  `footer` and `StickyActionBar`.
 - `src/style.css` — the Tailwind v4 entry point and the only place raw
   `oklch()` values are declared (see Tokens below).
 - `templates/component/*.hbs` — plop scaffolding templates for
@@ -602,6 +607,21 @@ call to action.
   it calls `onClose`. Entry is `slide-up-sheet` + `fade-in` on the scrim, both
   `motion-safe:`-guarded. Renders `null` when `open` is false; focus trapping
   and scroll locking are left to the consuming app.
+- **StickyActionBar** — the bottom action area outside a sheet: the listing
+  detail's "Tenho interesse" bar (which the design says never leaves the
+  screen), every publish step's "Continuar", and the adoption form's
+  "Voltar"/"Continuar" pair. The protection gradient was already a written
+  rule living *inside* `BottomSheet`; making this a component is what stops
+  it being copy-pasted into six screens, and `BottomSheet` now consumes the
+  same `protectionGradient()` helper so the rule exists once.
+  It is `position: sticky`, not `fixed`, so it participates in its scroll
+  container instead of fighting the `TabBar` — and it deliberately knows
+  nothing about the tab bar: where both are present the consumer stacks them.
+  There is **no shadow and no border**; the gradient is the entire separation
+  device. Children lay out as a row, with `[&>button]:flex-1` so the primary
+  action takes the remaining width and `[&>button.size-11]:flex-none` so an
+  `IconButton` beside it stays at its 44 tap target. It is a layout container
+  and nothing more: it never traps scroll or captures focus.
 - **StepProgress** — the multi-step indicator every wizard flow (publish,
   adoption form, onboarding) was drawing by hand. The bar spans its container width (`w-full`). `variant="bars"`: equal
   `flex-1` segments, 4px tall, `--color-brand` for the first `current` of

@@ -107,6 +107,10 @@ export {
   StepProgress,
   type StepProgressProps,
 } from './components/step-progress/step-progress';
+export {
+  StickyActionBar,
+  type StickyActionBarProps,
+} from './components/sticky-action-bar/sticky-action-bar';
 export { Switch, type SwitchProps } from './components/switch/switch';
 export {
   SwitchRow,

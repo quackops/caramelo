@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cn } from '../../utils/cn';
+import { protectionGradient } from '../../utils/protection-gradient';
 import { Text } from '../text/text';
 
 const surfaceVariants = cva(
@@ -68,7 +69,9 @@ export const BottomSheet = ({
         )}
         <div className="flex-1 overflow-y-auto px-5 pt-4 pb-6">{children}</div>
         {footer && (
-          <div className="px-5 pt-3.5 pb-6 [background:linear-gradient(to_top,var(--color-surface)_65%,transparent)]">
+          <div
+            className={cn('px-5 pt-3.5 pb-6', protectionGradient('surface'))}
+          >
             {footer}
           </div>
         )}
