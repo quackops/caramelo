@@ -521,6 +521,23 @@ call to action.
   variants so the mapping is the identity. The "Aceitar"/"Ver respostas"
   action pair only renders for `review`, since none of the other statuses
   have a pending action in the spec.
+- **Divider** — the two separator shapes the design repeats: a plain hairline
+  (between switch rows in the filter sheet, between blocks on the
+  transparency screen) and a labelled one (the `ou` between the credential
+  form and the social buttons). Small, but exactly the case
+  `.refs/conventions.md` names — a piece that is going to appear again gets
+  extracted from the start instead of being hand-written per screen.
+  One token, `--color-border`, is used for every rule; there is deliberately
+  no `tone` prop, because a divider that can be two different greys stops
+  being a system decision and becomes a per-screen one.
+  Unlabelled renders a real `<hr>` (correct semantics for free); labelled has
+  to be a `div role="separator"`, since an `<hr>` cannot contain text — that
+  branch carries biome suppressions for the splitter-oriented a11y rules
+  (`aria-valuenow` and focusability apply to a resizable splitter, not to a
+  static rule). `orientation="vertical"` stretches to the parent's height and
+  is `aria-hidden`, because the one place the design uses it is a decorative
+  header lockup. The component carries **no margin of its own**: spacing
+  belongs to the layout that places it.
 - **Tag** — a plain gray-3 label pill (radius 7, not the full-radius chip
   shape) for factual attributes like "castrada"/"vacinada"/"dócil". Extracted
   from `AnimalCard`'s tag list so any other consumer needing the same

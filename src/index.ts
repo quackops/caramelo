@@ -34,6 +34,7 @@ export {
   type ChipGroupOption,
   type ChipGroupProps,
 } from './components/chip-group/chip-group';
+export { Divider, type DividerProps } from './components/divider/divider';
 export {
   EmptyState,
   type EmptyStateProps,
