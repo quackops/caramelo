@@ -263,6 +263,20 @@ call to action.
   the caret. `SearchBar` is deliberately *not*
   refactored onto these slots — its focused state is a spec'd prop contract,
   not a pseudo-class.
+- **MoneyInput** — composes `Input` with a non-interactive `R$` leading
+  affix. Its whole contract is in **integer cents**: `value` and `onChange`
+  never touch a float, because the donation flow states "a Pawee fica com 0%"
+  and shows an exact total, so the number has to survive to the PIX payload
+  without a rounding step anywhere. Digits accumulate right to left like a
+  till (`2` → `0,02`, `2500` → `25,00`), which is how every Brazilian payment
+  UI behaves; typing `25,00` left to right also works, because the field only
+  ever reads the digits. Formatting is `toLocaleString('pt-BR')` with two
+  fixed decimals, so the accessible value is the formatted amount rather than
+  the raw digit string. `min`/`max` clamp **on blur, not on keystroke** —
+  clamping while typing makes it impossible to type a number that passes
+  through an out-of-range prefix. `currency` exists but only accepts `BRL`;
+  the prop is there so the contract doesn't have to change later. It shares
+  its cents value with `AmountOption`'s preset tiles.
 - **MaskedInput** — composes `Input` for the app's formatted fields
   (`phone-br`, `cnpj`, `cep`). WhatsApp is the product's only contact
   channel, so a wrong number breaks the whole adoption funnel — the format,

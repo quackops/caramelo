@@ -53,6 +53,10 @@ export {
   type MaskName,
 } from './components/masked-input/masked-input';
 export {
+  MoneyInput,
+  type MoneyInputProps,
+} from './components/money-input/money-input';
+export {
   NoticeRow,
   type NoticeRowProps,
 } from './components/notice-row/notice-row';
