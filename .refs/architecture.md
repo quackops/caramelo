@@ -156,7 +156,9 @@ call to action.
   inline verified badge, since a plain `className` override can only reach
   the outer pill (padding), not the label's own font-size.
 - **SegmentedControl** — shares the brand fill with the selected option by
-  design; must not appear on the same row as a primary `Button`.
+  design; must not appear on the same row as a primary `Button`. Segment
+  fill/colour cross-fades over 150ms, unselected segments get a `gray-4`
+  hover, and pressing a segment squashes it to 95% — all `motion-safe:`.
 - **Input** — height 52, radius 14. `focus` is the native CSS
   `:focus`/`:focus-visible` pseudo-class, not a prop — no consumer should
   ever need to force it. `error` is a prop because it's driven by validation
@@ -171,7 +173,10 @@ call to action.
   white-on-white on dark until hover.
 - **Switch** — 52×32 track, 26px knob. On: brand track, gray-1 knob
   (`on-brand-strong` logic applied to the knob itself). Off: gray-6 track,
-  gray-12 knob.
+  gray-12 knob. Track colour and knob position ease over 200ms; while the
+  input is `:active` the knob stretches to 32px (`peer-active`), iOS-style,
+  `motion-safe:` only. The keyboard ring is `peer-focus-visible` on the
+  track.
 - **SearchBar** — height 52, radius 14. Takes a `focused` prop rather than
   relying on `:focus`, because the spec's focused state is a *value present
   + focus ring* combination that also needs a clear ("×") button — that
@@ -257,8 +262,10 @@ call to action.
   A selected Sim/Não is the brand fill plus a `✓`/`✗` glyph (never colour
   alone); a selected "Não sei" is the dashed + `--color-gray-3` "empty /
   unavailable" convention with no glyph. Unselected is a `--color-border`
-  outline. No error state — null is a valid value. `TriStateGroup.Field`
-  stacks several with gap 16.
+  outline. No error state — null is a valid value. Option colour/border
+  cross-fades over 150ms, a press squashes the target to 97%, and the
+  `✓`/`✗` glyph fades-and-scales in (`animate-fade-in-scale`) — all
+  `motion-safe:`. `TriStateGroup.Field` stacks several with gap 16.
 
 ## Known gaps
 

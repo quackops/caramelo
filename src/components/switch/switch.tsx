@@ -21,13 +21,16 @@ export const Switch = ({ checked, className, id, ...rest }: SwitchProps) => {
       />
       <span
         className={cn(
-          'absolute inset-0 rounded-full transition-colors',
+          'absolute inset-0 rounded-full transition-colors duration-200 ease-out',
+          'peer-focus-visible:outline-2 peer-focus-visible:outline-brand peer-focus-visible:outline-offset-2',
           checked ? 'bg-brand' : 'bg-gray-6',
         )}
       />
       <span
         className={cn(
-          'absolute top-[3px] size-[26px] rounded-full transition-all',
+          'absolute top-[3px] h-[26px] w-[26px] rounded-full',
+          'motion-safe:transition-all motion-safe:duration-200 motion-safe:ease-out',
+          'motion-safe:peer-active:w-[32px]',
           checked ? 'right-[3px] bg-gray-1' : 'left-[3px] bg-gray-12',
         )}
       />

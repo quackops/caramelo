@@ -29,7 +29,9 @@ export const SegmentedControl = ({
             onClick={() => onChange?.(option.value)}
             className={cn(
               'rounded-[9px] px-[18px] py-[9px] cursor-pointer focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2',
-              selected ? 'bg-brand' : 'bg-transparent',
+              'motion-safe:transition-[color,background-color,transform] motion-safe:duration-150 motion-safe:ease-out',
+              'motion-safe:active:scale-95',
+              selected ? 'bg-brand' : 'bg-transparent hover:bg-gray-4',
             )}
           >
             <Text

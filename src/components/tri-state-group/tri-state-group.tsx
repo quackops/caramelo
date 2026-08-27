@@ -4,8 +4,12 @@ import { Text } from '../text/text';
 
 type TriStateValue = true | false | null;
 
-const optionClasses =
-  'relative flex h-[42px] flex-1 basis-0 items-center justify-center gap-1.5 box-border cursor-pointer whitespace-nowrap rounded-xl border has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-brand has-[:focus-visible]:outline-offset-2';
+const optionClasses = cn(
+  'relative flex h-[42px] flex-1 basis-0 items-center justify-center gap-1.5 box-border cursor-pointer whitespace-nowrap rounded-xl border',
+  'motion-safe:transition-[color,background-color,border-color,transform] motion-safe:duration-150 motion-safe:ease-out',
+  'motion-safe:active:scale-[0.97]',
+  'has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-brand has-[:focus-visible]:outline-offset-2',
+);
 
 export const TriStateGroup = ({
   label,
@@ -55,7 +59,12 @@ export const TriStateGroup = ({
                 className="peer sr-only"
               />
               {selected && !isUnknown && (
-                <span aria-hidden="true">{option.value ? '✓' : '✗'}</span>
+                <span
+                  aria-hidden="true"
+                  className="motion-safe:animate-fade-in-scale"
+                >
+                  {option.value ? '✓' : '✗'}
+                </span>
               )}
               <Text
                 as="span"

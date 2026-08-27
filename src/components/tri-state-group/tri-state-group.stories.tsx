@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
+import { useArgs } from 'storybook/preview-api';
 import { TriStateGroup } from './tri-state-group';
 
 const meta = {
@@ -15,7 +15,19 @@ const meta = {
       </div>
     ),
   ],
-  args: { onChange: fn() },
+  args: {
+    onChange: () => undefined,
+  },
+  render: (args) => {
+    const [{ value }, updateArgs] = useArgs();
+    return (
+      <TriStateGroup
+        {...args}
+        value={value}
+        onChange={(next) => updateArgs({ value: next })}
+      />
+    );
+  },
 } satisfies Meta<typeof TriStateGroup>;
 
 export default meta;
