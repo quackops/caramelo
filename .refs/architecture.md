@@ -642,6 +642,19 @@ call to action.
   value. Every state carries a glyph or a word, so none is distinguishable by
   colour alone, and the state lives in the item's own text rather than in an
   `aria-label` on a decorative icon. Rendered as a `<ul>`.
+- **Callout** — the in-flow boxed block of explanatory text, with four jobs
+  across the design: the verification summary, the "prestação de contas ainda
+  não publicada" notice that must stay visible, the sale-policy warning, the
+  data-sharing privacy statement and the saved-alert offer. `Toast` is
+  transient and `EmptyState` takes the whole screen; this is the block that
+  lives *in* the page.
+  It is **not a live region and not dismissible** — a callout is part of the
+  page, and anything that needs to announce itself is a `Toast`. The
+  `warning` tone is an **outline with no fill**, the same standing rule as
+  `Badge`'s `urgent`: a warning-coloured fill would compete with the primary
+  action, since `--color-warning` aliases `--color-brand`.
+  It ships **no default copy**: the sale policy and the privacy statement are
+  legal-adjacent wording and the consumer always supplies them.
 - **Carousel** — the pager for onboarding (three slides, swipe or
   `Continuar`) and the listing gallery (up to five photos with a `1 de 5`
   counter). `StepProgress` already shipped the *indicator* for both cases —

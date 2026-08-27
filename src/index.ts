@@ -22,6 +22,7 @@ export {
   type BottomSheetProps,
 } from './components/bottom-sheet/bottom-sheet';
 export { Button, type ButtonProps } from './components/button/button';
+export { Callout, type CalloutProps } from './components/callout/callout';
 export {
   CarameloProvider,
   type CarameloProviderProps,
