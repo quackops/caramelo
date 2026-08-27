@@ -695,11 +695,25 @@ call to action.
   `motion-safe:`-guarded so `prefers-reduced-motion` collapses the shimmer to
   a static surface and the spin to a static ring.
 - **PhotoUpload** — a 3-column grid: cover photo (first item, "CAPA" badge),
-  other photos (remove button), and an "add" slot with an n/max counter, plus
-  a dropzone. Drag-to-reorder and the native camera/photo-roll picker are
-  interaction behavior left to the consumer; this component renders the
-  visual states only. The remove (`x`) and add (`plus`) affordances render
-  through `Icon`.
+  other photos (remove button), and an "add" slot, plus a dropzone. It used
+  to render the visual states only and leave reordering and the picker to the
+  consumer; screen 4.2 needs both, so they moved in here rather than having
+  the publish step rebuild the grid to add them.
+  **The cover is always index 0** — reordering is what changes it, and there
+  is deliberately no separate "make cover" action. Reordering has a keyboard
+  path, not just a pointer one, because dragging is otherwise the only way to
+  set the cover: `Space` lifts a tile, arrows move it, `Space` drops it, and
+  every move is announced through a polite live region.
+  Each photo carries its own upload state, because upload starts in the
+  background at this step: `uploading` dims the tile, shows determinate
+  progress and locks the tile out of reordering and removal; `failed` is a
+  dashed `--color-danger` border **plus a retry control and the word**, never
+  colour alone. `PhotoUploadPhoto` also gained `src` — the component could
+  not render an actual photo before.
+  The add slot splits into `Câmera` and `Galeria`, the two entry points the
+  design draws, and `min` lets the step express "at least one" so the counter
+  can read as a requirement rather than a limit when it is not met. All of
+  its labels are consumer strings.
 - **SocialButton** — Apple and Google sign-in, the pair of equal-width
   buttons under the `ou` divider on both auth screens. They are **not**
   `Button variant="secondary"`: each carries a brand mark whose colour is

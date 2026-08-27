@@ -138,6 +138,7 @@ export {
   PhotoUpload,
   type PhotoUploadPhoto,
   type PhotoUploadProps,
+  type PhotoUploadSource,
 } from './components/photo-upload/photo-upload';
 export {
   ProfileHeader,
