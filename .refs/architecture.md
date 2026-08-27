@@ -255,6 +255,24 @@ call to action.
   It is a variant rather than a separate `InlinePicker` component precisely
   because of the option-colour workaround above: a second component would
   have to maintain that hack twice.
+- **Checkbox** — the form-submission counterpart to `Switch`. The two are not
+  interchangeable and the split is deliberate: in this app a `Switch` always
+  means "a preference that takes effect now", so the auth screens' "manter
+  conectado" and terms/18+ acceptance — values that only matter when the form
+  is submitted — are checkboxes. Built on a native `<input type="checkbox">`
+  visually replaced by a 22×22 box (`rounded-lg`, `--color-border` outline,
+  `--color-brand` fill with an `on-brand-strong` `check` glyph when checked),
+  the same "keep the platform, restyle the surface" approach `TriStateGroup`
+  takes with radios. The box is top-aligned so a label wrapping to several
+  lines doesn't drag it off centre, and the row keeps the 44 tap floor.
+  `label` is a `ReactNode` because the terms copy carries inline links, and
+  that is why the label text is **not** inside the `<label>` element: HTML
+  says a label ignores clicks on interactive descendants, but that rule is
+  not implemented everywhere (jsdom included), so the text is a sibling with
+  its own click handler that bails out on `a, button, input, select` and the
+  input is named through `aria-labelledby`. The result is deterministic: a
+  link inside the label navigates and never toggles the box. Indeterminate is
+  not implemented — nothing in the design uses it.
 - **Switch** — 52×32 track, 26px knob. On: brand track, gray-1 knob
   (`on-brand-strong` logic applied to the knob itself). Off: gray-6 track,
   gray-12 knob. Track colour and knob position ease over 200ms; while the
