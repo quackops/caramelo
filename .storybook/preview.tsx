@@ -1,13 +1,27 @@
 import type { Preview } from '@storybook/react-vite';
+import { create } from 'storybook/theming';
 
 import { CarameloProvider } from '../src/components/caramelo-provider/caramelo-provider';
 import { cn } from '../src/utils/cn';
 import './preview.css';
 import '../src/style.css';
 
+const docsTheme = create({
+  base: 'dark',
+  appBg: '#0b0714',
+  appContentBg: '#0b0714',
+  appBorderColor: '#2a2140',
+  textColor: '#eeeef0',
+  barBg: '#171022',
+  fontBase: 'Poppins, sans-serif',
+});
+
 const preview: Preview = {
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      theme: docsTheme,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

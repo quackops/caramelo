@@ -4,3 +4,14 @@ body,
   height: 100%;
   margin: 0;
 }
+
+.sbdocs.sbdocs-wrapper,
+.sbdocs.sbdocs-content,
+.sbdocs.sbdocs-preview {
+  background: #0b0714;
+}
+
+.sbdocs.sbdocs-preview,
+.sbdocs.sbdocs-preview .docs-story {
+  border-color: #2a2140;
+}
