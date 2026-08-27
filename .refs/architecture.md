@@ -409,6 +409,33 @@ call to action.
   When an `onClear` handler is passed the clear button stays mounted at all
   times and only toggles `invisible` + `aria-hidden` + `tabIndex` on the empty
   value, so typing the first character doesn't shift the input width.
+- **Autocomplete** — a typed query plus a list to pick from, for the city
+  picker (the fallback when location permission is denied, so it is on the
+  critical path), the search suggestions and the neighbourhood field.
+  `Select` cannot do this — a native select is a closed list and takes no
+  query. Filtering is **not** the component's job: two of the three uses get
+  their options from the API, so `options` are handed in and the component
+  owns only presentation and interaction.
+  It is the library's first floating list, and it is deliberately *not* a
+  `BottomSheet`: the "everything is a sheet" note under Known gaps covers
+  menus, and an autocomplete popup is not a menu. Positioning is plain CSS
+  anchoring (`relative` wrapper, `absolute inset-x-0 top-full`) rather than a
+  positioning dependency.
+  The wiring is the ARIA 1.2 combobox pattern: `role="combobox"` with
+  `aria-expanded`/`aria-controls`/`aria-activedescendant` on the field, and a
+  `role="listbox"` of `role="option"` rows. Focus never leaves the input —
+  the active option is pointed at by id — which is why the options are `div`s
+  with `tabIndex={-1}` and why selection happens on `mousedown` with
+  `preventDefault` rather than on `click`: a click would blur the field and
+  close the list before it landed. ↑/↓ move, `Enter` selects, `Esc` closes
+  without selecting, `Tab` closes and moves on. The active index is clamped
+  during render instead of being reset from an effect, so a shrinking option
+  list can never point past its end. `loading` puts a `LoadingSkeleton`
+  spinner *inside* the list and never replaces the field; `emptyLabel` is the
+  only thing that renders for a non-empty query with no options, so the list
+  is never an empty box. `variant="search"` puts the `search` glyph in
+  `Input`'s `leading` slot for the suggestions screen, rather than forking
+  the whole combobox onto `SearchBar`.
 - **Avatar** — 48px (authorship) / 32px (stacks). Shows initials on a
   caramelo-4 plate with a brand-9 ring when there's no photo.
 - **AnimalCard** — the list-style card: 104×104 photo (radius 16) inside a

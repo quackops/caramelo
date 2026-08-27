@@ -6,6 +6,11 @@ export {
   ApplicationCard,
   type ApplicationCardProps,
 } from './components/application-card/application-card';
+export {
+  Autocomplete,
+  type AutocompleteOption,
+  type AutocompleteProps,
+} from './components/autocomplete/autocomplete';
 export { Avatar, type AvatarProps } from './components/avatar/avatar';
 export { Badge, type BadgeProps } from './components/badge/badge';
 export {
