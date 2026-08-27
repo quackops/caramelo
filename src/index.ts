@@ -88,6 +88,10 @@ export {
   type SearchBarProps,
 } from './components/search-bar/search-bar';
 export {
+  SectionHeader,
+  type SectionHeaderProps,
+} from './components/section-header/section-header';
+export {
   SegmentedControl,
   type SegmentedControlOption,
   type SegmentedControlProps,

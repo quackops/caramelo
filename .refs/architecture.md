@@ -528,6 +528,23 @@ call to action.
   variants so the mapping is the identity. The "Aceitar"/"Ver respostas"
   action pair only renders for `review`, since none of the other statuses
   have a pending action in the spec.
+- **SectionHeader** — the small label that introduces a group, on screen
+  after screen: the filter sheet's field-group labels, the "O QUE ACONTECE
+  AGORA" page eyebrows, the `HOJE`/`ESTA SEMANA` date groups in Avisos and
+  the `SUGESTÕES`/`BUSCAS RECENTES` groups in search. Two treatments are
+  genuinely in play, so they are variants rather than two components:
+  `label` is sentence case, Poppins 500 at `--text-label` in
+  `--color-neutral-2` (the form-group label inside a sheet), and `eyebrow` is
+  uppercase with letter-spacing, Poppins 600 at `--text-micro` in
+  `--color-neutral-3` (the page section marker). Avisos' date groups and
+  search's suggestion groups both use `eyebrow` so the two lists read as one
+  system.
+  It renders a **real heading**, not a styled `div`: `titleAs` picks the
+  level and defaults to `h2`. That is the deliberate call — a section marker
+  that silently renders as a `span` is the trap here, and a consumer that
+  wants no heading can pass its own element. `action` is right-aligned and is
+  meant to be a ghost `Button` (`Limpar`, `Marcar lidos`); `count` renders
+  after the title at reduced emphasis where the design shows one ("Salvos 4").
 - **Divider** — the two separator shapes the design repeats: a plain hairline
   (between switch rows in the filter sheet, between blocks on the
   transparency screen) and a labelled one (the `ou` between the credential
