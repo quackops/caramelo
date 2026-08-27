@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { fn } from 'storybook/test';
+
 import { NoticeRow } from './notice-row';
 
 const meta = {
@@ -26,5 +28,24 @@ export const Read: Story = {
     message: '3 novos cães em Pituba na sua busca salva',
     timestamp: 'ontem',
     read: true,
+  },
+};
+
+export const WithHint: Story = {
+  args: {
+    message: 'A ONG Amidogo aceitou conversar sobre a Nina',
+    timestamp: 'há 12 minutos',
+    hint: 'toque para abrir o WhatsApp',
+    read: false,
+  },
+};
+
+export const Interactive: Story = {
+  args: {
+    message: '3 novos cães em Pituba na sua busca salva',
+    timestamp: 'há 5 horas',
+    hint: 'alerta "Gata filhote perto de mim"',
+    read: true,
+    onClick: fn(),
   },
 };

@@ -305,7 +305,18 @@ call to action.
   visual states only. The remove (`x`) and add (`plus`) affordances render
   through `Icon`.
 - **NoticeRow** — unread = caramelo-3 surface + a brand dot; read reverts to
-  the plain gray-2 surface with no dot.
+  the plain gray-2 surface with no dot. The dot is decorative, so unread also
+  renders an `sr-only` "não lido" — the state must not be colour-and-shape
+  only for a screen reader. `hint` is the second, quieter half of the meta
+  line (`há 12 minutos · toque para abrir o WhatsApp`): it renders inline
+  after `timestamp` at `--text-micro`, which keeps `timestamp` a timestamp
+  instead of the catch-all string it had become. Passing `onClick` swaps the
+  root from a `div` to a full-width `<button>` carrying the same surface plus
+  the standard focus ring — every notice in the design deep-links somewhere,
+  and letting the consumer wrap the row would nest the interactive element
+  wrongly and lose that ring. `message` stays a `ReactNode` so the subject can
+  be emphasised, but the row must read correctly without the emphasis: the
+  emphasis is the consumer's, the meaning is the sentence's.
 - **ApplicationCard** — `review`/`accepted`/`rejected`/`completed`, rendered
   through `Badge` rather than a private status cva: the card was the second
   implementation of the same status-pill concept, and the library keeps one.
