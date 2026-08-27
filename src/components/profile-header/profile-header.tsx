@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Avatar } from '../avatar/avatar';
-import { Badge, type BadgeProps } from '../badge/badge';
+import { Badge, type BadgePreset, badgePresets } from '../badge/badge';
 import { Text } from '../text/text';
 
 export const ProfileHeader = ({
@@ -43,7 +43,7 @@ export const ProfileHeader = ({
           <Text as="h1" variant="heading" weight="semibold" color="neutral">
             {name}
           </Text>
-          {badge && <Badge variant={badge} size="compact" />}
+          {badge && <Badge {...badgePresets[badge]} size="compact" />}
         </div>
         {meta && (
           <Text
@@ -81,7 +81,7 @@ export type ProfileHeaderProps = {
   initials?: string;
   coverSrc?: string;
   coverAlt?: string;
-  badge?: BadgeProps['variant'];
+  badge?: BadgePreset;
   meta?: string;
   bio?: ReactNode;
   actions?: ReactNode;

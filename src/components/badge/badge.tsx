@@ -6,22 +6,11 @@ import { Text } from '../text/text';
 
 const badgeVariants = cva('inline-flex items-center gap-1 rounded-lg', {
   variants: {
-    variant: {
-      verified: 'bg-success/16 text-success',
-      tutor: 'bg-gray-4 text-neutral-2',
-      urgent: 'bg-transparent border border-warning text-warning',
-      new: 'bg-caramelo-4 text-caramelo-12',
-      adopted: 'bg-gray-3 text-neutral-3',
-      active: 'bg-success/16 text-success',
-      paused: 'bg-gray-3 text-neutral-3',
-      review: 'bg-caramelo-4 text-caramelo-12',
-      accepted: 'bg-success/16 text-success',
-      interview: 'bg-caramelo-4 text-caramelo-12',
-      approved: 'bg-success/16 text-success',
-      rejected: 'bg-gray-3 text-neutral-3',
-      withdrawn: 'bg-gray-3 text-neutral-3',
-      expired: 'bg-gray-3 text-neutral-3',
-      completed: 'bg-gray-3 text-neutral-3',
+    voice: {
+      success: 'bg-success/16 text-success',
+      info: 'bg-caramelo-4 text-caramelo-12',
+      warning: 'bg-transparent border border-warning text-warning',
+      neutral: 'bg-gray-3 text-neutral-3',
     },
     size: {
       default: 'px-[11px] py-[5px]',
@@ -29,7 +18,7 @@ const badgeVariants = cva('inline-flex items-center gap-1 rounded-lg', {
     },
   },
   defaultVariants: {
-    variant: 'tutor',
+    voice: 'neutral',
     size: 'default',
   },
 });
@@ -44,59 +33,40 @@ const iconSizeBySize: Record<NonNullable<BadgeProps['size']>, number> = {
   compact: 10,
 };
 
-const labelByVariant: Record<NonNullable<BadgeProps['variant']>, string> = {
-  verified: 'ONG VERIFICADA',
-  tutor: 'TUTOR',
-  urgent: 'URGENTE',
-  new: 'NOVO',
-  adopted: 'ADOTADO',
-  active: 'ATIVO',
-  paused: 'PAUSADO',
-  review: 'EM ANÁLISE',
-  accepted: 'ACEITA',
-  interview: 'ENTREVISTA',
-  approved: 'APROVADA',
-  rejected: 'RECUSADA',
-  withdrawn: 'DESISTIU',
-  expired: 'EXPIRADA',
-  completed: 'CONCLUÍDA',
-};
-
-const iconByVariant: Record<
-  NonNullable<BadgeProps['variant']>,
-  IconName | null
-> = {
-  verified: 'check',
-  tutor: null,
-  urgent: 'alert-circle',
-  new: null,
-  adopted: 'check',
-  active: 'check',
-  paused: 'pause',
-  review: 'clock',
-  accepted: 'check',
-  interview: 'clock',
-  approved: 'check',
-  rejected: 'x',
-  withdrawn: 'x',
-  expired: 'clock',
-  completed: 'check-circle',
-};
+export const badgePresets = {
+  verified: { voice: 'success', icon: 'check', label: 'ONG VERIFICADA' },
+  tutor: { voice: 'neutral', label: 'TUTOR' },
+  urgent: { voice: 'warning', icon: 'alert-circle', label: 'URGENTE' },
+  new: { voice: 'info', label: 'NOVO' },
+  adopted: { voice: 'neutral', icon: 'check', label: 'ADOTADO' },
+  active: { voice: 'success', icon: 'check', label: 'ATIVO' },
+  paused: { voice: 'neutral', icon: 'pause', label: 'PAUSADO' },
+  review: { voice: 'info', icon: 'clock', label: 'EM ANÁLISE' },
+  accepted: { voice: 'success', icon: 'check', label: 'ACEITA' },
+  interview: { voice: 'info', icon: 'clock', label: 'ENTREVISTA' },
+  approved: { voice: 'success', icon: 'check', label: 'APROVADA' },
+  rejected: { voice: 'neutral', icon: 'x', label: 'RECUSADA' },
+  withdrawn: { voice: 'neutral', icon: 'x', label: 'DESISTIU' },
+  expired: { voice: 'neutral', icon: 'clock', label: 'EXPIRADA' },
+  completed: { voice: 'neutral', icon: 'check-circle', label: 'CONCLUÍDA' },
+} satisfies Record<string, Omit<BadgeProps, 'size' | 'className'>>;
 
 export const Badge = ({
-  variant,
+  voice,
   size,
+  icon,
   label,
   className,
   ...rest
 }: BadgeProps) => {
-  const v = variant ?? 'tutor';
   const s = size ?? 'default';
-  const icon = iconByVariant[v];
 
   return (
     <span
-      className={cn(badgeVariants({ variant: v, size: s }), className)}
+      className={cn(
+        badgeVariants({ voice: voice ?? 'neutral', size: s }),
+        className,
+      )}
       {...rest}
     >
       {icon && <Icon name={icon} size={iconSizeBySize[s]} />}
@@ -106,13 +76,20 @@ export const Badge = ({
         weight="semibold"
         className={cn(textSizeBySize[s], 'text-inherit')}
       >
-        {label ?? labelByVariant[v]}
+        {label}
       </Text>
     </span>
   );
 };
 
+export type BadgeVoice = NonNullable<
+  VariantProps<typeof badgeVariants>['voice']
+>;
+
+export type BadgePreset = keyof typeof badgePresets;
+
 export type BadgeProps = VariantProps<typeof badgeVariants> &
   Omit<HTMLAttributes<HTMLSpanElement>, 'color'> & {
-    label?: string;
+    icon?: IconName;
+    label: string;
   };

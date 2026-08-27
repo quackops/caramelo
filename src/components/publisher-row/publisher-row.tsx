@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { cn } from '../../utils/cn';
 import { Avatar, type AvatarProps } from '../avatar/avatar';
-import { Badge, type BadgeProps } from '../badge/badge';
+import { Badge, type BadgePreset, badgePresets } from '../badge/badge';
 import { Icon } from '../icon/icon';
 import { Text } from '../text/text';
 
@@ -31,7 +31,7 @@ export const PublisherRow = ({
           <Text as="span" variant="small" weight="medium" color="neutral">
             {name}
           </Text>
-          {badge && <Badge variant={badge} size="compact" />}
+          {badge && <Badge {...badgePresets[badge]} size="compact" />}
         </span>
         {meta && (
           <Text
@@ -84,7 +84,7 @@ export type PublisherRowProps = {
   avatarAlt?: string;
   initials?: string;
   avatarSize?: AvatarProps['size'];
-  badge?: BadgeProps['variant'];
+  badge?: BadgePreset;
   meta?: string;
   trailing?: ReactNode;
   onClick?: () => void;

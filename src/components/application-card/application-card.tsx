@@ -1,6 +1,6 @@
 import { cn } from '../../utils/cn';
 import { Avatar } from '../avatar/avatar';
-import { Badge } from '../badge/badge';
+import { Badge, badgePresets } from '../badge/badge';
 import { Button } from '../button/button';
 import { Tag } from '../tag/tag';
 import { Text } from '../text/text';
@@ -51,7 +51,7 @@ export const ApplicationCard = ({
             >
               {applicantName}
             </Text>
-            {unread && <Badge variant="new" size="compact" />}
+            {unread && <Badge {...badgePresets.new} size="compact" />}
           </div>
           {meta && (
             <Text
@@ -76,7 +76,7 @@ export const ApplicationCard = ({
             </Text>
           )}
         </div>
-        <Badge variant={status} size="compact" className="flex-none" />
+        <Badge {...badgePresets[status]} size="compact" className="flex-none" />
       </div>
       {open && answers.length > 0 && (
         <div className="mb-3 flex flex-wrap gap-1.5">

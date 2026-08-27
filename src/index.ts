@@ -26,7 +26,13 @@ export {
   type AutocompleteProps,
 } from './components/autocomplete/autocomplete';
 export { Avatar, type AvatarProps } from './components/avatar/avatar';
-export { Badge, type BadgeProps } from './components/badge/badge';
+export {
+  Badge,
+  type BadgePreset,
+  type BadgeProps,
+  type BadgeVoice,
+  badgePresets,
+} from './components/badge/badge';
 export {
   BottomSheet,
   type BottomSheetProps,

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { AnimalCard } from '../animal-card/animal-card';
-import { Badge } from '../badge/badge';
+import { Badge, badgePresets } from '../badge/badge';
 import { Button } from '../button/button';
 import { Chip } from '../chip/chip';
 import { CarameloProvider } from './caramelo-provider';
@@ -22,8 +22,8 @@ const showcase = (
     </div>
     <div className="flex flex-wrap gap-2">
       <Chip variant="selected">Gatos</Chip>
-      <Badge variant="verified" />
-      <Badge variant="urgent" />
+      <Badge {...badgePresets.verified} />
+      <Badge {...badgePresets.urgent} />
     </div>
     <AnimalCard
       name="Nina"

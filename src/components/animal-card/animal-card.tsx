@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
-import { Badge, type BadgeProps } from '../badge/badge';
+import { Badge, type BadgePreset, badgePresets } from '../badge/badge';
 import { Icon } from '../icon/icon';
 import { LoadingSkeleton } from '../loading-skeleton/loading-skeleton';
 import { Tag } from '../tag/tag';
@@ -53,9 +53,9 @@ export const AnimalCard = ({
   }
 
   const badgeNode = unavailable ? (
-    <Badge variant="adopted" size="compact" />
+    <Badge {...badgePresets.adopted} size="compact" />
   ) : badge ? (
-    <Badge variant={badge} size="compact" />
+    <Badge {...badgePresets[badge]} size="compact" />
   ) : null;
 
   const favorite = onFavoriteToggle && !unavailable && (
@@ -188,7 +188,7 @@ export type AnimalCardProps = HTMLAttributes<HTMLDivElement> & {
   name: string;
   photoSrc?: string;
   photoAlt?: string;
-  badge?: BadgeProps['variant'];
+  badge?: BadgePreset;
   details?: string;
   meta?: string;
   tags?: string[];

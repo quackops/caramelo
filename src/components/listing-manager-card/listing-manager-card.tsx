@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { cn } from '../../utils/cn';
-import { Badge } from '../badge/badge';
+import { Badge, badgePresets } from '../badge/badge';
 import { Icon } from '../icon/icon';
 import { StatGrid } from '../stat-grid/stat-grid';
 import { Text } from '../text/text';
@@ -52,7 +52,7 @@ export const ListingManagerCard = ({
             <Text variant="large" weight="semibold" className="text-card-title">
               {name}
             </Text>
-            <Badge variant={status} size="compact" />
+            <Badge {...badgePresets[status]} size="compact" />
           </div>
           {statusDetail && (
             <Text

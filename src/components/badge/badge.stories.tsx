@@ -14,49 +14,56 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Verified: Story = {
-  args: { variant: 'verified' },
+  args: { voice: 'success', icon: 'check', label: 'ONG VERIFICADA' },
 };
 
 export const Tutor: Story = {
-  args: { variant: 'tutor' },
+  args: { voice: 'neutral', label: 'TUTOR' },
 };
 
 export const Urgent: Story = {
-  args: { variant: 'urgent' },
+  args: { voice: 'warning', icon: 'alert-circle', label: 'URGENTE' },
 };
 
 export const New: Story = {
-  args: { variant: 'new' },
+  args: { voice: 'info', label: 'NOVO' },
 };
 
 export const Adopted: Story = {
-  args: { variant: 'adopted' },
+  args: { voice: 'neutral', icon: 'check', label: 'ADOTADO' },
 };
 
 export const Compact: Story = {
-  args: { variant: 'verified', size: 'compact' },
+  args: {
+    voice: 'success',
+    icon: 'check',
+    label: 'ONG VERIFICADA',
+    size: 'compact',
+  },
 };
 
 export const ListingLifecycle: Story = {
+  args: { label: 'ATIVO' },
   render: () => (
     <div className="flex flex-wrap items-center gap-2">
-      <Badge variant="active" />
-      <Badge variant="paused" />
+      <Badge voice="success" icon="check" label="ATIVO" />
+      <Badge voice="neutral" icon="pause" label="PAUSADO" />
     </div>
   ),
 };
 
 export const ApplicationStatuses: Story = {
+  args: { label: 'EM ANÁLISE' },
   render: () => (
     <div className="flex flex-wrap items-center gap-2">
-      <Badge variant="review" />
-      <Badge variant="accepted" />
-      <Badge variant="interview" />
-      <Badge variant="approved" />
-      <Badge variant="rejected" />
-      <Badge variant="withdrawn" />
-      <Badge variant="expired" />
-      <Badge variant="completed" />
+      <Badge voice="info" icon="clock" label="EM ANÁLISE" />
+      <Badge voice="success" icon="check" label="ACEITA" />
+      <Badge voice="info" icon="clock" label="ENTREVISTA" />
+      <Badge voice="success" icon="check" label="APROVADA" />
+      <Badge voice="neutral" icon="x" label="RECUSADA" />
+      <Badge voice="neutral" icon="x" label="DESISTIU" />
+      <Badge voice="neutral" icon="clock" label="EXPIRADA" />
+      <Badge voice="neutral" icon="check-circle" label="CONCLUÍDA" />
     </div>
   ),
 };

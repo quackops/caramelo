@@ -124,8 +124,8 @@ The spec is a mobile-first (iOS + responsive webapp) design system with a
 hard accessibility floor: no state may rely on color alone. That constraint
 directly shapes three components:
 
-- **Badge** — "verified", "urgent", "adopted" always pair an icon glyph with
-  the label text; there is no color-only status indicator.
+- **Badge** — a status pill pairs an icon glyph with its label text; there is
+  no color-only status indicator, and `voice` never carries meaning alone.
 - **Switch** — the toggle track color changes *and* the knob moves, so a
   colorblind user isn't relying on the caramelo/gray track distinction alone.
 - **Input**'s error state adds a text message (not just a red border).
@@ -273,31 +273,44 @@ call to action.
   `<fieldset>` rather than a `div role="group"` — same semantics, native
   element — while single selection stays a `div role="radiogroup"` because it
   also owns the arrow-key handler.
-- **Badge** — the *only* status pill in the library, covering three families:
-  the public statuses (`verified`, `tutor`, `urgent`, `new`, `adopted`), the
-  listing lifecycle (`active`, `paused`) and the application state machine
-  (`review`, `accepted`, `interview`, `approved`, `rejected`, `withdrawn`,
-  `expired`, `completed`). They live on one component rather than splitting
-  into a second `StatusBadge` because the pill shape, the compact-size logic
-  and — above all — the glyph-plus-label accessibility rule are identical;
-  splitting them would mean enforcing that rule in two places.
-  Every variant that has a glyph renders it through `Icon` (12px at
-  `default`, 10px at `compact`) rather than as a text character, so the
-  artwork stays in the one primitive that owns it; the glyph is decorative
-  and the label carries the meaning. `tutor` and `new` are the two variants
-  with no glyph — their label is already the whole message. The colour class
-  sits on the outer pill and the label renders `text-inherit`, so the glyph
-  and the text can never drift apart.
-  `urgent` is an outline in `--color-warning` (equals `--color-brand`
-  for Caramelo specifically — see `.refs/theming.md` for why this can't be a
-  hardcoded `brand` reference), never a filled brand background, so it can't
-  be misread as a CTA. `rejected`, `withdrawn`, `expired` and `completed` all
-  land on the same `gray-3` surface on purpose: a terminal status should not
-  shout, and glyph + label already separate them, which is exactly what the
-  no-colour-alone rule asks for. Takes a `size`
-  (`default`/`compact`) prop — `compact` is what AnimalCard uses for its
-  inline verified badge, since a plain `className` override can only reach
-  the outer pill (padding), not the label's own font-size.
+- **Badge** — the *only* status pill in the library. Its API is a **voice**
+  (`success`, `info`, `warning`, `neutral`), an optional `icon` and the
+  `label` text. It used to be a closed `variant` union of fifteen domain
+  statuses, which meant every new status in the product needed a release of
+  this library and made the component own pt-BR copy for three unrelated
+  domains. `voice` is how loud the pill is, not what it means; the meaning
+  arrives as `icon` + `label` from the caller.
+  The four voices are the four surfaces the design actually uses:
+  `success` is the `success/16` tint, `info` the caramelo tint, `neutral` the
+  `gray-3` surface, and `warning` an **outline** in `--color-warning` (equals
+  `--color-brand` for Caramelo specifically — see `.refs/theming.md` for why
+  this can't be a hardcoded `brand` reference), never a filled brand
+  background, so it can't be misread as a CTA. Terminal statuses
+  (`rejected`, `withdrawn`, `expired`, `completed`) all sit on the same
+  `neutral` surface on purpose: a terminal status should not shout, and
+  glyph + label already separate them, which is exactly what the
+  no-colour-alone rule asks for.
+  The glyph renders through `Icon` (12px at `default`, 10px at `compact`)
+  rather than as a text character, so the artwork stays in the one primitive
+  that owns it; the glyph is decorative and the label carries the meaning.
+  `icon` is optional because some labels are already the whole message
+  (`TUTOR`, `NOVO`). The colour class sits on the outer pill and the label
+  renders `text-inherit`, so the glyph and the text can never drift apart.
+  Takes a `size` (`default`/`compact`) prop — `compact` is what AnimalCard
+  uses for its inline verified badge, since a plain `className` override can
+  only reach the outer pill (padding), not the label's own font-size.
+  **`badgePresets`** keeps the fifteen old variants alive as data: a map of
+  name → `{ voice, icon, label }`, spread at the call site
+  (`<Badge {...badgePresets.verified} />`). It is what `AnimalCard`,
+  `ProfileHeader`, `PublisherRow`, `ApplicationCard` and
+  `ListingManagerCard` map their domain status through, so those components
+  keep their own status props and the pt-BR copy stays in one table instead
+  of five. A consumer with a status the design system has never heard of
+  passes `voice`/`icon`/`label` directly and needs no change here.
+  One deliberate loss in the move: `tutor` used to be a slightly darker chip
+  (`gray-4`/`neutral-2`) than the other grey statuses; it now shares the one
+  `neutral` surface, because two greys that differ by one step are exactly
+  the distinction the no-colour-alone rule says nothing may rest on.
 - **Tabs** — the underline tab strip for the ONG profile
   (`Animais · Sobre · Transparência`), Meus anúncios and Favoritos. It is a
   **separate component from `SegmentedControl`, not a variant of it**, and the
@@ -821,8 +834,8 @@ call to action.
   `approved`, `withdrawn`, `expired`, `completed`) and is rendered through
   `Badge` rather than a private status cva: the card was the second
   implementation of the same status-pill concept, and the library keeps one.
-  Its status names are deliberately the same strings as the matching `Badge`
-  variants so the mapping is the identity.
+  Its status names are deliberately the same strings as the keys of
+  `badgePresets`, so the mapping is a spread.
   It has **two shapes, not two components**. The full shape (`review`) is
   avatar + name + meta line + a `NOVO` badge when `unread`, the screening
   answers as `Tag`s, the applicant's message in a `gray-3` block, then the
@@ -881,8 +894,8 @@ call to action.
   It is **not a live region and not dismissible** — a callout is part of the
   page, and anything that needs to announce itself is a `Toast`. The
   `warning` tone is an **outline with no fill**, the same standing rule as
-  `Badge`'s `urgent`: a warning-coloured fill would compete with the primary
-  action, since `--color-warning` aliases `--color-brand`.
+  `Badge`'s `warning` voice: a warning-coloured fill would compete with the
+  primary action, since `--color-warning` aliases `--color-brand`.
   It ships **no default copy**: the sale policy and the privacy statement are
   legal-adjacent wording and the consumer always supplies them.
 - **Carousel** — the pager for onboarding (three slides, swipe or
