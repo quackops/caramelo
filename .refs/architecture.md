@@ -23,7 +23,14 @@ Code is the truth. This file explains the *why* behind the shape it takes.
   (`Slot`/`SlotProps`) used by components that need to render as a different
   element (`Button`, `Text`).
 - `src/utils/cn.ts` — `cn()` (clsx + tailwind-merge) is the only way class
-  names are composed; never string-concatenate classes.
+  names are composed; never string-concatenate classes. It uses
+  `extendTailwindMerge` to register the named type steps
+  (`--text-display`/`title`/`card-title`/`body`/`label`/`caption`/`micro`/`badge`)
+  in the `font-size` class group. Without that, tailwind-merge falls back to
+  treating any unrecognised `text-*` as a **colour**, so `text-micro` and
+  `text-neutral-3` would count as a conflict and the size would be silently
+  dropped — every component that pairs a named step with a `Text` `color`
+  depends on this. A new `--text-*` token has to be added to that list too.
 - `src/style.css` — the Tailwind v4 entry point and the only place raw
   `oklch()` values are declared (see Tokens below).
 - `templates/component/*.hbs` — plop scaffolding templates for
