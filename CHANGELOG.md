@@ -1,3 +1,9 @@
+## [1.7.1](https://github.com/quackops/caramelo/compare/v1.7.0...v1.7.1) (2026-08-27)
+
+### Bug Fixes
+
+* **tri-state-group:** fill container width so the three targets divide evenly ([6235789](https://github.com/quackops/caramelo/commit/6235789ae314c95f3aaea46a78b2ce5fa01c1a54))
+
 ## [1.7.0](https://github.com/quackops/caramelo/compare/v1.6.2...v1.7.0) (2026-08-27)
 
 ### Features
