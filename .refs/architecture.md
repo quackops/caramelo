@@ -238,6 +238,19 @@ call to action.
   compose this rather than forking it. `SearchBar` is deliberately *not*
   refactored onto these slots — its focused state is a spec'd prop contract,
   not a pseudo-class.
+- **Textarea** — the multi-line half of the field pair. It repeats `Input`'s
+  geometry, label and `error`/`hint` contract on purpose, so a form can swap
+  one for the other without the surrounding layout changing. `showCount`
+  renders `N/max` bottom-right and reads the limit from the native
+  `maxLength` attribute — there is deliberately no second `max` prop, because
+  the native attribute is what actually enforces the limit and a duplicate
+  would be free to disagree with it. The visible counter is `aria-hidden` and
+  the count is announced instead through a separate debounced
+  `aria-live="polite"` region: a counter that fires on every keystroke is
+  unusable with a screen reader. It turns `--color-danger` in the last 10%.
+  The message/counter row wraps rather than clips, since Dynamic Type up to
+  200% is a stated requirement and the design never truncates. `autoGrow`
+  expands the field with its content up to a cap and then scrolls.
 - **Select** — native `<select>` styled to the same field spec, with a
   decorative `Icon name="chevron-down"` overlay. The spec's custom open-menu visual (a floating list
   with a checkmark on the selected row) is a distinct overlay/menu pattern,
