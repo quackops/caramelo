@@ -1,3 +1,9 @@
+## [2.1.3](https://github.com/quackops/caramelo/compare/v2.1.2...v2.1.3) (2026-08-27)
+
+### Bug Fixes
+
+* **button:** keep the label on one line so fixed-height buttons don't clip ([f8e2917](https://github.com/quackops/caramelo/commit/f8e29177f06760967e21862f9fc40ea2360d4fa1))
+
 ## [2.1.2](https://github.com/quackops/caramelo/compare/v2.1.1...v2.1.2) (2026-08-27)
 
 ### Bug Fixes
