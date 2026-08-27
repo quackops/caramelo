@@ -1,5 +1,6 @@
 import type { ReactNode, SelectHTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
+import { Icon } from '../icon/icon';
 import { Text } from '../text/text';
 
 export const Select = ({
@@ -32,9 +33,11 @@ export const Select = ({
         >
           {children}
         </select>
-        <span className="pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 font-poppins text-xs text-neutral-3">
-          ▾
-        </span>
+        <Icon
+          name="chevron-down"
+          size={18}
+          className="pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 text-neutral-3"
+        />
       </div>
     </div>
   );

@@ -160,7 +160,7 @@ call to action.
   state, and renders both a border color change and a text message below the
   field.
 - **Select** — native `<select>` styled to the same field spec, with a
-  decorative chevron. The spec's custom open-menu visual (a floating list
+  decorative `Icon name="chevron-down"` overlay. The spec's custom open-menu visual (a floating list
   with a checkmark on the selected row) is a distinct overlay/menu pattern,
   not part of this atomic field — it isn't implemented here. The native option
   popup is forced to `--color-surface` / `--color-neutral`
@@ -172,8 +172,10 @@ call to action.
 - **SearchBar** — height 52, radius 14. Takes a `focused` prop rather than
   relying on `:focus`, because the spec's focused state is a *value present
   + focus ring* combination that also needs a clear ("×") button — that
-  combined state isn't reachable from a CSS pseudo-class alone. The keyboard
-  focus ring is `focus-within` on the wrapper (see Keyboard focus above).
+  combined state isn't reachable from a CSS pseudo-class alone. The leading
+  magnifier is `Icon name="search"` and the clear button wraps `Icon
+  name="x"`. The keyboard focus ring is `focus-within` on the wrapper (see
+  Keyboard focus above).
   When an `onClear` handler is passed the clear button stays mounted at all
   times and only toggles `invisible` + `aria-hidden` + `tabIndex` on the empty
   value, so typing the first character doesn't shift the input width.
@@ -206,7 +208,8 @@ call to action.
   other photos (remove button), and an "add" slot with an n/max counter, plus
   a dropzone. Drag-to-reorder and the native camera/photo-roll picker are
   interaction behavior left to the consumer; this component renders the
-  visual states only.
+  visual states only. The remove (`x`) and add (`plus`) affordances render
+  through `Icon`.
 - **NoticeRow** — unread = caramelo-3 surface + a brand dot; read reverts to
   the plain gray-2 surface with no dot.
 - **ApplicationCard** — `review`/`accepted`/`rejected`/`completed` status

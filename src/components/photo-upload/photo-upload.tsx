@@ -1,4 +1,5 @@
 import { cn } from '../../utils/cn';
+import { Icon } from '../icon/icon';
 import { Text } from '../text/text';
 
 export const PhotoUpload = ({
@@ -36,16 +37,9 @@ export const PhotoUpload = ({
               type="button"
               onClick={() => onRemove?.(photo.id)}
               aria-label={`Remover foto ${index + 1}`}
-              className="absolute right-[5px] top-[5px] flex size-5 cursor-pointer items-center justify-center rounded-full bg-caramelo-1/80"
+              className="absolute right-[5px] top-[5px] flex size-5 cursor-pointer items-center justify-center rounded-full bg-caramelo-1/80 text-neutral"
             >
-              <Text
-                as="span"
-                variant="small"
-                color="neutral"
-                className="text-[11px]"
-              >
-                ×
-              </Text>
+              <Icon name="x" size={11} />
             </button>
           </div>
         ))}
@@ -53,17 +47,9 @@ export const PhotoUpload = ({
           <button
             type="button"
             onClick={onAdd}
-            className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-control border-[1.5px] border-dashed border-gray-7 bg-gray-2"
+            className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-control border-[1.5px] border-dashed border-gray-7 bg-gray-2 text-neutral-3"
           >
-            <Text
-              as="span"
-              variant="large"
-              weight="regular"
-              color="neutral-3"
-              className="text-2xl leading-none"
-            >
-              +
-            </Text>
+            <Icon name="plus" size={22} />
             <Text
               as="span"
               variant="small"

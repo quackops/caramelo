@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
-import { Text } from '../text/text';
+import { Icon } from '../icon/icon';
 
 export const SearchBar = ({
   value,
@@ -20,12 +20,10 @@ export const SearchBar = ({
         className,
       )}
     >
-      <span
-        aria-hidden
-        className={cn(
-          'size-16 rounded-full border-2',
-          focused ? 'border-link' : 'border-neutral-3',
-        )}
+      <Icon
+        name="search"
+        size={16}
+        className={focused ? 'text-link' : 'text-neutral-3'}
       />
       <input
         value={value}
@@ -40,13 +38,11 @@ export const SearchBar = ({
           tabIndex={value ? 0 : -1}
           aria-hidden={!value}
           className={cn(
-            'flex size-[22px] shrink-0 cursor-pointer items-center justify-center rounded-full bg-gray-6',
+            'flex size-[22px] shrink-0 cursor-pointer items-center justify-center rounded-full bg-gray-6 text-neutral',
             !value && 'pointer-events-none invisible',
           )}
         >
-          <Text as="span" variant="small" color="neutral">
-            ×
-          </Text>
+          <Icon name="x" size={12} />
         </button>
       )}
     </div>
