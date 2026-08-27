@@ -52,6 +52,23 @@
   --font-poppins: "Poppins", sans-serif;
   --font-roboto: "Roboto", sans-serif;
 
+  --text-display: 32px;
+  --text-display--line-height: 38px;
+  --text-title: 24px;
+  --text-title--line-height: 30px;
+  --text-card-title: 17px;
+  --text-card-title--line-height: 22px;
+  --text-body: 15px;
+  --text-body--line-height: 22px;
+  --text-label: 13px;
+  --text-label--line-height: 18px;
+  --text-caption: 11px;
+  --text-caption--line-height: 14px;
+  --text-micro: 10px;
+  --text-micro--line-height: 13px;
+  --text-badge: 9px;
+  --text-badge--line-height: 12px;
+
   --spacing-4: 4px;
   --spacing-8: 8px;
   --spacing-12: 12px;

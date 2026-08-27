@@ -83,7 +83,16 @@ components without touching component code.
 - Typography: Poppins for UI/headings/labels/numbers (`Text` component,
   `font-poppins`), Roboto 300 for body copy (`font-roboto`, used directly in
   form-field values rather than through `Text`, since `Text` is Poppins-only
-  today). `Text`'s `color` variant carries a `link` entry for
+  today). The named type steps from the handoff are tokens —
+  `--text-display` 32/38, `--text-title` 24/30, `--text-card-title` 17/22,
+  `--text-body` 15/22, `--text-label` 13/18, `--text-caption` 11/14,
+  `--text-micro` 10/13, `--text-badge` 9/12 — each carrying its own line
+  height, so a screen never pairs one of these sizes with an ad-hoc leading.
+  They sit *beside* `Text`'s `variant` scale (`small`/`medium`/`large` =
+  14/16/18) rather than replacing it: `variant` is the library's own UI
+  ladder, the `--text-*` tokens are the app's named steps, and a component
+  reaches for the token whenever the design names the step. `Text`'s `color`
+  variant carries a `link` entry for
   `--color-link` — the token that inline text actions use instead of
   `--color-brand`, so the one-brand-element-per-view rule survives a ghost
   action sitting next to a primary `Button`.
