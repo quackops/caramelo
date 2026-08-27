@@ -1,3 +1,26 @@
+## [2.3.0](https://github.com/quackops/caramelo/compare/v2.2.0...v2.3.0) (2026-08-27)
+
+### Features
+
+* **action-list:** add ActionList ([5284537](https://github.com/quackops/caramelo/commit/52845379a79aa7eb63fc43c6abcb7fc3d20b2ae7))
+* **animal-card:** add the grid variant, favourite, unavailable and loading states ([9709ffb](https://github.com/quackops/caramelo/commit/9709ffb59d8d87eff6d6e97a645183ca19a5b797))
+* **application-card:** extend to the received-interests screen ([892ad91](https://github.com/quackops/caramelo/commit/892ad9178cf78b26aa5b7a1ebfc5c7ee52c6ea6b))
+* **auth-gate-sheet:** add AuthGateSheet ([8bd53ae](https://github.com/quackops/caramelo/commit/8bd53ae44bac2f40342f5b75d50c6a2754611236))
+* **callout:** add Callout ([4085744](https://github.com/quackops/caramelo/commit/40857442733b6a186501f004c5f414e68d7a3b79))
+* **countdown:** add Countdown ([feaa486](https://github.com/quackops/caramelo/commit/feaa4869984c749f25902eafb4164f4349c70761))
+* **listing-manager-card:** add ListingManagerCard ([7895739](https://github.com/quackops/caramelo/commit/7895739f4d4d2adf6b3062c410b00bdcbdb248cd))
+* **map-pin:** add the presentational map primitives ([9fb9cdc](https://github.com/quackops/caramelo/commit/9fb9cdc7a0341e79cf6445eda5c7a09c8905a002))
+* **masked-value:** add MaskedValue ([4dc4a9f](https://github.com/quackops/caramelo/commit/4dc4a9fd990735b8e7c47a1886bb407c077473a5))
+* **orbital-rings:** add OrbitalRings ([5393f8f](https://github.com/quackops/caramelo/commit/5393f8f0217d4a0b99192317489485b2c079bd93))
+* **photo-upload:** add reorder, per-photo upload state and the source picker ([f59b1a4](https://github.com/quackops/caramelo/commit/f59b1a45fe087877eb1a9379f6eb843965b10156))
+* **profile-header:** add ProfileHeader ([9a0fcb4](https://github.com/quackops/caramelo/commit/9a0fcb42deae0d825f464c3c5518198c0ecbe977))
+* **publisher-row:** add PublisherRow ([a404224](https://github.com/quackops/caramelo/commit/a40422481dabc4994439eeed0ad9ff9211502486))
+* **qr-code:** add QrCode ([bcb77e0](https://github.com/quackops/caramelo/commit/bcb77e02b3e0250a1420dc92ddaa83eda3c4f1de))
+* **result-screen:** add ResultScreen ([27210fb](https://github.com/quackops/caramelo/commit/27210fb43c412a5ef7be3f7dc63175360c4b8480))
+* **saved-search-row:** add SavedSearchRow ([9613a95](https://github.com/quackops/caramelo/commit/9613a95f21f7a8d68e9c995ce1686ef40711657f))
+* **social-button:** add SocialButton ([e576ad5](https://github.com/quackops/caramelo/commit/e576ad5ee9ad46a42af5268e4e07d4cc76dbc0bb))
+* **status-banner:** add StatusBanner ([b365e35](https://github.com/quackops/caramelo/commit/b365e358dc9db1bdea3246738209cb13cfeec09c))
+
 ## [2.2.0](https://github.com/quackops/caramelo/compare/v2.1.3...v2.2.0) (2026-08-27)
 
 ### Features
