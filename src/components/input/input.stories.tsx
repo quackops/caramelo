@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { IconButton } from '../icon-button/icon-button';
 import { Input } from './input';
 
 const meta = {
@@ -36,5 +37,33 @@ export const ErrorState: Story = {
     label: 'E-mail',
     defaultValue: 'dino@pawee',
     error: 'Insira um e-mail válido',
+  },
+};
+
+export const WithHint: Story = {
+  args: {
+    id: 'cep',
+    label: 'CEP',
+    placeholder: '00000-000',
+    hint: 'Só usamos para calcular a distância até você.',
+  },
+};
+
+export const WithLeadingAffix: Story = {
+  args: {
+    id: 'amount',
+    label: 'Outro valor',
+    placeholder: '0,00',
+    leading: 'R$',
+  },
+};
+
+export const WithTrailingAction: Story = {
+  args: {
+    id: 'password',
+    label: 'Senha',
+    type: 'password',
+    defaultValue: 'caramelo123',
+    trailing: <IconButton icon="eye" aria-label="Mostrar senha" />,
   },
 };

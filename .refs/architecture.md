@@ -222,7 +222,22 @@ call to action.
   `:focus`/`:focus-visible` pseudo-class, not a prop — no consumer should
   ever need to force it. `error` is a prop because it's driven by validation
   state, and renders both a border color change and a text message below the
-  field.
+  field. `leading`/`trailing` are affix slots *inside* the 52-tall box, so a
+  password reveal toggle or an `R$` prefix belongs to the field instead of
+  being absolutely positioned over it by the consumer — which would put the
+  control outside the field's focus ring. Because an affix can be focusable,
+  the field's border/background/ring moved from the `<input>` to the wrapper
+  as `focus-within:*` (the input keeps `focus:outline-none`) — the same
+  arrangement `SearchBar` already uses, deliberately reused rather than
+  invented a second time. `leading` is `aria-hidden` and `--color-neutral-3`:
+  in this design it is always a symbol that the label already says (`R$`, a
+  unit). `trailing` is not hidden, because that slot is where an interactive
+  control or a live counter goes. `hint` is the quiet non-error line under
+  the field; `error` wins and replaces it, and whichever renders is wired to
+  the input through `aria-describedby`. `PasswordField` and `MoneyInput`
+  compose this rather than forking it. `SearchBar` is deliberately *not*
+  refactored onto these slots — its focused state is a spec'd prop contract,
+  not a pseudo-class.
 - **Select** — native `<select>` styled to the same field spec, with a
   decorative `Icon name="chevron-down"` overlay. The spec's custom open-menu visual (a floating list
   with a checkmark on the selected row) is a distinct overlay/menu pattern,
