@@ -105,6 +105,11 @@ export {
 } from './components/sidebar/sidebar';
 export { Slider, type SliderProps } from './components/slider/slider';
 export {
+  StatGrid,
+  type StatGridItem,
+  type StatGridProps,
+} from './components/stat-grid/stat-grid';
+export {
   StepProgress,
   type StepProgressProps,
 } from './components/step-progress/step-progress';

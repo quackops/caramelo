@@ -534,6 +534,23 @@ call to action.
   interaction behavior left to the consumer; this component renders the
   visual states only. The remove (`x`) and add (`plus`) affordances render
   through `Icon`.
+- **StatGrid** — the horizontal row of number-plus-label: the listing's spec
+  tiles (`SEXO Fêmea · IDADE 2 anos · …`), the listing's reach numbers, the
+  ONG's totals and the profile stats. The design uses **two orders** — the
+  spec grid puts the label above the value, the profile stats put the number
+  above the label — so `order` is a prop rather than a second component.
+  `variant="tiles"` is the `--color-surface` card on `--radius-control`;
+  `inline` drops the surface and separates cells with dividers, which is how
+  the profile and ONG headers draw them.
+  When no cell has an `onClick` the grid is a real `<dl>` of `<dt>`/`<dd>`
+  pairs — the same reasoning as `SummaryRow`, since these are facts. As soon
+  as one cell links somewhere (the profile stats open their lists) the grid
+  switches to plain `div`/`button` cells, because a `<button>` cannot be a
+  `<dt>`. Cells wrap to fewer columns on narrow widths instead of shrinking
+  the type, since the labels have to survive Dynamic Type at 200% and
+  `CANDIDATURA` is already long.
+  It overlaps `SummaryRow` only superficially: that is a stacked list of
+  label/value pairs, this is a grid of numbers.
 - **SummaryRow** — a label on the left, a value on the right, optionally an
   action: the review-before-publishing list, the ONG transparency block, the
   donation total and the receipt. Three different meanings, one shape. The
