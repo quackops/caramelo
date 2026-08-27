@@ -27,6 +27,10 @@ export {
   type CarameloProviderProps,
   type Theme,
 } from './components/caramelo-provider/caramelo-provider';
+export {
+  Carousel,
+  type CarouselProps,
+} from './components/carousel/carousel';
 export { Checkbox, type CheckboxProps } from './components/checkbox/checkbox';
 export { Chip, type ChipProps } from './components/chip/chip';
 export {

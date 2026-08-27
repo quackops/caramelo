@@ -624,6 +624,25 @@ call to action.
   wants no heading can pass its own element. `action` is right-aligned and is
   meant to be a ghost `Button` (`Limpar`, `Marcar lidos`); `count` renders
   after the title at reduced emphasis where the design shows one ("Salvos 4").
+- **Carousel** — the pager for onboarding (three slides, swipe or
+  `Continuar`) and the listing gallery (up to five photos with a `1 de 5`
+  counter). `StepProgress` already shipped the *indicator* for both cases —
+  `variant="dots"` and `tone="over-photo"` — so this component **renders
+  `StepProgress` rather than reimplementing the dots**; only the pager itself
+  was missing.
+  The track is a CSS scroll-snap container (`snap-x snap-mandatory`, one snap
+  point per child), which buys native touch physics and momentum with no
+  gesture library. It is **controlled only**: both screens need the index
+  (the gallery counter, the onboarding CTA that changes on the last slide).
+  Changing `index` scrolls the track smoothly, and user scrolling reports
+  back through `onIndexChange` debounced to the settled position — the effect
+  skips while a scroll is in flight so the two never fight each other.
+  ←/→ move between slides, the track is the focusable element, the region is
+  `aria-roledescription="carousel"` and each slide is a labelled
+  `role="group"` with `aria-roledescription="slide"`. There is **no autoplay
+  and no infinite loop**: neither appears in the design and both are
+  accessibility liabilities. The onboarding "Pular" is a ghost `Button`
+  placed by the screen, not part of this component.
 - **CopyField** — the three payloads that exist to be copied and never typed:
   the PIX copy-and-paste code (which the design puts *above* the QR, because
   that is how people pay on a phone in Brazil), the WhatsApp message shown in
