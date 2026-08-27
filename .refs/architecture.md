@@ -763,6 +763,20 @@ call to action.
   action takes the remaining width and `[&>button.size-11]:flex-none` so an
   `IconButton` beside it stays at its 44 tap target. It is a layout container
   and nothing more: it never traps scroll or captures focus.
+- **ProfileHeader** — the org profile and the user profile are the *same
+  template*; the design says so outright ("Perfil de tutor comum usa o mesmo
+  gabarito sem: selo, aba transparência e botão doar"). So there is **no
+  `type` prop**: the tutor/org difference is entirely in what the consumer
+  passes. Adding one would start encoding product rules into the design
+  system.
+  Cover at the design's 402×190 aspect, avatar overlapping its bottom edge by
+  half with a 3px ring in the page-background token so it reads as lifted —
+  that overlap is the fiddly part nobody wants written twice. With no cover
+  image it still renders a `caramelo-3` plate of the same height, so the
+  layout never jumps. It **composes** `Avatar` and `Badge` rather than
+  reimplementing either. `bio` is a `ReactNode` so a long one can be wrapped
+  in `ExpandableText` by the consumer; the header does not clamp on its own.
+  The name is an `<h1>` — this is a page header.
 - **ProgressMeter** — the labelled proportion bars on the ONG transparency
   tab ("Ração e alimentação 54%"). The design calls this block *"o que faz
   alguém doar para um desconhecido"*, so it is load-bearing for the donation

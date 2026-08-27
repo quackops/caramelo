@@ -103,6 +103,10 @@ export {
   type PhotoUploadProps,
 } from './components/photo-upload/photo-upload';
 export {
+  ProfileHeader,
+  type ProfileHeaderProps,
+} from './components/profile-header/profile-header';
+export {
   ProgressMeter,
   type ProgressMeterProps,
 } from './components/progress-meter/progress-meter';
