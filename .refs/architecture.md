@@ -83,7 +83,10 @@ components without touching component code.
 - Typography: Poppins for UI/headings/labels/numbers (`Text` component,
   `font-poppins`), Roboto 300 for body copy (`font-roboto`, used directly in
   form-field values rather than through `Text`, since `Text` is Poppins-only
-  today).
+  today). `Text`'s `color` variant carries a `link` entry for
+  `--color-link` — the token that inline text actions use instead of
+  `--color-brand`, so the one-brand-element-per-view rule survives a ghost
+  action sitting next to a primary `Button`.
 - **Keyboard focus** — every interactive component (buttons, fields, chips,
   nav rows, tabs, segmented control) adds `focus-visible:outline-2
   focus-visible:outline-brand focus-visible:outline-offset-2`, alongside
@@ -128,6 +131,19 @@ call to action.
   instead of snapping. The label never wraps (`whitespace-nowrap`) — a
   narrow container makes the button wider, never taller than its fixed
   height (see `ApplicationCard`'s side-by-side action pair).
+  `ghost` is the fifth variant: a text-only action with no surface and no
+  border, for the "Pular"/"Esqueci a senha"/"Limpar"/"Agora não" class of
+  secondary escape hatches, and for `BottomSheet`'s `action` slot. Its text is
+  `--color-link`, **not** `--color-brand`: brand is reserved for one element
+  per view and a ghost action routinely sits beside a primary `Button`, so
+  reusing brand would read as a second call to action. Hover and press both
+  brighten to `--color-neutral` (the link scale has no pressed step), and
+  disabled drops to `--color-neutral-3`. It is also the one variant that
+  drops `--size-control-height`: a ghost action inside a sheet header or
+  beside a title cannot be 52 tall, so it uses `h-auto` plus padding and
+  guarantees the 44×44 floor through `min-h-11` instead. Because the hover
+  colour lives on the wrapper, its label renders `text-inherit` rather than a
+  `Text` `color`, and it is Poppins 500 where the filled variants are 600.
 - **Icon** — the app's glyph set, split into two families behind one name
   union. The **stroke** family is Feather-style (`home`, `heart`, `plus`,
   `bell`, `user`, `search`, `filter`, `sliders`, `map-pin`, `list`, `grid`,

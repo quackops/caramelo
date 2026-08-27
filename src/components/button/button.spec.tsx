@@ -10,6 +10,30 @@ describe('Button', () => {
     ).toBeInTheDocument();
   });
 
+  it('renders the ghost variant without a surface or a border', () => {
+    render(<Button variant="ghost">Pular</Button>);
+    const button = screen.getByRole('button', { name: 'Pular' });
+    expect(button).toHaveClass('bg-transparent', 'border-none', 'text-link');
+  });
+
+  it('keeps the ghost variant off the fixed control height', () => {
+    render(<Button variant="ghost">Pular</Button>);
+    const button = screen.getByRole('button', { name: 'Pular' });
+    expect(button).toHaveClass('min-h-11');
+    expect(button).not.toHaveClass('h-13');
+  });
+
+  it('renders a ghost action as a link through the as slot', () => {
+    render(
+      <Button as="a" variant="ghost" href="#">
+        Esqueci a senha
+      </Button>,
+    );
+    expect(screen.getByRole('link', { name: 'Esqueci a senha' })).toHaveClass(
+      'text-link',
+    );
+  });
+
   it('should render polymorphic component', () => {
     render(
       <Button as="a" href="#">

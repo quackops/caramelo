@@ -49,3 +49,18 @@ export const Destructive: Story = {
     children: 'Excluir anúncio',
   },
 };
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    children: 'Pular',
+  },
+};
+
+export const GhostDisabled: Story = {
+  args: {
+    variant: 'ghost',
+    children: 'Pular',
+    disabled: true,
+  },
+};

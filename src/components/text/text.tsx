@@ -13,6 +13,7 @@ const textVariants = cva(cn('font-poppins'), {
     },
     color: {
       brand: 'text-brand',
+      link: 'text-link',
       neutral: 'text-neutral',
       'neutral-2': 'text-neutral-2',
       'neutral-3': 'text-neutral-3',

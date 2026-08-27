@@ -21,6 +21,10 @@ const buttonVariants = cva(
         handoff: 'bg-whatsapp',
         destructive:
           'bg-transparent border-[1.5px] border-danger/50 text-danger hover:border-danger disabled:border-gray-5 disabled:text-gray-8',
+        ghost: cn(
+          'h-auto min-h-11 px-3 py-2 bg-transparent border-none',
+          'text-link hover:text-neutral active:text-neutral disabled:text-neutral-3',
+        ),
       },
     },
     defaultVariants: {
@@ -39,6 +43,8 @@ export const Button = <S extends ElementType = typeof defaultSlot>({
   className,
   ...rest
 }: SlotProps<ButtonProps, S>) => {
+  const ghost = variant === 'ghost';
+
   const textColor =
     variant === 'secondary'
       ? 'neutral'
@@ -53,7 +59,12 @@ export const Button = <S extends ElementType = typeof defaultSlot>({
       type={type}
       {...rest}
     >
-      <Text variant="medium" weight="semibold" color={textColor}>
+      <Text
+        variant="medium"
+        weight={ghost ? 'medium' : 'semibold'}
+        color={ghost ? undefined : textColor}
+        className={ghost ? 'text-inherit' : undefined}
+      >
         {children}
       </Text>
     </Slot>
