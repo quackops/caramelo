@@ -47,6 +47,10 @@ export {
   EmptyState,
   type EmptyStateProps,
 } from './components/empty-state/empty-state';
+export {
+  ExpandableText,
+  type ExpandableTextProps,
+} from './components/expandable-text/expandable-text';
 export { Fab, type FabProps } from './components/fab/fab';
 export {
   type FilledIconName,

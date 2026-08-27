@@ -643,6 +643,24 @@ call to action.
   and no infinite loop**: neither appears in the design and both are
   accessibility liabilities. The onboarding "Pular" is a ghost `Button`
   placed by the screen, not part of this component.
+- **ExpandableText** — the clamped paragraph with a `Ler mais` control: the
+  listing's story (up to the publish step's 400-character limit) and the ONG
+  bio. The design clamps it so the primary action stays near the thumb.
+  The one rule that matters is that **the toggle only renders when the text
+  actually overflows** — the usual bug here is a `Ler mais` that shows under
+  a two-line paragraph. Overflow is measured (`scrollHeight` against
+  `clientHeight`) and re-measured through a `ResizeObserver`, because Dynamic
+  Type to 200% is a stated requirement and what fits at 100% will not at
+  200%.
+  The clamp is applied through a `--clamp-lines` custom property plus a
+  static arbitrary utility rather than an inline `WebkitLineClamp`, so the
+  line count stays a real, inspectable style value.
+  The full text is always in the DOM even while clamped, so it stays findable
+  and readable by assistive tech; the toggle carries `aria-expanded` and
+  `aria-controls`. Neither direction is animated — a height transition on
+  unknown content is the classic source of jank. Uncontrolled by default,
+  controlled when `expanded` is supplied. It sets the clamp, not the
+  typography.
 - **CopyField** — the three payloads that exist to be copied and never typed:
   the PIX copy-and-paste code (which the design puts *above* the QR, because
   that is how people pay on a phone in Brazil), the WhatsApp message shown in
