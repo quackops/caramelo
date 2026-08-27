@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-
-import { fn } from 'storybook/test';
+import { useArgs } from 'storybook/preview-api';
 
 import { Chip } from './chip';
 
@@ -10,19 +9,33 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
-  args: { onClick: fn() },
 } satisfies Meta<typeof Chip>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const toggleRender: Story['render'] = (args) => {
+  const [{ variant }, updateArgs] = useArgs();
+  return (
+    <Chip
+      {...args}
+      variant={variant}
+      onClick={() =>
+        updateArgs({ variant: variant === 'selected' ? 'default' : 'selected' })
+      }
+    />
+  );
+};
+
 export const Default: Story = {
+  render: toggleRender,
   args: {
     children: 'Cães',
   },
 };
 
 export const Selected: Story = {
+  render: toggleRender,
   args: {
     variant: 'selected',
     children: 'Gatos',

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useArgs } from 'storybook/preview-api';
 
 import { SegmentedControl } from './segmented-control';
 
@@ -7,6 +8,16 @@ const meta = {
   component: SegmentedControl,
   parameters: {
     layout: 'fullscreen',
+  },
+  render: (args) => {
+    const [{ value }, updateArgs] = useArgs();
+    return (
+      <SegmentedControl
+        {...args}
+        value={value}
+        onChange={(next) => updateArgs({ value: next })}
+      />
+    );
   },
 } satisfies Meta<typeof SegmentedControl>;
 
