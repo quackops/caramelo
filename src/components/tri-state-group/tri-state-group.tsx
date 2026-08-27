@@ -5,7 +5,7 @@ import { Text } from '../text/text';
 type TriStateValue = true | false | null;
 
 const optionClasses =
-  'relative flex h-[42px] flex-1 items-center justify-center gap-1.5 box-border cursor-pointer rounded-xl border has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-brand has-[:focus-visible]:outline-offset-2';
+  'relative flex h-[42px] flex-1 basis-0 items-center justify-center gap-1.5 box-border cursor-pointer whitespace-nowrap rounded-xl border has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-brand has-[:focus-visible]:outline-offset-2';
 
 export const TriStateGroup = ({
   label,
@@ -28,7 +28,7 @@ export const TriStateGroup = ({
       <Text weight="medium" className="mb-[9px] block text-[14px]">
         {label}
       </Text>
-      <div role="radiogroup" aria-label={label} className="flex gap-2">
+      <div role="radiogroup" aria-label={label} className="flex w-full gap-2">
         {options.map((option) => {
           const selected = option.value === value;
           const isUnknown = option.value === null;

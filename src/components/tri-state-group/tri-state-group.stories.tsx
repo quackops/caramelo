@@ -8,6 +8,13 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 360 }}>
+        <Story />
+      </div>
+    ),
+  ],
   args: { onChange: fn() },
 } satisfies Meta<typeof TriStateGroup>;
 

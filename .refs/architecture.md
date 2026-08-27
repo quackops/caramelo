@@ -220,7 +220,7 @@ call to action.
   `aria-valuenow`/`valuemax`.
 - **TriStateGroup** — the "Sim / Não / Não sei" answer control from the health
   step, where a null answer is valid and "não sei" must never render as a red
-  ✗. Three `flex-1` targets, 42px tall, `rounded-xl`, gap 8. Built on native
+  ✗. The group fills its container width; three `flex-1 basis-0` targets (equal thirds, labels `whitespace-nowrap`), 42px tall, `rounded-xl`, gap 8. Built on native
   `<input type="radio">` inside `<label>` (one generated `name` per group via
   `useId`) so arrow-key navigation and roving focus come from the platform.
   A selected Sim/Não is the brand fill plus a `✓`/`✗` glyph (never colour
