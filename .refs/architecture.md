@@ -208,15 +208,25 @@ call to action.
   it calls `onClose`. Entry is `slide-up-sheet` + `fade-in` on the scrim, both
   `motion-safe:`-guarded. Renders `null` when `open` is false; focus trapping
   and scroll locking are left to the consuming app.
+- **StepProgress** — the multi-step indicator every wizard flow (publish,
+  adoption form, onboarding) was drawing by hand. `variant="bars"`: equal
+  `flex-1` segments, 4px tall, `--color-brand` for the first `current` of
+  `total`, `--color-gray-6` for the rest. `variant="dots"`: 5px dots, the
+  active one a 22×5 pill so shape carries state, not just color — `tone`
+  `default` uses `brand`/`gray-7`, `over-photo` uses `neutral`/`neutral`-at-45%
+  for carousels laid over imagery. Optional `label` renders below as Poppins
+  500 11/14 `neutral-3`. Width/colour transitions are 150ms,
+  `motion-safe:`-guarded. Exposes `role="progressbar"` with
+  `aria-valuenow`/`valuemax`.
 
 ## Known gaps
 
 The spec's remaining overlay/page-level patterns (modal, confirmation dialog,
-menu, tooltip, map pin/cluster, data table, breadcrumbs, tabs, stepper) are
-documented in the design doc but not yet built as components — they're
-compositions of the atomic pieces above plus page-level state (routing, focus
-trapping) that doesn't belong in this library's atomic component set. Build
-them here, not as ad hoc screen CSS, when a consuming app needs one.
+menu, tooltip, map pin/cluster, data table, breadcrumbs, tabs) are documented
+in the design doc but not yet built as components — they're compositions of
+the atomic pieces above plus page-level state (routing, focus trapping) that
+doesn't belong in this library's atomic component set. Build them here, not as
+ad hoc screen CSS, when a consuming app needs one.
 
-`BottomSheet` (overlay) is now built — it still leaves focus trapping and
-scroll locking to the consumer.
+`BottomSheet` (overlay) and `StepProgress` (the "stepper") are now built —
+`BottomSheet` still leaves focus trapping and scroll locking to the consumer.

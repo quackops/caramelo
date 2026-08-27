@@ -57,6 +57,10 @@ export {
   type SidebarItem,
   type SidebarProps,
 } from './components/sidebar/sidebar';
+export {
+  StepProgress,
+  type StepProgressProps,
+} from './components/step-progress/step-progress';
 export { Switch, type SwitchProps } from './components/switch/switch';
 export {
   TabBar,
