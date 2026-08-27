@@ -16,6 +16,18 @@ describe('SearchBar', () => {
     ).toBeInTheDocument();
   });
 
+  it('keeps the clear button mounted but hidden while empty', () => {
+    render(<SearchBar value="" onClear={vi.fn()} readOnly />);
+
+    expect(
+      screen.queryByRole('button', { name: /limpar busca/i }),
+    ).not.toBeInTheDocument();
+    expect(screen.getByLabelText('Limpar busca')).toHaveAttribute(
+      'aria-hidden',
+      'true',
+    );
+  });
+
   it('shows a clear button with a value and calls onClear', () => {
     const onClear = vi.fn();
     render(<SearchBar value="poodle" onClear={onClear} readOnly />);

@@ -32,12 +32,17 @@ export const SearchBar = ({
         className="flex-1 bg-transparent font-roboto text-[15px] font-light text-neutral placeholder:text-neutral-3 focus:outline-none"
         {...rest}
       />
-      {value && onClear && (
+      {onClear && (
         <button
           type="button"
           onClick={onClear}
           aria-label="Limpar busca"
-          className="flex size-[22px] cursor-pointer items-center justify-center rounded-full bg-gray-6"
+          tabIndex={value ? 0 : -1}
+          aria-hidden={!value}
+          className={cn(
+            'flex size-[22px] shrink-0 cursor-pointer items-center justify-center rounded-full bg-gray-6',
+            !value && 'pointer-events-none invisible',
+          )}
         >
           <Text as="span" variant="small" color="neutral">
             ×

@@ -159,6 +159,9 @@ call to action.
   + focus ring* combination that also needs a clear ("×") button — that
   combined state isn't reachable from a CSS pseudo-class alone. The keyboard
   focus ring is `focus-within` on the wrapper (see Keyboard focus above).
+  When an `onClear` handler is passed the clear button stays mounted at all
+  times and only toggles `invisible` + `aria-hidden` + `tabIndex` on the empty
+  value, so typing the first character doesn't shift the input width.
 - **Avatar** — 48px (authorship) / 32px (stacks). Shows initials on a
   caramelo-4 plate with a brand-9 ring when there's no photo.
 - **AnimalCard** — the list-style card: 104×104 photo (radius 16) inside a
