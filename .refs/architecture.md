@@ -675,6 +675,25 @@ call to action.
   action takes the remaining width and `[&>button.size-11]:flex-none` so an
   `IconButton` beside it stays at its 44 tap target. It is a layout container
   and nothing more: it never traps scroll or captures focus.
+- **StatusTimeline** — the ordered state history the library had no way to
+  express. It covers two screens in opposite directions with one component:
+  the adoption application seen backwards by the adopter (interesse enviado →
+  ONG aceitou → formulário → entrevista → decisão) and the forward-looking
+  "O QUE ACONTECE AGORA" explainer, which is the same vertical rail with
+  numbered steps. This is the screen where the whole funnel becomes legible,
+  and the design requires the record to survive after the conversation moves
+  to WhatsApp.
+  It renders an `<ol>`, because the sequence *is* the meaning. Each event has
+  a marker — `marker="check"` gives a filled `--color-brand` dot with an
+  `on-brand-strong` `check` for `done`, a hollow brand ring for `current` and
+  a `gray-6` dot for `pending`; `marker="number"` swaps the glyph for the
+  step number. The connector between two events takes its colour from the
+  **lower** event: grey above a `pending` step, brand above a reached one.
+  State is never colour alone: `done` carries the glyph, `current` carries a
+  distinct ring shape, and every event appends its state in words to the
+  accessible name. Terminal outcomes (`recusada`, `desistiu`, `expirada`) end
+  the list with a final event rather than adding a fourth marker state — the
+  `Badge` above the timeline carries that.
 - **StepProgress** — the multi-step indicator every wizard flow (publish,
   adoption form, onboarding) was drawing by hand. The bar spans its container width (`w-full`). `variant="bars"`: equal
   `flex-1` segments, 4px tall, `--color-brand` for the first `current` of

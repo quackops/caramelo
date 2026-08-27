@@ -110,6 +110,11 @@ export {
   type StatGridProps,
 } from './components/stat-grid/stat-grid';
 export {
+  StatusTimeline,
+  type StatusTimelineProps,
+  type TimelineEvent,
+} from './components/status-timeline/status-timeline';
+export {
   StepProgress,
   type StepProgressProps,
 } from './components/step-progress/step-progress';
