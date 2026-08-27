@@ -198,6 +198,22 @@ call to action.
   of only two components with a shadow (the other is the sheet pattern),
   both using the same `0 8px 24px oklch(17.8% .0119 80.9 / .6)` token value.
   Takes the same `icon`/`children` pair as `IconButton` (`Icon` at 24px).
+- **ActionList** — the list of choices *inside* a sheet: the one-tap refusal
+  reason ("Recusar pede um motivo em um toque e envia uma mensagem gentil
+  pronta" — no confirm step) and the "foi por aqui?" question that is how
+  real adoptions get measured. This is the real shape of the "menu" gap the
+  library never filled: not a floating menu, but a list of choices in a
+  `BottomSheet`.
+  It is **not** `ListRow`, which navigates somewhere; an `ActionList` row
+  answers a question. They deliberately **share the row metrics** (52 min
+  height, 16 side padding, `gray-4` hairlines) so a sheet full of choices and
+  a page full of links feel like the same system, but they stay separate
+  components because they mean different things.
+  Selecting fires `onSelect` immediately and **does not close the sheet** —
+  some selections need a follow-up step, so dismissal is the consumer's.
+  Rows are plain `<button>`s with the standard focus ring; arrow-key roving
+  is deliberately absent, because this is a list of buttons, not a menu
+  widget. Rows wrap rather than truncate.
 - **AmountOption** — the donation sheet's preset value tiles. It is close to
   `OptionCard` but deliberately separate: `OptionCard` is a title+description
   card in a stacked list, `AmountOption` is a value tile in a row of three,
