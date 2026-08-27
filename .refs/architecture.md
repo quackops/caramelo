@@ -257,9 +257,30 @@ call to action.
   control or a live counter goes. `hint` is the quiet non-error line under
   the field; `error` wins and replaces it, and whichever renders is wired to
   the input through `aria-describedby`. `PasswordField` and `MoneyInput`
-  compose this rather than forking it. `SearchBar` is deliberately *not*
+  compose this rather than forking it. `InputProps` is `ComponentProps<'input'>`
+  rather than `InputHTMLAttributes` so a composing component can pass a `ref`
+  straight through to the native field — `MaskedInput` needs one to restore
+  the caret. `SearchBar` is deliberately *not*
   refactored onto these slots — its focused state is a spec'd prop contract,
   not a pseudo-class.
+- **MaskedInput** — composes `Input` for the app's formatted fields
+  (`phone-br`, `cnpj`, `cep`). WhatsApp is the product's only contact
+  channel, so a wrong number breaks the whole adoption funnel — the format,
+  the caret handling and the paste behaviour are worth owning once rather
+  than being rewritten on each screen that captures a number.
+  `onChange(raw, formatted)` hands back both: everything downstream (the API,
+  a `wa.me` link) wants the raw digits, the field wants the display string.
+  `value` is normalised by stripping non-digits, so a consumer may store
+  either form and the field still renders correctly.
+  The caret is preserved across reformatting by counting the digits before
+  the caret and re-finding that digit position in the newly formatted string,
+  applied in a layout effect (the caret is held as a fresh object per change
+  so a repeated position still re-runs). Deleting a *separator* deletes the
+  digit before it, which is what the user meant; a keystroke that would
+  exceed the mask is rejected outright rather than truncated, so the stored
+  value never silently loses what was typed. `phone-br` covers both 8- and
+  9-digit local numbers. Validation is not the component's job: it reports
+  what was typed and the consumer decides and passes `error`.
 - **PasswordField** — composes `Input` rather than forking it: the reveal
   toggle is an `IconButton` in `Input`'s `trailing` slot, so it sits inside
   the field box and inside the field's focus ring. Toggling flips the same

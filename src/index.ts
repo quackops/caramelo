@@ -48,6 +48,11 @@ export {
   type LoadingSkeletonProps,
 } from './components/loading-skeleton/loading-skeleton';
 export {
+  MaskedInput,
+  type MaskedInputProps,
+  type MaskName,
+} from './components/masked-input/masked-input';
+export {
   NoticeRow,
   type NoticeRowProps,
 } from './components/notice-row/notice-row';

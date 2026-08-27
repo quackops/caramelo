@@ -1,4 +1,4 @@
-import { type InputHTMLAttributes, type ReactNode, useId } from 'react';
+import { type ComponentProps, type ReactNode, useId } from 'react';
 import { cn } from '../../utils/cn';
 import { Text } from '../text/text';
 
@@ -81,7 +81,7 @@ export const Input = ({
   );
 };
 
-export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+export type InputProps = ComponentProps<'input'> & {
   label?: string;
   error?: string;
   hint?: string;
