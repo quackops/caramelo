@@ -1,31 +1,7 @@
-import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
+import { Badge } from '../badge/badge';
 import { Button } from '../button/button';
 import { Text } from '../text/text';
-
-const statusVariants = cva(
-  'rounded-lg px-2.5 py-[5px] font-poppins text-[10px] font-semibold',
-  {
-    variants: {
-      status: {
-        review: 'bg-caramelo-4 text-caramelo-12',
-        accepted: 'bg-success/16 text-success',
-        rejected: 'bg-danger/16 text-danger',
-        completed: 'bg-gray-3 text-neutral-3',
-      },
-    },
-  },
-);
-
-const statusLabel: Record<
-  NonNullable<ApplicationCardProps['status']>,
-  string
-> = {
-  review: 'EM ANÁLISE',
-  accepted: 'ACEITA',
-  rejected: 'RECUSADA',
-  completed: 'CONCLUÍDA',
-};
 
 export const ApplicationCard = ({
   applicantName,
@@ -63,9 +39,7 @@ export const ApplicationCard = ({
             {progressLabel}
           </Text>
         </div>
-        <span className={statusVariants({ status })}>
-          {statusLabel[status]}
-        </span>
+        <Badge variant={status} />
       </div>
       {status === 'review' && (
         <div className="flex gap-2.5">
@@ -85,7 +59,7 @@ export const ApplicationCard = ({
   );
 };
 
-export type ApplicationCardProps = VariantProps<typeof statusVariants> & {
+export type ApplicationCardProps = {
   applicantName: string;
   progressLabel: string;
   status: 'review' | 'accepted' | 'rejected' | 'completed';

@@ -36,3 +36,27 @@ export const Adopted: Story = {
 export const Compact: Story = {
   args: { variant: 'verified', size: 'compact' },
 };
+
+export const ListingLifecycle: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-2">
+      <Badge variant="active" />
+      <Badge variant="paused" />
+    </div>
+  ),
+};
+
+export const ApplicationStatuses: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-2">
+      <Badge variant="review" />
+      <Badge variant="accepted" />
+      <Badge variant="interview" />
+      <Badge variant="approved" />
+      <Badge variant="rejected" />
+      <Badge variant="withdrawn" />
+      <Badge variant="expired" />
+      <Badge variant="completed" />
+    </div>
+  ),
+};

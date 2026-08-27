@@ -180,12 +180,28 @@ call to action.
 - **Chip** — height 34, radius 999. `selected` uses the brand fill (see "Why
   these components exist" above); `disabled` is the dashed/unavailable
   state, not the same as a chip that's merely inactive.
-- **Badge** — status pill for verified/tutor/urgent/new/adopted. Every
-  variant renders an icon character plus the label (see accessibility note
-  above); `urgent` is an outline in `--color-warning` (equals `--color-brand`
+- **Badge** — the *only* status pill in the library, covering three families:
+  the public statuses (`verified`, `tutor`, `urgent`, `new`, `adopted`), the
+  listing lifecycle (`active`, `paused`) and the application state machine
+  (`review`, `accepted`, `interview`, `approved`, `rejected`, `withdrawn`,
+  `expired`, `completed`). They live on one component rather than splitting
+  into a second `StatusBadge` because the pill shape, the compact-size logic
+  and — above all — the glyph-plus-label accessibility rule are identical;
+  splitting them would mean enforcing that rule in two places.
+  Every variant that has a glyph renders it through `Icon` (12px at
+  `default`, 10px at `compact`) rather than as a text character, so the
+  artwork stays in the one primitive that owns it; the glyph is decorative
+  and the label carries the meaning. `tutor` and `new` are the two variants
+  with no glyph — their label is already the whole message. The colour class
+  sits on the outer pill and the label renders `text-inherit`, so the glyph
+  and the text can never drift apart.
+  `urgent` is an outline in `--color-warning` (equals `--color-brand`
   for Caramelo specifically — see `.refs/theming.md` for why this can't be a
   hardcoded `brand` reference), never a filled brand background, so it can't
-  be misread as a CTA. Takes a `size`
+  be misread as a CTA. `rejected`, `withdrawn`, `expired` and `completed` all
+  land on the same `gray-3` surface on purpose: a terminal status should not
+  shout, and glyph + label already separate them, which is exactly what the
+  no-colour-alone rule asks for. Takes a `size`
   (`default`/`compact`) prop — `compact` is what AnimalCard uses for its
   inline verified badge, since a plain `className` override can only reach
   the outer pill (padding), not the label's own font-size.
@@ -256,9 +272,13 @@ call to action.
   through `Icon`.
 - **NoticeRow** — unread = caramelo-3 surface + a brand dot; read reverts to
   the plain gray-2 surface with no dot.
-- **ApplicationCard** — `review`/`accepted`/`rejected`/`completed` status
-  pill. The "Aceitar"/"Ver respostas" action pair only renders for `review`,
-  since none of the other statuses have a pending action in the spec.
+- **ApplicationCard** — `review`/`accepted`/`rejected`/`completed`, rendered
+  through `Badge` rather than a private status cva: the card was the second
+  implementation of the same status-pill concept, and the library keeps one.
+  Its status names are deliberately the same strings as the matching `Badge`
+  variants so the mapping is the identity. The "Aceitar"/"Ver respostas"
+  action pair only renders for `review`, since none of the other statuses
+  have a pending action in the spec.
 - **Tag** — a plain gray-3 label pill (radius 7, not the full-radius chip
   shape) for factual attributes like "castrada"/"vacinada"/"dócil". Extracted
   from `AnimalCard`'s tag list so any other consumer needing the same
