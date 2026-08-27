@@ -25,6 +25,12 @@ export {
 } from './components/empty-state/empty-state';
 export { Fab, type FabProps } from './components/fab/fab';
 export {
+  Icon,
+  type IconName,
+  type IconProps,
+  iconNames,
+} from './components/icon/icon';
+export {
   IconButton,
   type IconButtonProps,
 } from './components/icon-button/icon-button';

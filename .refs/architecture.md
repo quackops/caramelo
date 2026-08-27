@@ -122,6 +122,18 @@ call to action.
   variant. Background and transform both transition together
   (`motion-safe:transition-all`) so hover/press/theme changes cross-fade
   instead of snapping.
+- **Icon** — the app's Feather-style glyph set (27 names: `home`, `heart`,
+  `plus`, `bell`, `user`, `search`, `filter`, `sliders`, `map-pin`, `list`,
+  `grid`, `map`, `shield`, `check-circle`, `alert-circle`, `message-circle`,
+  `share-2`, `camera`, `image`, `gift`, `clock`, `copy`, `eye`,
+  `chevron-down`, `chevron-left`, `x`), exported alongside `iconNames`. Always
+  a 24×24 `viewBox`, `fill="none"`, `stroke="currentColor"` (colour comes
+  from the parent's text colour, or the `color` prop), round caps/joins.
+  `size` (default 24) sets width/height and thickens the stroke to 2.4 below
+  14px, matching the brand spec. Decorative by default (`aria-hidden`); pass
+  `aria-label` to promote it to `role="img"`. This is the glyph primitive
+  `IconButton`/`Fab`/`TabBar` etc. render inside — those components own the
+  hit target and surface, `Icon` owns only the artwork.
 - **IconButton** — 44×44 tap target. `active` toggles between a neutral
   gray-3 surface and an active caramelo-3/caramelo-7-bordered surface using
   `on-brand-inverse` text (caramelo-3 is a dark brand tint).
