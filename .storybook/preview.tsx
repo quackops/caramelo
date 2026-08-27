@@ -1,21 +1,16 @@
 import type { Preview } from '@storybook/react-vite';
 
 import { CarameloProvider } from '../src/components/caramelo-provider/caramelo-provider';
+import { cn } from '../src/utils/cn';
 import '../src/style.css';
 
 const preview: Preview = {
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
-      },
-    },
-    backgrounds: {
-      options: {
-        surface: { name: 'Surface', value: 'var(--color-surface)' },
-        brand: { name: 'Brand', value: 'var(--color-brand)' },
       },
     },
   },
@@ -35,12 +30,19 @@ const preview: Preview = {
     },
   },
   initialGlobals: {
-    backgrounds: { value: 'surface' },
     theme: 'caramelo',
   },
   decorators: [
     (Story, context) => (
-      <CarameloProvider theme={context.globals.theme ?? 'caramelo'}>
+      <CarameloProvider
+        theme={context.globals.theme ?? 'caramelo'}
+        className={cn(
+          'flex items-center justify-center p-10',
+          context.viewMode === 'docs'
+            ? 'min-h-[320px] w-full'
+            : 'min-h-screen w-screen',
+        )}
+      >
         <Story />
       </CarameloProvider>
     ),
