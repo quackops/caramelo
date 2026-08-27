@@ -91,6 +91,7 @@
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
   --animate-fade-in: fade-in 0.3s ease-out;
   --animate-slide-up-sheet: slide-up-sheet 0.3s ease-out;
+  --animate-slide-down-banner: slide-down-banner 0.2s ease-out;
   --animate-shimmer: shimmer 1.2s linear infinite;
   --animate-spin-slow: spin-slow 0.8s linear infinite;
 
@@ -106,6 +107,15 @@
   @keyframes slide-up-sheet {
     from {
       transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-down-banner {
+    from {
+      transform: translateY(-100%);
     }
     to {
       transform: translateY(0);

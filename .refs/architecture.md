@@ -781,6 +781,19 @@ call to action.
   `.Group` sub-components, and deliberately does **not** validate that the
   values sum to 100: the data comes from the org, and the component should
   not lie about it if it does not.
+- **StatusBanner** — the pinned app-level status strip, whose one real use is
+  "Você está offline". Flow 10's rule is that the app keeps showing cached
+  content and retries on its own, so this is an *ambient* status that
+  coexists with a usable screen — not a modal error. `Toast` is transient and
+  `Callout` is in-flow content; neither is a bar pinned to the top of the
+  viewport.
+  It renders as an `<output>` (implicit `role="status"`) with
+  `aria-live="polite"`, the same element `Toast` and `LoadingSkeleton` use, so
+  the library has one announcement idiom. It **must not take focus**: losing
+  connectivity while someone is typing cannot steal their caret, which is why
+  nothing here is focused on mount. `warning` is an outline with no fill, the
+  standing `--color-warning` rule. Entry slides down over 200ms
+  (`--animate-slide-down-banner`), `motion-safe:`-guarded.
 - **StatusTimeline** — the ordered state history the library had no way to
   express. It covers two screens in opposite directions with one component:
   the adoption application seen backwards by the adopter (interesse enviado →

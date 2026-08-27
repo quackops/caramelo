@@ -132,6 +132,10 @@ export {
   type StatGridProps,
 } from './components/stat-grid/stat-grid';
 export {
+  StatusBanner,
+  type StatusBannerProps,
+} from './components/status-banner/status-banner';
+export {
   StatusTimeline,
   type StatusTimelineProps,
   type TimelineEvent,
