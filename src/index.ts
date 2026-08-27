@@ -112,6 +112,10 @@ export {
   StickyActionBar,
   type StickyActionBarProps,
 } from './components/sticky-action-bar/sticky-action-bar';
+export {
+  SummaryRow,
+  type SummaryRowProps,
+} from './components/summary-row/summary-row';
 export { Switch, type SwitchProps } from './components/switch/switch';
 export {
   SwitchRow,

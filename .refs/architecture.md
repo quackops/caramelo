@@ -534,6 +534,20 @@ call to action.
   interaction behavior left to the consumer; this component renders the
   visual states only. The remove (`x`) and add (`plus`) affordances render
   through `Icon`.
+- **SummaryRow** — a label on the left, a value on the right, optionally an
+  action: the review-before-publishing list, the ONG transparency block, the
+  donation total and the receipt. Three different meanings, one shape. The
+  receipt case is why it is a component with a test rather than screen CSS —
+  `Taxa Pawee · R$ 0,00` is the donation flow's central promise.
+  Grouped rows are a real `<dl>`: `SummaryRow.Group` renders the list and
+  each row renders the `<dt>`/`<dd>` pair, which is what makes the
+  transparency block read to a screen reader as facts rather than loose text.
+  The value is Roboto where it is data and steps up to Poppins 600 at the
+  larger size for `emphasis`, the total row, which also gains a heavier top
+  rule — at most one per group. A long value **wraps** under its own line
+  rather than squeezing the label; nothing truncates.
+  Distinct from `ListRow` (which navigates) and from `StatGrid` (a
+  horizontal grid of numbers rather than a stacked list of pairs).
 - **ListRow** — the generic tappable row: search suggestions and recent
   searches, the profile menu (`Meus anúncios`, `Minhas candidaturas`,
   `Virar uma ONG verificada`), and the empty-state relaxation offers
