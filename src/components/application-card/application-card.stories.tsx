@@ -10,6 +10,13 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 380 }}>
+        <Story />
+      </div>
+    ),
+  ],
   args: { onAccept: fn(), onViewAnswers: fn() },
 } satisfies Meta<typeof ApplicationCard>;
 

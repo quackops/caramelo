@@ -125,7 +125,9 @@ call to action.
   `--color-danger`). Disabled is the native `disabled` attribute, not a
   variant. Background and transform both transition together
   (`motion-safe:transition-all`) so hover/press/theme changes cross-fade
-  instead of snapping.
+  instead of snapping. The label never wraps (`whitespace-nowrap`) — a
+  narrow container makes the button wider, never taller than its fixed
+  height (see `ApplicationCard`'s side-by-side action pair).
 - **Icon** — the app's Feather-style glyph set (27 names: `home`, `heart`,
   `plus`, `bell`, `user`, `search`, `filter`, `sliders`, `map-pin`, `list`,
   `grid`, `map`, `shield`, `check-circle`, `alert-circle`, `message-circle`,
