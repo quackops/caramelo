@@ -94,6 +94,10 @@ export {
   type OptionCardProps,
 } from './components/option-card/option-card';
 export {
+  OrbitalRings,
+  type OrbitalRingsProps,
+} from './components/orbital-rings/orbital-rings';
+export {
   PasswordField,
   type PasswordFieldProps,
 } from './components/password-field/password-field';

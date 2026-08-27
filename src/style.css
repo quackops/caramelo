@@ -94,6 +94,7 @@
   --animate-slide-down-banner: slide-down-banner 0.2s ease-out;
   --animate-shimmer: shimmer 1.2s linear infinite;
   --animate-spin-slow: spin-slow 0.8s linear infinite;
+  --animate-orbit: spin-slow 900s linear infinite;
 
   @keyframes fade-in {
     from {

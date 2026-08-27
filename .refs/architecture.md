@@ -521,6 +521,22 @@ call to action.
   reserved for the sidebar's own publish button, so there's exactly one
   brand-colored element per view. `SidebarItem.icon` is an `IconName`
   (rendered through `Icon`, 18px); `logo.mark` stays a free `ReactNode`.
+- **OrbitalRings** — the app's structural motif: two concentric circles, one
+  solid `caramelo-7` and one dashed `caramelo-6`, behind the mascot on
+  splash, onboarding and every empty state. It is a component rather than a
+  screen asset because it appears on five screens *and* carries motion —
+  0.4°/s, one revolution every 900s (`--animate-orbit`), applied as a single
+  `transform: rotate` on the `<svg>` so the rotation stays GPU-cheap. Under
+  `prefers-reduced-motion` the rings are **static, not slower**.
+  Everything scales from `size`; the geometry lives in a fixed 150 viewBox so
+  the same component serves a 220px splash and a 110px inline empty state.
+  It is decorative — `aria-hidden`, never carrying text — and `children`
+  renders centred inside it, which is how it is always used.
+  The design's constraint is *"nunca atrás de conteúdo"*: the rings sit
+  behind an illustration or a mark, never behind a paragraph or a list. The
+  component cannot enforce that; a `ResultScreen` or `EmptyState` that puts
+  them behind text is a bug. `EmptyState` was drawing the rings inline and
+  now consumes this instead.
 - **EmptyState** — `empty`/`error` variants. Every instance renders a title,
   one sentence and an action button; illustration-only empty states are not
   supported by the component (the spec explicitly forbids that shape). It
