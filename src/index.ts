@@ -117,6 +117,7 @@ export {
   type TabBarItem,
   type TabBarProps,
 } from './components/tab-bar/tab-bar';
+export { type TabItem, Tabs, type TabsProps } from './components/tabs/tabs';
 export { Tag, type TagProps } from './components/tag/tag';
 export { Text, type TextProps } from './components/text/text';
 export { Textarea, type TextareaProps } from './components/textarea/textarea';

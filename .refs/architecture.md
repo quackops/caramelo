@@ -275,6 +275,27 @@ call to action.
   (`default`/`compact`) prop — `compact` is what AnimalCard uses for its
   inline verified badge, since a plain `className` override can only reach
   the outer pill (padding), not the label's own font-size.
+- **Tabs** — the underline tab strip for the ONG profile
+  (`Animais · Sobre · Transparência`), Meus anúncios and Favoritos. It is a
+  **separate component from `SegmentedControl`, not a variant of it**, and the
+  split is the point: `SegmentedControl` means "the same content in another
+  mode" and pays for that with the brand fill, which is exactly why it may
+  not share a row with a primary `Button`. `Tabs` means "different content",
+  sits directly under `Seguir`/`Doar` on the ONG profile, and therefore
+  carries **no brand fill anywhere** — the only brand-coloured thing is the
+  2px underline. Making it a variant would have left one component with two
+  contradictory placement rules.
+  `role="tablist"` with `role="tab"` children, `aria-selected`, a single
+  roving tab stop and arrow-key navigation that skips disabled tabs. The
+  panels stay in the consumer: the component owns the strip only.
+  The underline is one absolutely-positioned element whose `left`/`width` are
+  measured from the selected tab in a layout effect, so it *slides* between
+  tabs over 150ms instead of blinking from one border to another. `count` is
+  visually a quieter number after the label and is `aria-hidden`; the count
+  is folded into the tab's `aria-label` instead ("Salvos, 4 itens"), because
+  a bare number read out after a word means nothing. The strip scrolls
+  horizontally rather than shrinking its labels — Dynamic Type to 200% is a
+  stated requirement.
 - **SegmentedControl** — shares the brand fill with the selected option by
   design; must not appear on the same row as a primary `Button`. Segment
   fill/colour cross-fades over 150ms, unselected segments get a `gray-4`
@@ -607,7 +628,7 @@ call to action.
 ## Known gaps
 
 The spec's remaining overlay/page-level patterns (modal, confirmation dialog,
-menu, tooltip, map pin/cluster, data table, breadcrumbs, tabs) are documented
+menu, tooltip, data table, breadcrumbs) are documented
 in the design doc but not yet built as components — they're compositions of
 the atomic pieces above plus page-level state (routing, focus trapping) that
 doesn't belong in this library's atomic component set. Build them here, not as
