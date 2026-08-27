@@ -27,3 +27,35 @@ export const Default: Story = {
     ),
   },
 };
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    label: 'Cidade',
+    defaultValue: 'ssa',
+    className: 'font-poppins text-title font-semibold',
+    children: (
+      <>
+        <option value="ssa">Salvador, BA</option>
+        <option value="sp">São Paulo, SP</option>
+        <option value="rj">Rio de Janeiro, RJ</option>
+      </>
+    ),
+  },
+};
+
+export const GhostInline: Story = {
+  args: {
+    variant: 'ghost',
+    label: 'Frequência do alerta',
+    defaultValue: 'imediato',
+    className: 'font-poppins text-label font-medium',
+    children: (
+      <>
+        <option value="imediato">assim que aparecer</option>
+        <option value="diario">resumo diário</option>
+        <option value="semanal">resumo semanal</option>
+      </>
+    ),
+  },
+};

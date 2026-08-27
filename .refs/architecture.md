@@ -245,6 +245,16 @@ call to action.
   popup is forced to `--color-surface` / `--color-neutral`
   (`[&_option]:bg-surface [&_option]:text-neutral`) so the list isn't
   white-on-white on dark until hover.
+  `variant` is `field` (the default, unchanged) or `ghost` — the same native
+  picker with no surface, no border and no fixed height, for the Mural's
+  location switcher and the inline alert-frequency picker, where the control
+  reads as a title or as part of a sentence rather than as a form field.
+  `ghost` inherits font family, size and leading from its parent (the
+  consumer sets the type step on the element), shrinks the chevron to 16 and
+  guarantees the 44 tap floor with `min-h-11` instead of the control height.
+  It is a variant rather than a separate `InlinePicker` component precisely
+  because of the option-colour workaround above: a second component would
+  have to maintain that hack twice.
 - **Switch** — 52×32 track, 26px knob. On: brand track, gray-1 knob
   (`on-brand-strong` logic applied to the knob itself). Off: gray-6 track,
   gray-12 knob. Track colour and knob position ease over 200ms; while the
