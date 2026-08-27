@@ -1,3 +1,42 @@
+## [2.2.0](https://github.com/quackops/caramelo/compare/v2.1.3...v2.2.0) (2026-08-27)
+
+### Features
+
+* **amount-option:** add AmountOption ([bd4b53a](https://github.com/quackops/caramelo/commit/bd4b53a8137a5d85642f024d082fbd304855fee2))
+* **autocomplete:** add Autocomplete ([5583d70](https://github.com/quackops/caramelo/commit/5583d70ef8fafe7d9a3e26314b7d2aa8341515b3))
+* **badge:** add the listing-lifecycle and application-status variants ([c8dcd6c](https://github.com/quackops/caramelo/commit/c8dcd6c50be80b147731eb4d7d7e4c28d3d6e959))
+* **button:** add a ghost variant for text-only actions ([9b79bb1](https://github.com/quackops/caramelo/commit/9b79bb180d91720ea715ce8dccd061c2e092884a))
+* **carousel:** add Carousel ([4fa5a54](https://github.com/quackops/caramelo/commit/4fa5a54f88d9b81ed90da8ffd591a3a4cf007929))
+* **check-list:** add CheckList ([4d07ae9](https://github.com/quackops/caramelo/commit/4d07ae9dcbbbe2a548e9ce8ee92da7163f7aba1b))
+* **checkbox:** add Checkbox ([a7e526a](https://github.com/quackops/caramelo/commit/a7e526a649d2c7175263a36dfeb675d3ea7828da))
+* **chip-group:** add ChipGroup with single/multiple selection and a cap ([4577cb6](https://github.com/quackops/caramelo/commit/4577cb64c8df07a000d43d20a594adfb14b70ff6))
+* **copy-field:** add CopyField ([745ff78](https://github.com/quackops/caramelo/commit/745ff78ce2adc02ef22d8ecc3c73a08da8debc6b))
+* **divider:** add Divider ([c8ecfb4](https://github.com/quackops/caramelo/commit/c8ecfb4073ea7b7f9682cb8841c3094fb90a6c3b))
+* **expandable-text:** add ExpandableText ([220794f](https://github.com/quackops/caramelo/commit/220794f9d859ec27a685675173a76b6663fd50ef))
+* **icon:** add the app glyphs and the filled brand marks ([8702ae7](https://github.com/quackops/caramelo/commit/8702ae70e8d8d9420b5d69f565dacf141ae1ee9d))
+* **input:** add leading and trailing affix slots and a hint line ([6330b67](https://github.com/quackops/caramelo/commit/6330b67d2d3f7bf3be82ab18252ede0025d30ecb))
+* **list-row:** add ListRow ([0ac5828](https://github.com/quackops/caramelo/commit/0ac5828982b25dfb29543d3b92947a8e80b6dc88))
+* **masked-input:** add MaskedInput for phone, CNPJ and CEP ([ce92161](https://github.com/quackops/caramelo/commit/ce92161528a24bcd2690d9e808b75a66edac3c99))
+* **money-input:** add MoneyInput for pt-BR currency in integer cents ([5103bce](https://github.com/quackops/caramelo/commit/5103bce1eae27c9c2051c9d33274ca8898e1651d))
+* **notice-row:** add a hint line and row-level interaction ([ca54a2f](https://github.com/quackops/caramelo/commit/ca54a2f9f354a1e45c6d72696d805fab9c2bf235))
+* **option-card:** add OptionCard ([4ade066](https://github.com/quackops/caramelo/commit/4ade066cd0ad2d5ab1e01d0ba977b3b3fa6df697))
+* **password-field:** add PasswordField with a reveal toggle and strength meter ([16e6667](https://github.com/quackops/caramelo/commit/16e6667ec9ff8f2d9000c553590a35935ec72565))
+* **progress-meter:** add ProgressMeter ([2a5d7f3](https://github.com/quackops/caramelo/commit/2a5d7f399dd586c258f8345e7404ae3c5c21c3d4))
+* **section-header:** add SectionHeader ([42fad86](https://github.com/quackops/caramelo/commit/42fad86d434230063853160a46c45d8eb9b07326))
+* **select:** add a ghost variant for inline pickers ([15004c2](https://github.com/quackops/caramelo/commit/15004c2cd58c26709bcf2ee635412e65d700a18c))
+* **slider:** add Slider ([d6b0096](https://github.com/quackops/caramelo/commit/d6b00968f868787a0cf4b0331f7f4df7223563fc))
+* **stat-grid:** add StatGrid ([d220cb9](https://github.com/quackops/caramelo/commit/d220cb9743a20e7bc7a6527cfb4739347430f916))
+* **status-timeline:** add StatusTimeline ([43958e4](https://github.com/quackops/caramelo/commit/43958e48b1a5ec0136bacc867af17273413bba52))
+* **sticky-action-bar:** add StickyActionBar ([aa939b4](https://github.com/quackops/caramelo/commit/aa939b446d1a64dcc95c7a2ee525c6c24393e888))
+* **summary-row:** add SummaryRow ([767638e](https://github.com/quackops/caramelo/commit/767638e6d5f0ec8326a6248498ee72a76e9a5515))
+* **switch-row:** add SwitchRow ([d1d6e6d](https://github.com/quackops/caramelo/commit/d1d6e6d395d21102477f0fc4fd79f0d8afabc727))
+* **tabs:** add Tabs ([529e88a](https://github.com/quackops/caramelo/commit/529e88a098f2c315022bed1468af973c2bb8bd85))
+* **textarea:** add Textarea with a character counter ([0cae44f](https://github.com/quackops/caramelo/commit/0cae44f519c5d38d8650ee0e53d87cf0e58e11b3))
+
+### Bug Fixes
+
+* **utils:** keep the named type steps out of tailwind-merge's colour group ([4badd74](https://github.com/quackops/caramelo/commit/4badd74effd2086394989dc676ff2ef231a15db0))
+
 ## [2.1.3](https://github.com/quackops/caramelo/compare/v2.1.2...v2.1.3) (2026-08-27)
 
 ### Bug Fixes
