@@ -186,6 +186,21 @@ call to action.
   of only two components with a shadow (the other is the sheet pattern),
   both using the same `0 8px 24px oklch(17.8% .0119 80.9 / .6)` token value.
   Takes the same `icon`/`children` pair as `IconButton` (`Icon` at 24px).
+- **OptionCard** — the publish flow's "what are you publishing?" step: a
+  radio group whose options are cards, each with a title *and* a description
+  (and the choice changes the rest of the flow). `Chip` is too small for two
+  lines and `SegmentedControl` is view navigation, not a form value, so
+  neither could be stretched to cover it. Built on a native
+  `<input type="radio">` inside a `<label>` — same construction as
+  `TriStateGroup`, so roving focus and arrow keys come from the platform —
+  with one generated `name` per `OptionCard.Group`, shared through context so
+  a consumer never has to invent one. Selected is the **dark brand tint**
+  (`caramelo-4` surface, `caramelo-7` border, `on-brand-inverse` title), not
+  the `caramelo-9` fill: this screen's primary `Button` is the one
+  brand-filled element. The selected card also shows a `check` glyph, so the
+  state is never colour alone. The card styles itself off `has-[:checked]:`
+  rather than `peer-checked:` because the styled element is the input's
+  parent; the glyph, a sibling, uses `peer-checked:`.
 - **Chip** — height 34, radius 999. `selected` uses the brand fill (see "Why
   these components exist" above); `disabled` is the dashed/unavailable
   state, not the same as a chip that's merely inactive.

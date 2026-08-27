@@ -66,6 +66,10 @@ export {
   type NoticeRowProps,
 } from './components/notice-row/notice-row';
 export {
+  OptionCard,
+  type OptionCardProps,
+} from './components/option-card/option-card';
+export {
   PasswordField,
   type PasswordFieldProps,
 } from './components/password-field/password-field';
