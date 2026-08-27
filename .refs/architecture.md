@@ -523,7 +523,30 @@ call to action.
   (rendered through `Icon`, 18px); `logo.mark` stays a free `ReactNode`.
 - **EmptyState** — `empty`/`error` variants. Every instance renders a title,
   one sentence and an action button; illustration-only empty states are not
-  supported by the component (the spec explicitly forbids that shape).
+  supported by the component (the spec explicitly forbids that shape). It
+  stays deliberately narrow: it is the **in-page** case (a filtered list with
+  no results, a favourites tab with nothing saved). The full-screen outcome
+  with two actions and content in the middle is `ResultScreen`. Two
+  components with clear boundaries beat one with six optional slots, so
+  `EmptyState` is not widened to cover that.
+- **ResultScreen** — the end-of-operation screen: interesse enviado,
+  publicado, doação confirmada, sem conexão, anúncio indisponível, erro do
+  servidor. All six share `EmptyState`'s anatomy and break its limits in the
+  same two ways — **two or more actions**, and **content between the message
+  and the actions** (a `StatusTimeline`, a `StatGrid`, the receipt's
+  `SummaryRow`s). That middle slot is precisely what `EmptyState` cannot do.
+  `actions` is a **required** prop: flow 10's rule is that no screen may be a
+  dead end, and making the way out non-optional is that rule expressed in the
+  type rather than trusted to six screens.
+  Focus moves to the title on mount (`tabIndex={-1}` plus a focus call), so
+  the outcome is announced — these screens are the end of an operation, and
+  otherwise a screen-reader user is left where the previous screen was.
+  `size` (`screen`/`sheet`) picks Display 32/38 or Title 24/30 rather than
+  overloading `tone`, which stays about meaning. Actions stack vertically and
+  the convention is primary first then ghost — documented, not enforced,
+  since the component should not dictate variants.
+  `footnote` is the small print: the error reference, the recurring-charge
+  line.
 - **LoadingSkeleton** — `block` (shimmer placeholder) and `spinner` (28px
   ring) variants, both rendered as `<output>`. Both animations are
   `motion-safe:`-guarded so `prefers-reduced-motion` collapses the shimmer to

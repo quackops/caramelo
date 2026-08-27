@@ -115,6 +115,10 @@ export {
   type PublisherRowProps,
 } from './components/publisher-row/publisher-row';
 export {
+  ResultScreen,
+  type ResultScreenProps,
+} from './components/result-screen/result-screen';
+export {
   SearchBar,
   type SearchBarProps,
 } from './components/search-bar/search-bar';
