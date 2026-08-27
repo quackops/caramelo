@@ -7,6 +7,13 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 360 }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof StepProgress>;
 
 export default meta;

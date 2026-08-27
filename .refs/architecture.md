@@ -209,7 +209,7 @@ call to action.
   `motion-safe:`-guarded. Renders `null` when `open` is false; focus trapping
   and scroll locking are left to the consuming app.
 - **StepProgress** — the multi-step indicator every wizard flow (publish,
-  adoption form, onboarding) was drawing by hand. `variant="bars"`: equal
+  adoption form, onboarding) was drawing by hand. The bar spans its container width (`w-full`). `variant="bars"`: equal
   `flex-1` segments, 4px tall, `--color-brand` for the first `current` of
   `total`, `--color-gray-6` for the rest. `variant="dots"`: 5px dots, the
   active one a 22×5 pill so shape carries state, not just color — `tone`

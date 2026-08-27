@@ -22,15 +22,10 @@ export const StepProgress = ({
       aria-valuemin={1}
       aria-valuenow={current}
       aria-valuemax={total}
-      className={className}
+      className={cn('w-full', className)}
       {...rest}
     >
-      <div
-        className={cn(
-          'flex items-center gap-1.5',
-          variant === 'bars' && 'gap-1.5',
-        )}
-      >
+      <div className="flex items-center gap-1.5">
         {steps.map((step) =>
           variant === 'bars' ? (
             <span
