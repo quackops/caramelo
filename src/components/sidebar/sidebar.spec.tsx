@@ -1,12 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import type { SidebarItem } from './sidebar';
 import { Sidebar } from './sidebar';
 
-const items = [
-  { value: 'wall', label: 'Mural', icon: <span /> },
-  { value: 'favorites', label: 'Favoritos', icon: <span /> },
-  { value: 'notices', label: 'Avisos', icon: <span />, badgeCount: 3 },
-  { value: 'profile', label: 'Perfil', icon: <span /> },
+const items: SidebarItem[] = [
+  { value: 'wall', label: 'Mural', icon: 'home' },
+  { value: 'favorites', label: 'Favoritos', icon: 'heart' },
+  { value: 'notices', label: 'Avisos', icon: 'bell', badgeCount: 3 },
+  { value: 'profile', label: 'Perfil', icon: 'user' },
 ];
 
 describe('Sidebar', () => {

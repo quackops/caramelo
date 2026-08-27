@@ -15,6 +15,14 @@ describe('IconButton', () => {
     ).toBeInTheDocument();
   });
 
+  it('renders an Icon from the icon prop', () => {
+    const { container } = render(
+      <IconButton aria-label="Favorite" icon="heart" />,
+    );
+
+    expect(container.querySelector('svg')).toBeInTheDocument();
+  });
+
   it('applies the active state', () => {
     render(
       <IconButton aria-label="Favorite" active>

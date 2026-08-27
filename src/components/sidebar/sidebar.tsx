@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { cn } from '../../utils/cn';
 import { Button } from '../button/button';
+import { Icon, type IconName } from '../icon/icon';
 import { Text } from '../text/text';
 
 export const Sidebar = ({
@@ -44,7 +45,11 @@ export const Sidebar = ({
                 active && 'bg-caramelo-4',
               )}
             >
-              <span className="size-[18px]">{item.icon}</span>
+              <Icon
+                name={item.icon}
+                size={18}
+                className={active ? 'text-caramelo-12' : 'text-neutral-2'}
+              />
               {!collapsed && (
                 <Text
                   variant="small"
@@ -71,7 +76,7 @@ export const Sidebar = ({
         })}
       </div>
       <Button onClick={onPublish} className="mt-16 h-11 w-full">
-        {collapsed ? '+' : 'Publicar'}
+        {collapsed ? <Icon name="plus" size={18} /> : 'Publicar'}
       </Button>
     </nav>
   );
@@ -80,7 +85,7 @@ export const Sidebar = ({
 export type SidebarItem = {
   value: string;
   label: string;
-  icon: ReactNode;
+  icon: IconName;
   badgeCount?: number;
 };
 

@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     'aria-label': 'Favorite',
-    children: <span>♡</span>,
+    icon: 'heart',
   },
 };
 
@@ -27,6 +27,6 @@ export const Active: Story = {
   args: {
     'aria-label': 'Favorite',
     active: true,
-    children: <span>♡</span>,
+    icon: 'heart',
   },
 };

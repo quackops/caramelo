@@ -10,4 +10,10 @@ describe('Fab', () => {
       screen.getByRole('button', { name: /publicar/i }),
     ).toBeInTheDocument();
   });
+
+  it('renders an Icon from the icon prop', () => {
+    const { container } = render(<Fab aria-label="Publicar" icon="plus" />);
+
+    expect(container.querySelector('svg')).toBeInTheDocument();
+  });
 });

@@ -19,6 +19,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     'aria-label': 'Publicar',
-    children: '+',
+    icon: 'plus',
   },
 };

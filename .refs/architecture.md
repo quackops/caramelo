@@ -136,10 +136,13 @@ call to action.
   hit target and surface, `Icon` owns only the artwork.
 - **IconButton** — 44×44 tap target. `active` toggles between a neutral
   gray-3 surface and an active caramelo-3/caramelo-7-bordered surface using
-  `on-brand-inverse` text (caramelo-3 is a dark brand tint).
+  `on-brand-inverse` text (caramelo-3 is a dark brand tint). Pass an `icon`
+  (`IconName`) to render an `Icon` at 20px; `children` still works for a
+  non-glyph child.
 - **Fab** — 56×56, full radius, caramelo-9 fill, `on-brand-strong` icon. One
   of only two components with a shadow (the other is the sheet pattern),
   both using the same `0 8px 24px oklch(17.8% .0119 80.9 / .6)` token value.
+  Takes the same `icon`/`children` pair as `IconButton` (`Icon` at 24px).
 - **Chip** — height 34, radius 999. `selected` uses the brand fill (see "Why
   these components exist" above); `disabled` is the dashed/unavailable
   state, not the same as a chip that's merely inactive.
@@ -191,12 +194,14 @@ call to action.
 - **TabBar** — mobile, 83px, 5 roots. The publish action renders as a raised
   `Fab`, not a sixth flat tab. Notification badges always carry a border in
   the bar's own surface color so they read as layered on top of the icon
-  rather than fused to it.
+  rather than fused to it. `TabBarItem.icon` is an `IconName` (rendered
+  through `Icon`, 23px), not a free `ReactNode`.
 - **Sidebar** — web, 248px, collapsing to 72px (icon-only, via the
   `collapsed` prop) below the 1280px breakpoint. The active row uses the
   caramelo-4 surface, *never* the full caramelo-9 brand fill — that stays
   reserved for the sidebar's own publish button, so there's exactly one
-  brand-colored element per view.
+  brand-colored element per view. `SidebarItem.icon` is an `IconName`
+  (rendered through `Icon`, 18px); `logo.mark` stays a free `ReactNode`.
 - **EmptyState** — `empty`/`error` variants. Every instance renders a title,
   one sentence and an action button; illustration-only empty states are not
   supported by the component (the spec explicitly forbids that shape).

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Sidebar } from './sidebar';
+import { Sidebar, type SidebarItem } from './sidebar';
 
 const meta = {
   title: 'interactive/Sidebar',
@@ -13,11 +13,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const items = [
-  { value: 'wall', label: 'Mural', icon: <span>🏠</span> },
-  { value: 'favorites', label: 'Favoritos', icon: <span>♡</span> },
-  { value: 'notices', label: 'Avisos', icon: <span>🔔</span>, badgeCount: 3 },
-  { value: 'profile', label: 'Perfil', icon: <span>👤</span> },
+const items: SidebarItem[] = [
+  { value: 'wall', label: 'Mural', icon: 'home' },
+  { value: 'favorites', label: 'Favoritos', icon: 'heart' },
+  { value: 'notices', label: 'Avisos', icon: 'bell', badgeCount: 3 },
+  { value: 'profile', label: 'Perfil', icon: 'user' },
 ];
 
 export const Default: Story = {

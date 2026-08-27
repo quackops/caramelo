@@ -17,16 +17,11 @@ export const Default: Story = {
   args: {
     activeValue: 'wall',
     items: [
-      { value: 'wall', label: 'Mural', icon: <span>🏠</span> },
-      { value: 'favorites', label: 'Favoritos', icon: <span>♡</span> },
-      { value: 'publish', label: 'Publicar', icon: '+', isPublish: true },
-      {
-        value: 'notices',
-        label: 'Avisos',
-        icon: <span>🔔</span>,
-        badgeCount: 3,
-      },
-      { value: 'profile', label: 'Perfil', icon: <span>👤</span> },
+      { value: 'wall', label: 'Mural', icon: 'home' },
+      { value: 'favorites', label: 'Favoritos', icon: 'heart' },
+      { value: 'publish', label: 'Publicar', icon: 'plus', isPublish: true },
+      { value: 'notices', label: 'Avisos', icon: 'bell', badgeCount: 3 },
+      { value: 'profile', label: 'Perfil', icon: 'user' },
     ],
   },
 };

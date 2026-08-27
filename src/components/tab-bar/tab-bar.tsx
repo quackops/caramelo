@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
 import { cn } from '../../utils/cn';
 import { Fab } from '../fab/fab';
+import { Icon, type IconName } from '../icon/icon';
 import { Text } from '../text/text';
 
 export const TabBar = ({
@@ -25,10 +25,9 @@ export const TabBar = ({
             <Fab
               aria-label={item.label}
               onClick={onPublish}
-              className="size-[52px] rounded-[18px] text-[28px]"
-            >
-              {item.icon}
-            </Fab>
+              icon={item.icon}
+              className="size-[52px] rounded-[18px]"
+            />
             <Text
               variant="small"
               weight="medium"
@@ -44,14 +43,13 @@ export const TabBar = ({
             type="button"
             className="relative flex w-[62px] cursor-pointer flex-col items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2"
           >
-            <span
-              className={cn(
-                'size-[23px]',
-                item.value === activeValue ? 'text-link' : 'text-neutral-3',
-              )}
-            >
-              {item.icon}
-            </span>
+            <Icon
+              name={item.icon}
+              size={23}
+              className={
+                item.value === activeValue ? 'text-link' : 'text-neutral-3'
+              }
+            />
             <Text
               variant="small"
               weight="medium"
@@ -84,7 +82,7 @@ export const TabBar = ({
 export type TabBarItem = {
   value: string;
   label: string;
-  icon: ReactNode;
+  icon: IconName;
   isPublish?: boolean;
   badgeCount?: number;
 };

@@ -1,7 +1,9 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { cn } from '../../utils/cn';
+import { Icon, type IconName } from '../icon/icon';
 
 export const Fab = ({
+  icon,
   children,
   className,
   type = 'button',
@@ -19,11 +21,12 @@ export const Fab = ({
       )}
       {...rest}
     >
-      {children}
+      {icon ? <Icon name={icon} size={24} /> : children}
     </button>
   );
 };
 
 export type FabProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
+  icon?: IconName;
+  children?: ReactNode;
 };
