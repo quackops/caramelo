@@ -140,6 +140,7 @@ export {
   PublisherRow,
   type PublisherRowProps,
 } from './components/publisher-row/publisher-row';
+export { QrCode, type QrCodeProps } from './components/qr-code/qr-code';
 export {
   ResultScreen,
   type ResultScreenProps,

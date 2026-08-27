@@ -48,6 +48,8 @@
   --color-danger: oklch(70% 0.16 25);
   --color-whatsapp: oklch(78% 0.17 145);
   --color-mark-google: #4285f4;
+  --color-qr-plate: #ffffff;
+  --color-qr-module: #000000;
   --color-scrim: oklch(4% 0.01 290 / 0.6);
   --color-scrim-strong: oklch(4% 0.01 290 / 0.65);
 

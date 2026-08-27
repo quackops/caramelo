@@ -953,6 +953,23 @@ call to action.
   person-or-org identity and always has an avatar. It composes `Avatar` and
   `Badge` (`size="compact"`), takes `avatarSize` for dense contexts, and
   becomes a `<button>` with a `chevron-right` only when `onClick` is given.
+- **QrCode** — the PIX QR under the copy-and-paste code, the only generated
+  graphic in the app. **Caramelo ships no QR encoder.** The library's three
+  runtime dependencies are all tiny and do no work at render time; an encoder
+  is real algorithmic code that would be shipped to every consumer whether or
+  not they ever render a QR. Instead this component takes a **pre-encoded**
+  payload — a `matrix` of modules or a ready `src` — and owns only sizing,
+  the quiet zone and accessibility. The backend has to produce the PIX
+  payload anyway, so producing the matrix beside it keeps the library
+  dependency-free and keeps encoder correctness (and error-correction level)
+  on the server, where it can be tested against a real PSP.
+  The plate is a **light surface in both themes** (`--color-qr-plate`) with a
+  four-module quiet zone: a code rendered edge to edge on this dark ground
+  simply will not scan, so that is a scanning requirement rather than a style
+  choice — which is also why the two QR colours are tokens instead of being
+  themed. Rendered as SVG with `shapeRendering="crispEdges"` so it is sharp
+  at any DPI, `role="img"` named by `label`. It is never the only way to pay:
+  the `CopyField` above it is the primary path.
 - **ProgressMeter** — the labelled proportion bars on the ONG transparency
   tab ("Ração e alimentação 54%"). The design calls this block *"o que faz
   alguém doar para um desconhecido"*, so it is load-bearing for the donation
