@@ -57,6 +57,10 @@ export {
   CopyField,
   type CopyFieldProps,
 } from './components/copy-field/copy-field';
+export {
+  Countdown,
+  type CountdownProps,
+} from './components/countdown/countdown';
 export { Divider, type DividerProps } from './components/divider/divider';
 export {
   EmptyState,

@@ -832,6 +832,24 @@ call to action.
   unknown content is the classic source of jank. Uncontrolled by default,
   controlled when `expanded` is supplied. It sets the clamp, not the
   typography.
+- **Countdown** — "Expira em 09:42" under the PIX QR. It is not decoration:
+  when it reaches zero the payment is dead and the screen has to offer a new
+  one, so it gates the flow's next state.
+  It takes an **absolute deadline**, never a duration. A duration drifts when
+  the tab is backgrounded and its timer is throttled — which is exactly what
+  happens while someone switches to their bank app — so every tick
+  *recomputes* from `expiresAt` rather than decrementing a counter, and it
+  recomputes again on `visibilitychange` so returning from the bank app shows
+  the truth. `onExpire` fires exactly once, including for a deadline that
+  passed while the tab was hidden, and the interval is cleaned up on unmount.
+  `role="timer"` with **`aria-live="off"`**: a per-second live region is
+  unusable. Announcements go through a separate polite region and happen only
+  twice — at the one-minute mark and at expiry. Below a minute the figure
+  turns `--color-warning`, which is a warning *text* colour and so permitted
+  by the no-warning-fill rule. Figures are tabular so the width never
+  jitters.
+  It pairs with `CopyField` on the same screen; disabling the copy action at
+  expiry is the consumer's wiring.
 - **CopyField** — the three payloads that exist to be copied and never typed:
   the PIX copy-and-paste code (which the design puts *above* the QR, because
   that is how people pay on a phone in Brazil), the WhatsApp message shown in
