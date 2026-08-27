@@ -624,6 +624,26 @@ call to action.
   wants no heading can pass its own element. `action` is right-aligned and is
   meant to be a ghost `Button` (`Limpar`, `Marcar lidos`); `count` renders
   after the title at reduced emphasis where the design shows one ("Salvos 4").
+- **CopyField** — the three payloads that exist to be copied and never typed:
+  the PIX copy-and-paste code (which the design puts *above* the QR, because
+  that is how people pay on a phone in Brazil), the WhatsApp message shown in
+  full before leaving the app, and the support error reference.
+  `value` is always the exact string that reaches the clipboard; `display`
+  is what the user sees, which is how the WhatsApp case can render a
+  formatted bubble without risking a formatted string being pasted.
+  `code` is a monospace block on the field surface that **wraps at any
+  point** (`overflow-wrap: anywhere`) and scrolls after about four lines —
+  the payload is never visually truncated, because a truncated code is a
+  failed payment. `text` is the message bubble (photo radius with one corner
+  tightened) with a ghost action; `inline` is the small monospace reference
+  with a `copy` icon button.
+  Copying goes through `navigator.clipboard.writeText` with a
+  `document.execCommand` fallback, and **failure is surfaced** in an
+  `role="alert"` line rather than silently doing nothing — clipboard access
+  needs a secure context and can simply be refused. Success swaps the button
+  to `copiedLabel` with a `check` for ~2s *and* announces it through an
+  `aria-live="polite"` region, since a purely visual confirmation does not
+  exist for a screen reader.
 - **Divider** — the two separator shapes the design repeats: a plain hairline
   (between switch rows in the filter sheet, between blocks on the
   transparency screen) and a labelled one (the `ou` between the credential

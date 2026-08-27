@@ -34,6 +34,10 @@ export {
   type ChipGroupOption,
   type ChipGroupProps,
 } from './components/chip-group/chip-group';
+export {
+  CopyField,
+  type CopyFieldProps,
+} from './components/copy-field/copy-field';
 export { Divider, type DividerProps } from './components/divider/divider';
 export {
   EmptyState,
