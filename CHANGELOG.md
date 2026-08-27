@@ -1,3 +1,11 @@
+## [1.7.0](https://github.com/quackops/caramelo/compare/v1.6.2...v1.7.0) (2026-08-27)
+
+### Features
+
+* **bottom-sheet:** add BottomSheet component ([1877728](https://github.com/quackops/caramelo/commit/1877728d693f399656ac883afe5fb221f15d8b83))
+* **step-progress:** add StepProgress component ([d5ad646](https://github.com/quackops/caramelo/commit/d5ad646b02ff11922fc14a87f14077ac56cf9d97))
+* **tri-state-group:** add TriStateGroup component ([6fa1d6e](https://github.com/quackops/caramelo/commit/6fa1d6e3397785de6638597dde6aa0298de38757))
+
 ## [1.6.2](https://github.com/quackops/caramelo/compare/v1.6.1...v1.6.2) (2026-08-25)
 
 ### Bug Fixes
