@@ -777,6 +777,21 @@ call to action.
   reimplementing either. `bio` is a `ReactNode` so a long one can be wrapped
   in `ExpandableText` by the consumer; the header does not clamp on its own.
   The name is an `<h1>` — this is a page header.
+- **PublisherRow** — who published the animal, on the listing (avatar, `ONG
+  Amidogo`, `18 animais · 47 adoções concluídas`, tappable through to the
+  profile) and on a received interest (avatar, name, `Itapuã · 6,2 km · há 2
+  horas`). Because anyone can publish, trust comes from the badge and the
+  numbers *in this row* rather than from a gate at the door — which is what
+  makes it load-bearing rather than decorative.
+  It is a **separate component from `ListRow`, not a composition over it**,
+  and the reason is narrow: `ListRow.title` is deliberately a plain `string`
+  so a tappable row has a predictable accessible name, while this row must
+  put a `Badge` *inline with the name*. Widening `ListRow`'s title to a
+  `ReactNode` to accommodate that would blur both. Otherwise the distinction
+  holds: `ListRow` is generic navigation, `PublisherRow` is
+  person-or-org identity and always has an avatar. It composes `Avatar` and
+  `Badge` (`size="compact"`), takes `avatarSize` for dense contexts, and
+  becomes a `<button>` with a `chevron-right` only when `onClick` is given.
 - **ProgressMeter** — the labelled proportion bars on the ONG transparency
   tab ("Ração e alimentação 54%"). The design calls this block *"o que faz
   alguém doar para um desconhecido"*, so it is load-bearing for the donation

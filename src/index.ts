@@ -111,6 +111,10 @@ export {
   type ProgressMeterProps,
 } from './components/progress-meter/progress-meter';
 export {
+  PublisherRow,
+  type PublisherRowProps,
+} from './components/publisher-row/publisher-row';
+export {
   SearchBar,
   type SearchBarProps,
 } from './components/search-bar/search-bar';
