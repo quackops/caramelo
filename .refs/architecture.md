@@ -624,6 +624,24 @@ call to action.
   wants no heading can pass its own element. `action` is right-aligned and is
   meant to be a ghost `Button` (`Limpar`, `Marcar lidos`); `count` renders
   after the title at reduced emphasis where the design shows one ("Salvos 4").
+- **CheckList** — the read-only display of the health answers ("Castrada ✓,
+  Vermifugada · não sei") and of the adoption requirements. It is the
+  **display** half of the pair whose **input** half is `TriStateGroup`, and
+  the two exist so they can agree on a rule the design states twice: *"'Não
+  sei' aparece no anúncio como cinza neutro, nunca como ✗ vermelho."* Left as
+  screen CSS, someone eventually paints the unknown state red — which is
+  exactly what the design is guarding against.
+  The vocabulary maps onto `TriStateGroup`'s `true | false | null`: `true` →
+  `yes`, `false` → `no`, `null` → `unknown`. The consumer does that mapping;
+  keep the two components in step if either vocabulary changes.
+  `yes` is a `check` in `--color-success`. `no` is an `x` in
+  `--color-neutral-3` and **never `--color-danger`** — "não castrada" is a
+  fact, not an error. `unknown` gets no glyph at all: it is the dashed
+  `gray-7` pill from the round-1 spec with the words `· não sei` appended.
+  `required` is a `check-circle` in `--color-neutral-2` and implies no truth
+  value. Every state carries a glyph or a word, so none is distinguishable by
+  colour alone, and the state lives in the item's own text rather than in an
+  `aria-label` on a decorative icon. Rendered as a `<ul>`.
 - **Carousel** — the pager for onboarding (three slides, swipe or
   `Continuar`) and the listing gallery (up to five photos with a `1 de 5`
   counter). `StepProgress` already shipped the *indicator* for both cases —

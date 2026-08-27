@@ -31,6 +31,11 @@ export {
   Carousel,
   type CarouselProps,
 } from './components/carousel/carousel';
+export {
+  CheckList,
+  type CheckListItem,
+  type CheckListProps,
+} from './components/check-list/check-list';
 export { Checkbox, type CheckboxProps } from './components/checkbox/checkbox';
 export { Chip, type ChipProps } from './components/chip/chip';
 export {
