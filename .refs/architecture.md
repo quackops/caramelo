@@ -186,6 +186,23 @@ call to action.
   of only two components with a shadow (the other is the sheet pattern),
   both using the same `0 8px 24px oklch(17.8% .0119 80.9 / .6)` token value.
   Takes the same `icon`/`children` pair as `IconButton` (`Icon` at 24px).
+- **AmountOption** — the donation sheet's preset value tiles. It is close to
+  `OptionCard` but deliberately separate: `OptionCard` is a title+description
+  card in a stacked list, `AmountOption` is a value tile in a row of three,
+  and its second line is an **equivalence** ("R$ 25 · 1 semana de ração")
+  that the org defines itself — data, not decoration, and the single
+  strongest reason someone donates. `amountLabel` is a pre-formatted string,
+  never a number: formatting money belongs to `MoneyInput` and the consumer,
+  and a second formatter here could disagree with it. Values stay in integer
+  cents in the consumer's state; this component never sees a number.
+  Same native-radio construction and dark-brand-tint selection as
+  `OptionCard` (the sheet's "Gerar PIX" button owns the brand fill), with a
+  `check` glyph so selection is not colour alone. The equivalence line
+  reserves its height even when empty, so a row where only one tile has one
+  doesn't go ragged. `AmountOption.Group` lays out on a CSS grid rather than
+  flex `flex-1 basis-0` — the last cell is typically "Outro valor", a
+  `MoneyInput` rather than a tile, and a grid keeps the row aligned with a
+  non-tile child in it.
 - **OptionCard** — the publish flow's "what are you publishing?" step: a
   radio group whose options are cards, each with a title *and* a description
   (and the choice changes the rest of the flow). `Chip` is too small for two

@@ -1,4 +1,8 @@
 export {
+  AmountOption,
+  type AmountOptionProps,
+} from './components/amount-option/amount-option';
+export {
   AnimalCard,
   type AnimalCardProps,
 } from './components/animal-card/animal-card';
