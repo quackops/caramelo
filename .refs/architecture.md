@@ -480,6 +480,24 @@ call to action.
   hairline between them (the filter sheet draws it) — same sub-component
   shape as `TriStateGroup.Field`, deliberately following that precedent
   rather than inventing a second grouping idiom.
+- **SavedSearchRow** — a saved search is the app's return engine (*"Favoritos
+  e alertas são o motor de retorno: sem eles, quem não adota na primeira
+  visita não volta"*), and the row packs four things no existing component
+  composes: the name, the filter set, the alert frequency and the new-results
+  count.
+  Filters render as `Tag`s, not `Chip`s — they are static labels here, not
+  selectable controls. Frequency is a `Select variant="ghost"` so it reads as
+  part of the sentence. `newCount` renders a brand pill only when it is
+  greater than zero: a "0 novos" pill is worse than nothing.
+  The row body is tappable but the frequency picker and the actions are not:
+  nesting interactives inside a `<button>` is invalid, so the **name** is the
+  only button and it stretches over the card with an `after:absolute
+  after:inset-0` overlay, while the picker and actions sit above it on a
+  higher stacking context. That arrangement is covered by a test, because it
+  is the kind of thing that silently regresses.
+  It carries **no pt-BR strings**: `frequencyOptions`, `frequencyLabel` and
+  `pausedLabel` all come from the consumer, since alert copy is product copy
+  and the library also serves the `caramelo` theme.
 - **SearchBar** — height 52, radius 14. Takes a `focused` prop rather than
   relying on `:focus`, because the spec's focused state is a *value present
   + focus ring* combination that also needs a clear ("×") button — that

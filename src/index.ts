@@ -133,6 +133,12 @@ export {
   type ResultScreenProps,
 } from './components/result-screen/result-screen';
 export {
+  type SavedSearchFrequency,
+  type SavedSearchFrequencyOption,
+  SavedSearchRow,
+  type SavedSearchRowProps,
+} from './components/saved-search-row/saved-search-row';
+export {
   SearchBar,
   type SearchBarProps,
 } from './components/search-bar/search-bar';
