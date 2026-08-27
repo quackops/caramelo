@@ -1,3 +1,9 @@
+## [2.1.0](https://github.com/quackops/caramelo/compare/v2.0.0...v2.1.0) (2026-08-27)
+
+### Features
+
+* polish micro-interactions on Switch, SegmentedControl and TriStateGroup ([8229c49](https://github.com/quackops/caramelo/commit/8229c49ea3f408f28e28b50ef1fecbd90fcab39e))
+
 ## [2.0.0](https://github.com/quackops/caramelo/compare/v1.8.0...v2.0.0) (2026-08-27)
 
 ### ⚠ BREAKING CHANGES
