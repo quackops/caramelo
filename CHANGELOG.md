@@ -1,3 +1,18 @@
+## [2.0.0](https://github.com/quackops/caramelo/compare/v1.8.0...v2.0.0) (2026-08-27)
+
+### ⚠ BREAKING CHANGES
+
+* **icon:** `TabBarItem.icon` and `SidebarItem.icon` are now `IconName`
+strings instead of arbitrary `ReactNode`. Pass e.g. `icon: 'home'` and let the
+components render `Icon` internally. `Fab`/`IconButton` gain an optional `icon`
+prop; their `children` still works.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+
+### Features
+
+* **icon:** take IconName props on Fab, IconButton, TabBar and Sidebar ([52b1e40](https://github.com/quackops/caramelo/commit/52b1e408d2d1ac898ff950c21339aeae11804ad1))
+
 ## [1.8.0](https://github.com/quackops/caramelo/compare/v1.7.5...v1.8.0) (2026-08-27)
 
 ### Features
