@@ -163,6 +163,11 @@ export {
 } from './components/sidebar/sidebar';
 export { Slider, type SliderProps } from './components/slider/slider';
 export {
+  SocialButton,
+  type SocialButtonProps,
+  type SocialProvider,
+} from './components/social-button/social-button';
+export {
   StatGrid,
   type StatGridItem,
   type StatGridProps,

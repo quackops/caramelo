@@ -639,6 +639,24 @@ call to action.
   interaction behavior left to the consumer; this component renders the
   visual states only. The remove (`x`) and add (`plus`) affordances render
   through `Icon`.
+- **SocialButton** — Apple and Google sign-in, the pair of equal-width
+  buttons under the `ou` divider on both auth screens. They are **not**
+  `Button variant="secondary"`: each carries a brand mark whose colour is
+  fixed by the provider's trademark rules, and the surrounding button has
+  constrained styling too (Apple's "Sign in with Apple" guidelines specify
+  permitted surfaces and minimum sizing). A raw `<svg>` inside a `Button` in
+  screen code is how those rules get broken quietly.
+  It consumes `Icon`'s filled brand-mark family (the decision recorded under
+  `Icon`) rather than owning the SVGs itself. The marks' colours are tokens,
+  not inline hex: `apple` renders at `--color-neutral` (the mark is
+  monochrome and this system is dark) and `google` at `--color-mark-google`,
+  a token that exists solely so a trademark colour never appears as a raw
+  value in a component. Geometry matches `Button` (`--size-control-height`,
+  `--radius-control`) so a row of them lines up with the primary action
+  above. `compact` renders the mark alone for the side-by-side pair and keeps
+  the full "Entrar com …" as the `aria-label`.
+  `provider` is a closed union of `apple | google` on purpose — a generic
+  `provider: string` would invite trademark violations.
 - **StatGrid** — the horizontal row of number-plus-label: the listing's spec
   tiles (`SEXO Fêmea · IDADE 2 anos · …`), the listing's reach numbers, the
   ONG's totals and the profile stats. The design uses **two orders** — the
