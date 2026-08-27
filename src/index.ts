@@ -94,6 +94,16 @@ export {
   LoadingSkeleton,
   type LoadingSkeletonProps,
 } from './components/loading-skeleton/loading-skeleton';
+export { MapArea, type MapAreaProps } from './components/map-area/map-area';
+export {
+  MapCluster,
+  type MapClusterProps,
+} from './components/map-cluster/map-cluster';
+export {
+  MapPin,
+  type MapPinProps,
+  type MapPinTone,
+} from './components/map-pin/map-pin';
 export {
   MaskedInput,
   type MaskedInputProps,

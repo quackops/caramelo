@@ -375,6 +375,27 @@ call to action.
   The accessible name describes the value ("terminado em 34") rather than
   letting a screen reader read a run of bullets, and the `hint` is folded
   into it instead of being announced separately.
+- **MapPin** / **MapCluster** / **MapArea** — the *presentational,
+  theme-dependent* half of the map. The map surface itself, tile loading,
+  viewport state and clustering maths are the provider's and live in the app;
+  the provider is still unsettled (the design specifies MapKit with a dark
+  style, the consumer is a Next.js web app), so only the pieces that do not
+  depend on it are built here.
+  `MapPin` is the teardrop marker: `default` for an animal, `verified` for an
+  org (green — *"pino verde = ONG verificada"* — because orgs have a public
+  address and get a fixed, exact pin, while an animal's pin is offset).
+  Selection is **never colour alone**: a selected pin grows, gains a ring and
+  a `check` glyph, and carries `aria-pressed`. `MapCluster` is the count
+  bubble; `MapArea` is the approximate-area circle for the listing detail,
+  which shows an **area, never a point**, over a static backdrop the consumer
+  supplies.
+  **There is no `MapCallout` component**, deliberately: the card that appears
+  when a pin is tapped is `AnimalCard variant="list"` inside a positioned
+  container. A second card component for maps would be exactly the
+  duplication the conventions forbid.
+  The 400 m privacy offset is computed **server-side** and must be
+  deterministic so a pin does not jitter between renders. No component in
+  this library ever receives an exact coordinate it is meant to hide.
 - **MaskedInput** — composes `Input` for the app's formatted fields
   (`phone-br`, `cnpj`, `cep`). WhatsApp is the product's only contact
   channel, so a wrong number breaks the whole adoption funnel — the format,
@@ -1046,7 +1067,7 @@ call to action.
 ## Known gaps
 
 The spec's remaining overlay/page-level patterns (modal, confirmation dialog,
-menu, tooltip, data table, breadcrumbs) are documented
+tooltip, data table, breadcrumbs) are documented
 in the design doc but not yet built as components — they're compositions of
 the atomic pieces above plus page-level state (routing, focus trapping) that
 doesn't belong in this library's atomic component set. Build them here, not as
